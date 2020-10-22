@@ -1,8 +1,9 @@
 import React from "react";
-import { login } from "../services/userService";
+import { signup } from "../../services/userService";
 
-class Login extends React.Component {
+class Signup extends React.Component {
   state = {
+    username: "",
     email: "",
     password: "",
     errorMessage: "",
@@ -16,7 +17,7 @@ class Login extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    login({
+    signup({
       username: this.state.username,
       email: this.state.email,
       password: this.state.password,
@@ -30,17 +31,23 @@ class Login extends React.Component {
               errorMessage: response.errorMessage,
             })
       )
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   };
 
   render() {
-    const { email, password, errorMessage } = this.state;
+    const { username, email, password, errorMessage } = this.state;
     return (
       <div>
         {errorMessage !== "" && errorMessage}
         <form onSubmit={this.handleSubmit}>
+          <label>username: </label>
+          <input
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+            required={true}
+            type="text"
+          />
           <label>Email: </label>
           <input
             name="email"
@@ -57,11 +64,11 @@ class Login extends React.Component {
             onChange={this.handleChange}
             required={true}
           />
-          <button type="submit"> Login </button>
+          <button type="submit"> Sign up </button>
         </form>
       </div>
     );
   }
 }
 
-export default Login;
+export default Signup;
