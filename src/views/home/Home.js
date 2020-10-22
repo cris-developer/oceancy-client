@@ -1,4 +1,6 @@
 import React from "react";
+//import SearchBar from '../../components/searchbar';
+
 
 const Home = (props) => {
   const { username } = props.user;

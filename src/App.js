@@ -51,6 +51,7 @@ class App extends React.Component {
         <BrowserRouter>
           <nav>
             {authenticated && <Link to="/"> Home </Link>}
+            {authenticated && <Link to="/"> Destinations </Link>}
             {!authenticated && <Link to="/login"> Login </Link>}
             {!authenticated && <Link to="/signup"> Signup </Link>}
             {authenticated && (
