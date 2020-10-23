@@ -4,107 +4,8 @@ import React, { Component } from 'react'
 import NavBar from '../../components/navbar/NavBar';
 import { getAllDestinations } from '../../services/destinationService';
 import { Link } from 'react-router-dom';
-
-// class Destinations extends Component {
-
-//     state = {
-//         //destinations :destinations
-//         destinations: destinations.slice(0, 3)
-//       }
-
-
-
-//       componentDidMount = () => {
-//         this.updateCottageList();
-//       };
-
-//       updateCottageList = () => {
-//         getallCottages(localStorage.getItem("accessToken"))
-//           .then((srvrResp) => {
-//             console.log(srvrResp.allCottages);
-//             const { allCottages: cottagesList } = srvrResp;
-//             this.setState({ cottagesList });
-//           })
-//           .catch((err) => console.log(err));
-//       };
-    
-      
-//       export const getAllDestinations = () => {
-//         return service
-//           .get(`/`)
-//           .then((response) => response.data)
-//           .catch((err) => err);
-//       };
-    
-//     //   componentDidMount() {
-//     //    
-//     //        .getAllDestinations
-//     //        .then(res => {
-//     //         const persons = res.data;
-//     //         this.setState({ persons });
-//     //       })
-//     //   }
-//      
-    
-//     render() {
-//         return (
-//             <div>
-            
-//                <section>
-//                 <h2>Destinations</h2>
-//                 </section>
-//                 <section >
-//                 <table>
-//                     <thead>
-//                         <tr>
-//                             <th id="heading">Picture</th>
-//                             <th d="heading">Name</th>
-//                         </tr>
-//                     </thead>
-//                     <tbody>
-//                     {this.state.destinations.map((el, idx) => (
-//                         <tr key={idx}>
-//                         <th>
-//                             <img src={el.photoUrl} alt="Contact" />
-//                         </th>
-//                             <th className= 'contentText'>  {el.name}</th>
-//                         </tr>
-//                     ))}
-//                     </tbody>
-//                 </table>
-//             </section> 
-//         </div>
-//         )
-//     }
-// }
-
-// export default Destinations;
-
-
-// // class Destinations extends Component {
-// //     constructor(props) {
-// //       super(props)
-// //       this.state = {
-// //         destinations: []
-// //       }
-// //     }
-  
-// //     componentDidMount() {
-// //       axios.get(`https://jsonplaceholder.typicode.com/users`)
-// //         .then(res => {
-// //           const persons = res.data;
-// //           this.setState({ persons });
-// //         })
-// //     }
-  
-// //     render() {
-// //       return (
-// //         <ul>
-// //           { this.state.persons.map(person => <li>{person.name}</li>) }
-// //         </ul>
-// //       )
-// //     }
-// //   }
+import DestinationCard from '../../components/destinationcard/DestinationCard'
+import { Container,Row,Col } from 'reactstrap';
 
 
 export default class Listdestinations extends React.Component {
@@ -144,15 +45,32 @@ export default class Listdestinations extends React.Component {
           <div>
             <NavBar />
             <div className="list">
-              {this.state.destinations.map((el, idx) => (
-
-                        <tr key={idx}>
-                        <th>
-                            <img src={el.photoUrl} alt="Contact" />
-                        </th>
-                            <th className= 'contentText'>  {el.name}</th>
-                        </tr>
-              ))}
+                {this.state.destinations.map((el, idx) => 
+                (
+                  <Container>
+                  {(idx % 4 == 0) ? (<Row>
+                  <Col xs="4"><DestinationCard 
+                      key={idx} 
+                      photoUrl={el.photoUrl}
+                      name={el.name}
+                      >
+                      </DestinationCard></Col>
+                  </Row>): (<Col xs="4"><DestinationCard 
+                      key={idx} 
+                      photoUrl={el.photoUrl}
+                      name={el.name}
+                      >
+                      </DestinationCard></Col>)}   
+            </Container>
+                ))}
+              {/* {this.state.destinations.map((el, idx) => (
+                    <tr key={idx}>
+                    <th>
+                        <img src={el.photoUrl} alt="Contact" className="img" />
+                    </th>
+                        <th className= 'contentText'>  {el.name}</th>
+                    </tr>
+                    ))} */}
             </div>
           </div>
         );

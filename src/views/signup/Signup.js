@@ -8,6 +8,7 @@ class Signup extends React.Component {
     password: "",
     errorMessage: "",
   };
+ 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({

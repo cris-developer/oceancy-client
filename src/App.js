@@ -7,11 +7,17 @@ import { validateSession } from "./services/userService";
 import Home from "./views/home/Home";
 import Login from "./views/login/Login";
 import Signup from "./views/signup/Signup";
-import Destinations from './views/destinations/Destinations.js'
+import Destinations from './views/destinations/Destinations.js';
 import destinations from './destinations.json';
-// import ActivitiesList from './views/activities/ActivitiesList'
-// import ActivitiesDetail from './views/activities/ActivitiesDetail'
-// import ActivitiesCreate from './views/activities/ActivitiesCreate'
+import Activities from './views/activities/Activities';
+import ActivitiesDetails from './views/activities/ActivitiesDetails';
+import ActivitiesCreate from './views/activities/ActivitiesCreate';
+import ActivitiesEdit from './views/activities/ActivitiesEdit';
+import Profile from './views/profile/Profile';
+import ProfileEdit from './views/profile/ProfileEdit';
+import NavBar from "./components/navbar/NavBar";
+
+
 
 class App extends React.Component {
   state = {
@@ -50,8 +56,10 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <nav>
+          <NavBar/>
             {authenticated && <Link to="/"> Home </Link>}
-            {authenticated && <Link to="/"> Destinations </Link>}
+            {authenticated && <Link to="/destinations"> Destinations </Link>}
+            {authenticated && <Link to="/activities"> Activities </Link>}
             {!authenticated && <Link to="/login"> Login </Link>}
             {!authenticated && <Link to="/signup"> Signup </Link>}
             {authenticated && (
@@ -84,12 +92,12 @@ class App extends React.Component {
             />
             {/* <Destinations/> */}
             <Route exact path="/destinations" component={Destinations}/>
-	          {/* <Route path="/activitiesList" component={ActivitiesList} />
-            <Route path="/activitiesDetail" component={ActivitiesDetail} />
-            <Route path="/activitiesCreate" component={ActivitiesCreate} />
-            <Route path="/activitiesEdit" component={ActivitiesEdit} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/profileEdit" component={ProfileEdit} />      */}
+	          <Route exact path="/activities" component={Activities} />
+            <Route exact path="/activities/details" component={ActivitiesDetails} />
+            <Route exact path="/activities/create" component={ActivitiesCreate} />
+            <Route exact path="/activities/edit" component={ActivitiesEdit} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/edit" component={ProfileEdit} />    
           </Switch>
         </BrowserRouter>
       </div>

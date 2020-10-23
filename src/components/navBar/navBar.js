@@ -1,15 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-//import './Navbar.css'
+import {Nav,Navbar,Container,Row,Col }from "react-bootstrap";
 
-function NavBar(props) {
+import './NavBar.css'
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+function NavBar() {
   return (
-    <nav>
-      <Link to='/' className='navBar'>
-        <span role='img' aria-label='Home'>🏠</span>
-      </Link>
-    </nav>
-  );
+    <div>
+        <Navbar bg="green" variant="dark" fixed='top'>
+          <Container>
+            <Navbar.Brand>
+               OCEANCY
+            </Navbar.Brand>
+            <Nav className="justify-content-end">
+              <Nav>
+                <Link to={"/destinations"} className="nav-link">
+                  Destinations
+                </Link>
+              </Nav>
+              <Nav>
+                <Link to={"/activities"} className="nav-link">
+                  Activities
+                </Link>
+              </Nav>
+            </Nav>
+
+          </Container>
+        </Navbar>
+    </div>
+  )
 }
 
-export default NavBar;
+export default NavBar
+
+

@@ -26,3 +26,17 @@ export const login = ({ email, password }) => {
       console.log(err);
     });
 };
+export const profile = ({ username, email, password }) => {
+  return service
+    .get('/user/profile',{ username, email, password })
+    .then((response) => response.data)
+    .catch((err) => err);
+};
+
+export const profileEdit = ({ username, email, password }) => {
+  return service
+    .post('/user/profile/edit',{ username, email, password })
+    .then((response) => response.data)
+    .catch((err) => err);
+};
+
