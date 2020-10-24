@@ -1,8 +1,17 @@
-.card img{
+/* .card img{
     width:400px;
     
 }
 .card_info{
     padding:10px;
 
+} */
+
+.card {
+    margin-bottom: 40px;
+}
+
+.card img {
+    width: 400px;
+    object-fit: cover;
 }

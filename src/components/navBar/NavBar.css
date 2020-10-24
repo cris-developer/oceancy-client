@@ -15,3 +15,8 @@
     width: 50px;
     vertical-align: text-bottom;
 } */    
+
+.with-border {
+    border: 1px solid #0FF!important;
+}
+

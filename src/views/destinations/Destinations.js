@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 //import destinations from '../../destinations.json'
-import NavBar from '../../components/navbar/NavBar';
+
 import { getAllDestinations } from '../../services/destinationService';
 import { Link } from 'react-router-dom';
 import DestinationCard from '../../components/destinationcard/DestinationCard'
@@ -42,12 +42,10 @@ export default class Listdestinations extends React.Component {
     render() {
          console.log(this.state.destinations);
         return (
-          <div>
-            <NavBar />
-            <div className="list">
-                {this.state.destinations.map((el, idx) => 
+            <div >
+                {/* {this.state.destinations.map((el, idx) => 
                 (
-                  <Container>
+                <Container >
                   {(idx % 4 == 0) ? (<Row>
                   <Col xs="4"><DestinationCard 
                       key={idx} 
@@ -55,23 +53,29 @@ export default class Listdestinations extends React.Component {
                       name={el.name}
                       >
                       </DestinationCard></Col>
-                  </Row>): (<Col xs="4"><DestinationCard 
+                  </Row>): 
+                  (<Col xs="4"><DestinationCard 
                       key={idx} 
                       photoUrl={el.photoUrl}
                       name={el.name}
                       >
-                      </DestinationCard></Col>)}   
+                      </DestinationCard>
+                </Col>)}   
             </Container>
-                ))}
-              {/* {this.state.destinations.map((el, idx) => (
-                    <tr key={idx}>
-                    <th>
-                        <img src={el.photoUrl} alt="Contact" className="img" />
-                    </th>
-                        <th className= 'contentText'>  {el.name}</th>
+                ))} */}
+              <div >
+                {this.state.destinations.map((el, idx) => (
+                    
+                    <tr key={idx} >
+                        <th>
+                            <img src={el.photoUrl} alt="Contact" className="img" />
+                        </th>
+                            <th className= 'contentText'>  {el.name}</th>
                     </tr>
-                    ))} */}
-            </div>
+                  
+              ))}
+              </div>
+                
           </div>
         );
       }

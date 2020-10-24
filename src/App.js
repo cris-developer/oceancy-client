@@ -55,19 +55,18 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <nav>
-          <NavBar/>
-            {authenticated && <Link to="/"> Home </Link>}
-            {authenticated && <Link to="/destinations"> Destinations </Link>}
-            {authenticated && <Link to="/activities"> Activities </Link>}
-            {!authenticated && <Link to="/login"> Login </Link>}
-            {!authenticated && <Link to="/signup"> Signup </Link>}
-            {authenticated && (
+          <nav> 
+          <NavBar authenticated={authenticated} handleLogout={this.handleLogout}/>
+            {/* {authenticated && <Link to="/"> Home </Link>} */}
+            {/* {!authenticated && <Link to="/login"> Login </Link>}
+            {!authenticated && <Link to="/signup"> Signup </Link>} */}
+            {/* {authenticated && (
               <Link to={"/"} onClick={this.handleLogout}>
                 Logout
               </Link>
-            )}
+            )} */}
           </nav>
+          <main className="mt-5">
           <Switch>
             <PrivateRoute
               exact
@@ -99,6 +98,7 @@ class App extends React.Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/profile/edit" component={ProfileEdit} />    
           </Switch>
+          </main>
         </BrowserRouter>
       </div>
     );
