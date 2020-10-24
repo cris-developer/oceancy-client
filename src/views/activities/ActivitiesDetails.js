@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
 import { createActivity } from '../../services/activityService';
-
+import {  Link } from "react-router-dom";
 
 export class ActivitiesDetails extends Component {
+    constructor(props){
+        super(props);
+        console.log(this.props.match.params.id);
+
+    }
     render() {
         return (
             <div>
-                
+                <Link to={"activities/edit/" + this.props.match.params.id}>
+                  Edit
+                </Link>
+                <Link to={"activities/delete/" + this.props.match.params.id}>
+                  Delete
+                </Link>
             </div>
         )
     }

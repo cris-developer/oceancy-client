@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button,Container,Row,Col} from 'react-bootstrap'
 import { getAllActivities} from '../../services/activityService';
+import {  Link } from "react-router-dom";
 //import './Activities.css'
 
 
@@ -62,7 +63,8 @@ export default class Activities extends React.Component {
                     <div>{el.price}</div> 
                     <div>{el.type}</div>  
                     <div>{el.address}</div>  
-                    <div>{el.host}</div>         
+                    <div>{el.host}</div>  
+                    <Link to={"/activities/details/" + el._id} >Details</Link>
                             
                </div>        
                 ))}

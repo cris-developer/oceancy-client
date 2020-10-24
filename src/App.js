@@ -92,9 +92,9 @@ class App extends React.Component {
             {/* <Destinations/> */}
             <Route exact path="/destinations" component={Destinations}/>
 	          <Route exact path="/activities" component={Activities} />
-            <Route exact path="/activities/details" component={ActivitiesDetails} />
+            <Route exact path="/activities/details/:id" component={ActivitiesDetails} />
             <Route exact path="/activities/create" component={ActivitiesCreate} />
-            <Route exact path="/activities/edit" component={ActivitiesEdit} />
+            <Route exact path="/activities/edit/:id" component={ActivitiesEdit} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/profile/edit" component={ProfileEdit} />    
           </Switch>

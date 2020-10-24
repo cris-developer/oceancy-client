@@ -46,7 +46,7 @@ export const updateActivity = (id,activity) => {
   console.log ("I AM UPDATING AN EVENT ON CLIENT SIDE")
   console.log ('activity:',activity)
   return service
-    .put(`/activities/update/${id}`,activity)
+    .post(`/activities/update/${id}`,activity)
     .then((response) => response.data)
     .catch((err) => err);
 };

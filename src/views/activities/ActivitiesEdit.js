@@ -41,8 +41,8 @@ export default class ActivitiesEdit  extends Component {
       price:this.state.price,
       type:this.state.type
     }
-    console.log ('I AM RENDERING THE UPDATE ACTIVITY', this.state)
-    updateActivity(this.state)
+    console.log ('I AM RENDERING THE UPDATE ACTIVITY', activity)
+    updateActivity(this.props.match.params.id,activity)
     .then((response) => {
       console.log (response)
     }).catch ((error=> {
