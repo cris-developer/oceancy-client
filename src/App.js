@@ -11,10 +11,10 @@ import Destinations from './views/destinations/Destinations.js';
 import destinations from './destinations.json';
 import Activities from './views/activities/Activities';
 import ActivitiesDetails from './views/activities/ActivitiesDetails';
-import ActivitiesCreate from './views/activities/ActivitiesCreate';
-import ActivitiesEdit from './views/activities/ActivitiesEdit';
+import CreateActivities from './views/activities/CreateActivities';
+import EditActivities from './views/activities/EditActivities';
 import Profile from './views/profile/Profile';
-import ProfileEdit from './views/profile/ProfileEdit';
+import EditProfile from './views/profile/EditProfile';
 import NavBar from "./components/navbar/NavBar";
 
 
@@ -93,10 +93,10 @@ class App extends React.Component {
             <Route exact path="/destinations" component={Destinations}/>
 	          <Route exact path="/activities" component={Activities} />
             <Route exact path="/activities/details/:id" component={ActivitiesDetails} />
-            <Route exact path="/activities/create" component={ActivitiesCreate} />
-            <Route exact path="/activities/edit/:id" component={ActivitiesEdit} />
+            <Route exact path="/activities/create" component={CreateActivities} />
+            <Route exact path="/activities/edit/:id" component={EditActivities} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profile/edit" component={ProfileEdit} />    
+            <Route exact path="/profile/edit" component={EditProfile} />    
           </Switch>
           </main>
         </BrowserRouter>

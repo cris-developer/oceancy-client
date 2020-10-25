@@ -54,7 +54,7 @@ export default class Activities extends React.Component {
             {this.state.activities.map((el, idx) => (
 
                 <div key={idx}>          
-                    <img src={el.photoUrl} alt="Contact" className="img" />           
+                    <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '50%', float:"left"}}/>           
                     <div className= 'contentText'>  {el.name}</div>
                     <div>{el.description}</div>  
                     <div>{el.startDate}</div>  

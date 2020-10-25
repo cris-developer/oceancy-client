@@ -63,17 +63,18 @@ export default class Listdestinations extends React.Component {
                 </Col>)}   
             </Container>
                 ))} */}
-              <div >
-                {this.state.destinations.map((el, idx) => (
+              <div>
+                
+                  {this.state.destinations.map((el, idx) => (
+                      
+                      <div key={idx} >
+                          
+                              <img src={el.photoUrl} alt="Contact" className="img" style={{width: '30%'}} />
+                          
+                              <div className= 'contentText' >  {el.name}</div>
+                      </div>
                     
-                    <tr key={idx} >
-                        <th>
-                            <img src={el.photoUrl} alt="Contact" className="img" />
-                        </th>
-                            <th className= 'contentText'>  {el.name}</th>
-                    </tr>
-                  
-              ))}
+                ))}
               </div>
                 
           </div>

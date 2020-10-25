@@ -25,6 +25,11 @@ class NavBar extends Component {
                 </Link>
               </Nav>
               <Nav>
+                <Link to={"/profile"} className="nav-link">
+                  Profile
+                </Link>
+              </Nav>
+              <Nav>
                 <Link to={"/home"} className="nav-link">
                   Home
                 </Link>

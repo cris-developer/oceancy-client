@@ -28,6 +28,7 @@ export const getActivityDetails = (id) => {
   return service
     .get(`/activities/${id}`)
     .then((response) => response.data)
+      //setState(response.data)
     .catch((err) => err);
 };
 

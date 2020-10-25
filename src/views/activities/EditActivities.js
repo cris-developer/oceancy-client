@@ -30,7 +30,8 @@ export default class ActivitiesEdit  extends Component {
   updateActivitySubmit = (e) => {
     console.log ('I AM UPDATING')
     e.preventDefault();
-    const activity= {
+
+    const activity = {
       name: this.state.name,
       description: this.state.description,
       address:this.state.address,
@@ -41,8 +42,11 @@ export default class ActivitiesEdit  extends Component {
       price:this.state.price,
       type:this.state.type
     }
+    const {params}  = this.props.match
+
     console.log ('I AM RENDERING THE UPDATE ACTIVITY', activity)
-    updateActivity(this.props.match.params.id,activity)
+   
+    updateActivity(params.id,activity)
     .then((response) => {
       console.log (response)
     }).catch ((error=> {
