@@ -4,7 +4,7 @@ import React from "react";
 
 const Home = (props) => {
   const { username } = props.user;
-  const {}
+  
   return (
     <div>
       <h1>welcome {username && props.user.username}</h1>
