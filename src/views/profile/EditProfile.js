@@ -14,9 +14,6 @@ export class ProfileEdit extends Component {
 
 export default ProfileEdit;
 
-
-
-
 // class Signup extends React.Component {
 //   state = {
 //     username: "",

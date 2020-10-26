@@ -1,10 +1,10 @@
-/* .navBar {
-    background-color:
+.navBar {
+    background-color:#0FF;
     height: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
-  } */
+  }
   
 /* .bg-dark{
     background-color: rgb(62, 196, 252)!important;

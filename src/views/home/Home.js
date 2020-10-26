@@ -1,5 +1,5 @@
 import React from "react";
-//import SearchBar from '../../components/searchbar/SearchBar.js';
+import SearchBar from '../../components/searchbar/SearchBar.js';
 
 
 const Home = (props) => {
@@ -7,6 +7,7 @@ const Home = (props) => {
   
   return (
     <div>
+      <SearchBar/>
       <h1>welcome {username && props.user.username}</h1>
     </div>
   );

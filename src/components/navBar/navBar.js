@@ -8,7 +8,7 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="green"  fixed='top' className="with-border">
+        <Navbar  bg="green"  fixed='top' className="navBar">
           <Container>
             <Navbar.Brand>
                OCEANCY

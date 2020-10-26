@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
-import { getActivityDetails } from '../../services/activityService';
+import { getActivityDetails, bookingActivity,deleteActivity } from '../../services/activityService';
+
 import {  Link } from "react-router-dom";
 
 class ActivitiesDetails extends Component {
@@ -54,14 +55,29 @@ class ActivitiesDetails extends Component {
         //     })
         //   }
 
+        bookingActivity =(id)=>{
+            console.log (id);
+            bookingActivity(id,localStorage.getItem('accessToken')).then((response)=>{
+
+            });
+        }
+
+        deleteActivity =(id)=>{
+            console.log (id);
+            deleteActivity(id).then((response)=>{
+                        
+            });
+        }
+
+
     render() {
 
         const activity = this.state.activity;
         console.log ('ACTIVITY DEL RENDER')
         return (
-            <div>
+            <div className ="mt-3 text-center"> 
                         <div>          
-                            <img src={activity.photoUrl} alt="ActivityList" className="img"  style={{width: '50%', float:"left"}}/>           
+                            <img src={activity.photoUrl} alt="ActivityList" className="img"  style={{width: '50%'}}/>           
                             <div className= 'contentText'>  {activity.name}</div>
                             <div>{activity.description}</div>  
                             <div>{activity.startDate}</div>  
@@ -73,15 +89,16 @@ class ActivitiesDetails extends Component {
                             <div>{activity.host}</div>                              
                         </div>        
                     
-                    <Link to={"activities/book/" + this.props.match.params.id}>
-                        <div className="btn btn-primary">Book</div>  
-                    </Link>
-                    <Link to={"activities/edit/" + this.props.match.params.id}>
+                    {/* <Link to={"/activities/book/" + this.props.match.params.id}> */}
+                        <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>  
+                    {/* </Link> */}
+                    <Link to={"/activities/edit/" + this.props.match.params.id}>
                         <div className="btn btn-warning">Edit</div> 
                     </Link>
-                    <Link to={"activities/delete/" + this.props.match.params.id}>
-                        <div className="btn btn-danger">Delete</div> 
-                    </Link>
+                    {/* <Link to={"/activities/delete/" + this.props.match.params.id}> */}
+                        {/* <div className="btn btn-danger">Delete</div> */}
+                        <button className="btn btn-danger" onClick={this.deleteActivity(this.props.match.params.id)}>Delete</button>  
+                    {/* </Link> */}
             </div>
         )
     }

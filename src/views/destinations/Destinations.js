@@ -42,7 +42,7 @@ export default class Listdestinations extends React.Component {
     render() {
          console.log(this.state.destinations);
         return (
-            <div >
+            <div className="mt-3">
                 {/* {this.state.destinations.map((el, idx) => 
                 (
                 <Container >

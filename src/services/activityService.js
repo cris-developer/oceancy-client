@@ -13,14 +13,6 @@ export const getAllActivities = (id) => {
     .then((response) => response.data)
     .catch((err) => err);
 };
-//SERVICE TO SEARCH ALL ACTIVITIES
-export const searchActivities = (name) => {
-  console.log ('I AM SEARCHING ALL ACTIVITIES ON THE CLIENT SIDE')
-  return service
-    .post('/search',name)
-    .then((response) => response.data)
-    .catch((err) => err);
-};
 
 //SERVICE TO GET ALL ACTIVITY DETAILS
 export const getActivityDetails = (id) => {
@@ -52,8 +44,36 @@ export const updateActivity = (id,activity) => {
     .catch((err) => err);
 };
 
-    
+// SERVICE TO BOOK AN ACTIVITY
+
+export const bookingActivity = (id, accessToken) => {
+
+  console.log ("I AM ATTENDING AN EVENT ON CLIENT SIDE")
+  return service
+    .post(`/activities/${id}`, { accessToken: accessToken })
+    .then((response) => response.data)
+    .catch((err) => err);
+};
+
+//SERVICE TO SEARCH ALL ACTIVITIES
+export const searchActivities = (destinations,startDate,endDate,type) => {
+  const search = {destinations:destinations,startDate:startDate,endDate:endDate,type:type}
+  console.log ('I AM SEARCHING ALL ACTIVITIES ON THE CLIENT SIDE')
+  return service
+    .post('/activities/search',search)
+    .then((response) => response.data)
+    .catch((err) => err);
+};
+
+export const deleteActivity = (id) => {
+
+  console.log ("I AM DELETING AN ACTIITY ON CLIENT SIDE")
+  return service
+    .delete(`/activities/${id}`)
+    .then((response) => response.data)
+    .catch((err) => err);
+};
 
 
-
+// SERVICE TO GET PROFILE
     

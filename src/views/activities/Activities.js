@@ -39,38 +39,31 @@ export default class Activities extends React.Component {
 
     return (
       <div>
-       <div className="container">
-         
-          <input
-            className="searchBar"
-            placeholder="Search Activities"
-            type= "text"
-            name="Search"
-            value={this.state.search}
-            onChange={this.handleChange}
-          />
-           <div>
-
+        <div className="mt-3">
             {this.state.activities.map((el, idx) => (
 
-                <div key={idx}>          
-                    <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '50%', float:"left"}}/>           
+                <div key={idx}>   
+                    
+                    <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '40%' }}/>
+
                     <div className= 'contentText'>  {el.name}</div>
-                    <div>{el.description}</div>  
+                    <div>{el.description}</div>   
                     <div>{el.startDate}</div>  
-                    <div>{el.endDate}</div>  
+                    {/* <div>{el.endDate}</div>  
                     <div>{el.duration}</div>  
                     <div>{el.price}</div> 
                     <div>{el.type}</div>  
-                    <div>{el.address}</div>  
+                    <div>{el.address}</div>   */}
                     <div>{el.host}</div>  
-                    <Link to={"/activities/details/" + el._id} >Details</Link>
+                    <Link to={"/activities/details/" + el._id} >
+                       <div className="btn btn-primary">details</div>  
+                    </Link>
                             
                </div>        
                 ))}
             </div>
        </div>
-    </div>
+    
     );
   }
 }
