@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
-import { getActivityDetails, bookingActivity,deleteActivity } from '../../services/activityService';
-
+import { getActivityDetails,deleteActivity } from '../../services/activityService';
+import {  bookingActivity } from '../../services/activityService';
 import {  Link } from "react-router-dom";
 
 class ActivitiesDetails extends Component {
@@ -24,8 +24,7 @@ class ActivitiesDetails extends Component {
               .catch((err)=>{
                   console.log(err)
               })
-  
-        };
+        }
         
         // super(props);
         // console.log(this.props.match.params.id);
@@ -55,20 +54,26 @@ class ActivitiesDetails extends Component {
         //     })
         //   }
 
-        bookingActivity =(id)=>{
-            console.log (id);
-            bookingActivity(id,localStorage.getItem('accessToken')).then((response)=>{
-
+        bookingActivity =()=>{
+            const {params}= this.props.match;
+            const userId = localStorage.getItem('accessToken');
+            bookingActivity(params.id,userId)
+            .then((response)=>{
+                console.log ('I AM BOOKING FROM CLIENT SIDE COMPONENT')
+            }).catch((error) => {
+                console.log(error)
             });
         }
 
-        deleteActivity =(id)=>{
-            console.log (id);
-            deleteActivity(id).then((response)=>{
-                        
-            });
+        deleteActivity =()=>{
+            const {params}= this.props.match;
+            deleteActivity(params.id)
+            .then((response)=>{
+                console.log ('I AM DELETING FROM CLIENT SIDE COMPONENT')
+            }).catch((error) => {
+                console.log(error)
+            })
         }
-
 
     render() {
 
@@ -90,15 +95,18 @@ class ActivitiesDetails extends Component {
                         </div>        
                     
                     {/* <Link to={"/activities/book/" + this.props.match.params.id}> */}
-                        <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>  
+                        {/* <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>   */}
                     {/* </Link> */}
                     <Link to={"/activities/edit/" + this.props.match.params.id}>
                         <div className="btn btn-warning">Edit</div> 
                     </Link>
                     {/* <Link to={"/activities/delete/" + this.props.match.params.id}> */}
                         {/* <div className="btn btn-danger">Delete</div> */}
-                        <button className="btn btn-danger" onClick={this.deleteActivity(this.props.match.params.id)}>Delete</button>  
+                        {/* <button className="btn btn-danger" onClick={this.deleteActivity(this.props.match.params.id)}>Delete</button>   */}
                     {/* </Link> */}
+
+                    <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
+                    <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>
             </div>
         )
     }

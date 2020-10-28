@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { searchActivities } from '../../services/activityService';
 import { Link} from 'react-router-dom';
+import './SearchBar.css'
 
 export class SearchBar extends Component {
   
@@ -18,11 +19,13 @@ export class SearchBar extends Component {
     const { where, startDate,endDate,type } = this.state;
     //this.props.history.push(`/search?where=${where}`);
     const search = {
-        destinations:where,
+        destinations: where,
         startDate : startDate,
         endDate : endDate,
         type :type,
-    }
+    };
+
+    console.log(search);
     searchActivities(search)
       .then(searchActivities => {
           this.setState({ 
@@ -37,46 +40,78 @@ export class SearchBar extends Component {
   };
 
 
-  handleWhereInputChange = event => {
-    const { value } = event.target;
+  handleSearchInputChange = event => {
+    const { name, value } = event.target;
     this.setState({
-      where: value
+      [name]: value
     });
   };
+
+
+
 
   render() {
     return (
         <div>
-            {/* {this.state.searchActivities.map((el, idx) => (
+
+            <form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
+                        <input
+                        type="search"
+                        placeholder="Where do you want to travel to..."
+                        name = "where"
+                        value={this.state.where}
+                        onChange={this.handleSearchInputChange}
+                        />
+                        {/* <button type="submit">Where</button> */}
+           
+                        <input
+                        type="search"
+                        placeholder="When do you want to start to travel..."
+                        name="startDate"
+                        value={this.state.startDate}
+                        onChange={this.handleSearchInputChange}
+                        />
+                        {/* <button type="submit">Start Date</button> */}
+            
+                        <input
+                        type="search"
+                        placeholder="When do you want to finish your travel..?"
+                        name="endDate"
+                        value={this.state.endDate}
+                        onChange={this.handleSearchInputChange}
+                        />
+                        {/* <button type="submit">End Date</button> */}
+
+                    
+                        <input
+                        type="search"
+                        placeholder="What kind of travel are you searching for...?"
+                        name="type"
+                        value={this.state.type}
+                        onChange={this.handleSearchInputChange}
+                        />
+                        <button type="submit">Search</button>
+            </form>
+
+
+            {this.state.searchActivities.map((el, idx) => (
                 <div key={idx}>   
                     <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '50%' }}/>
                     <div className= 'contentText'>  {el.name}</div>
                     <div>{el.description}</div>   
-                    <div>{el.startDate}</div>   */}
+                    <div>{el.startDate}</div>   
                     {/* <div>{el.endDate}</div>  
                     <div>{el.duration}</div>  
                     <div>{el.price}</div> 
                     <div>{el.type}</div>  
                     <div>{el.address}</div>   */}
-                    {/* <div>{el.host}</div>  
+                    <div>{el.host}</div>  
                     <Link to={"/activities/details/" + el._id} >
                     <div className="btn btn-primary">details</div>  
                     </Link>
                             
                </div>        
-            ))} */}
-
-
-    
-        <form className="search-bar" onSubmit={this.handleFormSubmission}>
-            <input
-            type="search"
-            placeholder="Where do you want to travel to..."
-            value={this.state.where}
-            onChange={this.handleWhereInputChange}
-            />
-            <button>Where</button>
-        </form>
+            ))}
      </div>
     );
   }

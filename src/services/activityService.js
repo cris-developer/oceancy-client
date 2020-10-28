@@ -44,7 +44,7 @@ export const updateActivity = (id,activity) => {
     .catch((err) => err);
 };
 
-// SERVICE TO BOOK AN ACTIVITY
+//SERVICE TO BOOK AN ACTIVITY
 
 export const bookingActivity = (id, accessToken) => {
 
@@ -56,8 +56,8 @@ export const bookingActivity = (id, accessToken) => {
 };
 
 //SERVICE TO SEARCH ALL ACTIVITIES
-export const searchActivities = (destinations,startDate,endDate,type) => {
-  const search = {destinations:destinations,startDate:startDate,endDate:endDate,type:type}
+export const searchActivities = (search) => {
+  //const search = {destinations:destinations,startDate:startDate,endDate:endDate,type:type}
   console.log ('I AM SEARCHING ALL ACTIVITIES ON THE CLIENT SIDE')
   return service
     .post('/activities/search',search)
@@ -65,11 +65,12 @@ export const searchActivities = (destinations,startDate,endDate,type) => {
     .catch((err) => err);
 };
 
+// SERVICE DELETE ACTIVITIES
 export const deleteActivity = (id) => {
 
   console.log ("I AM DELETING AN ACTIITY ON CLIENT SIDE")
   return service
-    .delete(`/activities/${id}`)
+    .delete(`/activities/delete/${id}`)
     .then((response) => response.data)
     .catch((err) => err);
 };

@@ -15,7 +15,6 @@ export default class Activities extends React.Component {
   }
 
   componentDidMount() {
-      
     getAllActivities()
     .then((res) =>
       this.setState({

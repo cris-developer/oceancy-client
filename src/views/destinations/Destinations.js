@@ -64,16 +64,11 @@ export default class Listdestinations extends React.Component {
             </Container>
                 ))} */}
               <div>
-                
                   {this.state.destinations.map((el, idx) => (
-                      
                       <div key={idx} >
-                          
                               <img src={el.photoUrl} alt="Contact" className="img" style={{width: '30%'}} />
-                          
                               <div className= 'contentText' >  {el.name}</div>
                       </div>
-                    
                 ))}
               </div>
                 

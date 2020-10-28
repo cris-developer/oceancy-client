@@ -8,7 +8,7 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar  bg="green"  fixed='top' className="navBar">
+        <Navbar  bg="blue"  fixed='top' className="navBar">
           <Container>
             <Navbar.Brand>
                OCEANCY
@@ -30,7 +30,7 @@ class NavBar extends Component {
                 </Link>
               </Nav>
               <Nav>
-                <Link to={"/home"} className="nav-link">
+                <Link to={"/"} className="nav-link">
                   Home
                 </Link>
               </Nav>
