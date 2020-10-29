@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import { searchActivities } from '../../services/activityService';
 import { Link} from 'react-router-dom';
-import './SearchBar.css'
+import {Form, Button,Container,Row,Col,Control} from 'react-bootstrap'
+import './SearchBar.css';
+import { DatePicker} from "react-datepicker";
+//import { DateRangePicker } from "react-date-range";
+//import { Calendar } from "react-date-range";
+//import { DateRange } from "react-date-range";
+//import './DatePicker.js';
+// import React, { useState } from "react";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 
 export class SearchBar extends Component {
   
@@ -11,6 +20,11 @@ export class SearchBar extends Component {
       endDate :'',
       type :'',
       searchActivities:[]
+      // selectionRange :{
+      //   startDate: new Date(),
+      //   endDate: new Date(),
+      //   key: 'selection',
+      //   }
     };
   
 
@@ -39,7 +53,6 @@ export class SearchBar extends Component {
 
   };
 
-
   handleSearchInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -47,54 +60,125 @@ export class SearchBar extends Component {
     });
   };
 
+  //DATA RANGE CALENDAR 
 
 
+  //DATA RANGE PICKER
+  
+  // handleSelect= (ranges)=> {
+  //   this.setState({
+  //     selectionRange:{
+  //       startDate: ranges.selection.startDate,
+  //       endDate: ranges.selection.endDate,
+  //       key: 'selection',
+  //     }
+  //       }
+  //   );
+    
+  //   }
+
+
+  handleDatePickerChange = (date) => {
+    console.log(date);
+    this.setState({
+      startDate:date
+    });
+  };
 
   render() {
+
+    // const selectionRange = {
+    //       startDate: new Date(),
+    //       endDate: new Date(),
+    //       key: 'selection',
+    //       };
+
+    
+    const startDate= new Date();
+
     return (
-        <div>
+        <>
 
-            <form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
-                        <input
-                        type="search"
-                        placeholder="Where do you want to travel to..."
-                        name = "where"
-                        value={this.state.where}
-                        onChange={this.handleSearchInputChange}
-                        />
-                        {/* <button type="submit">Where</button> */}
-           
-                        <input
-                        type="search"
-                        placeholder="When do you want to start to travel..."
-                        name="startDate"
-                        value={this.state.startDate}
-                        onChange={this.handleSearchInputChange}
-                        />
-                        {/* <button type="submit">Start Date</button> */}
+              {/* <DatePicker 
+              selected={startDate}
+              onChange={this.handleDatePickerChange}
+              dropdownMode="select"              
+              /> */}
             
-                        <input
-                        type="search"
-                        placeholder="When do you want to finish your travel..?"
-                        name="endDate"
-                        value={this.state.endDate}
-                        onChange={this.handleSearchInputChange}
-                        />
-                        {/* <button type="submit">End Date</button> */}
+              {/* <DateRange
+                onInit={this.handleSelect}
+                onChange={this.handleSelect}
+              /> */}
+          
+            
+              {/* <DateRangePicker
+                ranges={[selectionRange]}
+                onChange={this.handleSelect}
+                showSelectionPreview="false"
+                showMonthAndYearPickers="false"
+                showPreview ="false"
+              /> */}
+            
+            <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
+                <Row>
+                        <Col>
+                              <input
+                              type="search"
+                              placeholder="Where do you want to travel to..."
+                              name = "where"
+                              value={this.state.where}
+                              onChange={this.handleSearchInputChange}
+                              />
+                       
+                         </Col>
+                         <Col>
+                              <input
+                              type="datetime-local"
+                              placeholder="When do you want to start to travel..."
+                              name="startDate"
+                              value={this.state.startDate}
+                              onChange={this.handleSearchInputChange}
+                              // className="tp-search-date tp-departing-date-wrap w-50 float-left"
+                              />
+                          </Col>
+                          <Col>
+                                <input
+                                type="text"
+                                placeholder="Departing?"
+                                name="endDate"
+                                value={this.state.endDate}
+                                onChange={this.handleSearchInputChange}
+                                //className="tp-search-date tp-departing-date-wrap w-50 float-left"
+                                />
+                            </Col>
+                            <Col  >
+                                    {/* <Form.Label>Type</Form.Label> */}
+                                    
+                                    <input
+                                    type="search"
+                                    placeholder="What kind of travel are you searching for...?"
+                                    name="type"
+                                    value={this.state.type}
+                                     
+                                    onChange={this.handleSearchInputChange}
+                                    //className="select w-50"
+                                    />
+                                     <Form.Control as="select">
+                                        <option>Diving</option>
+                                        <option>Sailing</option>
+                                        <option>Surfing</option>
+                                        <option>Kite Surfing</option>
+                                      </Form.Control>
+                              </Col>
+                              <Col>
+                                 <button type="submit" className='btn-lg' style={{backgroundColor: '#062dba', color: 'white'}}>Search</button>
+                              </Col>
+                </Row>
+            </Form>
 
-                    
-                        <input
-                        type="search"
-                        placeholder="What kind of travel are you searching for...?"
-                        name="type"
-                        value={this.state.type}
-                        onChange={this.handleSearchInputChange}
-                        />
-                        <button type="submit">Search</button>
-            </form>
+          
 
-
-            {this.state.searchActivities.map((el, idx) => (
+            {this.state.searchActivities  ? this.state.searchActivities.map((el, idx) => (
                 <div key={idx}>   
                     <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '50%' }}/>
                     <div className= 'contentText'>  {el.name}</div>
@@ -111,8 +195,8 @@ export class SearchBar extends Component {
                     </Link>
                             
                </div>        
-            ))}
-     </div>
+            )): ''}
+     </>
     );
   }
 }

@@ -1,9 +1,13 @@
 .navBar {
-    background-color:#0FF;
-    height: 6vh;
+    /* background-color:#0FF; */
+    /* background-color :#0918e6;*/
+    background-color: #062dba;
+    height:10 vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    
     
   }
   

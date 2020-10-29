@@ -1,0 +1,8 @@
+
+header  {
+    position: relative;
+    height: 910px;
+    /* background-image: url(../images/uploads/pagebanner/header1-banner.jpg); */
+    background-position: center;
+    background-size: cover;
+  }

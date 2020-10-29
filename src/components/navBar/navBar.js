@@ -10,33 +10,33 @@ class NavBar extends Component {
       <div>
         <Navbar  bg="blue"  fixed='top' className="navBar">
           <Container>
-            <Navbar.Brand>
+            <Navbar.Brand style ={{color:'white'}}>
                OCEANCY
             </Navbar.Brand>
             <Nav className="justify-content-end">
               <Nav>
-                <Link to={"/destinations"} className="nav-link">
+                <Link to={"/destinations"} className="nav-link" style ={{color:'white'}}>
                   Destinations
                 </Link>
               </Nav>
               <Nav>
-                <Link to={"/activities"} className="nav-link">
+                <Link to={"/activities"} className="nav-link" style ={{color:'white'}}>
                   Activities
                 </Link>
               </Nav>
               <Nav>
-                <Link to={"/profile"} className="nav-link">
+                <Link to={"/profile"} className="nav-link"style ={{color:'white'}}>
                   Profile
                 </Link>
               </Nav>
               <Nav>
-                <Link to={"/"} className="nav-link">
+                <Link to={"/"} className="nav-link" style ={{color:'white'}}>
                   Home
                 </Link>
               </Nav>
               <Nav>
                   {this.props.authenticated && (
-                    <Link className="nav-link" to={"/"} onClick={this.props.handleLogout}>
+                    <Link className="nav-link" to={"/"} onClick={this.props.handleLogout} style ={{color:'white'}}>
                     Logout 
                   </Link>)}
                     {/* <Link to={"/"} className="nav-link">
