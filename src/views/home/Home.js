@@ -8,8 +8,7 @@ const Home = (props) => {
   
   return (
     <div>
-     
-      {/* <Carousel/> */}
+      <Carousel/>
       <SearchBar/>
       {/* <h1>welcome {username && props.user.username}</h1> */}
     </div>

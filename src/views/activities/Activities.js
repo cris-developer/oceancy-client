@@ -38,22 +38,23 @@ export default class Activities extends React.Component {
 
     return (
       <div>
+         <Link to={"/activities/create/"} >
+                       <div className="btn btn-primary">Create</div>  
+          </Link>
         <div className="mt-3">
             {this.state.activities.map((el, idx) => (
-
                 <div key={idx}>   
-                    
                     <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '40%' }}/>
 
                     <div className= 'contentText'>  {el.name}</div>
                     <div>{el.description}</div>   
                     <div>{el.startDate}</div>  
-                    {/* <div>{el.endDate}</div>  
-                    <div>{el.duration}</div>  
+                    <div>{el.endDate}</div>  
+                    {/* <div>{el.duration}</div>  
                     <div>{el.price}</div> 
                     <div>{el.type}</div>  
-                    <div>{el.address}</div>   */}
-                    <div>{el.host}</div>  
+                    <div>{el.address}</div>   
+                    <div>{el.host}</div>   */}
                     <Link to={"/activities/details/" + el._id} >
                        <div className="btn btn-primary">details</div>  
                     </Link>

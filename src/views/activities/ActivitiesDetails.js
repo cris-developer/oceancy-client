@@ -90,7 +90,7 @@ class ActivitiesDetails extends Component {
                             <div>{activity.duration}</div>  
                             <div>{activity.price}</div> 
                             <div>{activity.type}</div>  
-                            <div>{activity.address}</div>  
+                            <div>{activity.address}</div>
                             <div>{activity.host}</div>                              
                         </div>        
                     

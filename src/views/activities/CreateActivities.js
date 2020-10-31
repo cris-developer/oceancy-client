@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
-import { createActivity } from '../../services/activityService';
+import { createActivity,uploadImagesCreate } from '../../services/activityService';
+//import {}
 import axios from "axios"
 
 export default class ActivitiesCreate  extends Component {
@@ -15,7 +16,8 @@ export default class ActivitiesCreate  extends Component {
       duration: '',
       destination: '',
       price: '',
-      type: ''
+      type: '',
+      photoUrl: ''
       }
      
   createInputChange =  (event) => {
@@ -24,6 +26,31 @@ export default class ActivitiesCreate  extends Component {
       [name]: value
     });
   }
+
+  // UPLOADING THE IMAGES
+  createImageUpload = e => {  
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+    ////UploadData.append("photoUrl", e.target.files[0]);
+    //uploadImagesCreate(e.target.files[0])
+    uploadImagesCreate(e.target.files[0])
+      .catch(console.error)
+      .then((res) => (res));
+      // .then((res) => addImage(res));
+    
+    // .then(response => {
+    //     console.log('RESPONSE ON CREATING COMPONENT: ', response);
+    //     // after the console.log we can see that response carries 'secure_url' which we can use to update the state 
+    //     this.setState({ photoUrl: response.secure_url });
+    //     console.log ('UPLOADING IMAGES:',response.secure_url )
+    //   })
+    //   .catch(err => {
+    //     console.log("Error while uploading the file: ", err);
+    //   });
+    }
+
+   
+
+ // SUBMIT THE FORM
 
   addActivitySubmit = (e) => {
     e.preventDefault();
@@ -36,24 +63,9 @@ export default class ActivitiesCreate  extends Component {
       duration:this.state.duration,
       destination:this.state.destination,
       price:this.state.price,
-      type:this.state.type
+      type:this.state.type,
+      photoUrl:this.state.photoUrl
     }
-
-    // axios.post('http://localhost:5000/activities/edit', activity)
-    // .then(res => console.log(res));
-
-    // this.setState({
-    //     name: '',
-    //     description: '',
-    //     address: '',
-    //     startDate: '',
-    //     endDate: '',
-    //     duration: '',
-    //     destination: '',
-    //     price: '',
-    //    type: ''
-
-    // });
   
     createActivity(activity).then((response) => {
       this.setState({
@@ -65,14 +77,15 @@ export default class ActivitiesCreate  extends Component {
       duration: '',
       destination: '',
       price: '',
-      type: ''
+      type: '',
+      photoUrl: '',
       });
     });
   };
 
   render() {
 
-    const {name,description,address,startDate,endDate}=this.state;
+    const {name,description,address,startDate,endDate,photoUrl}=this.state;
     return (
       <div className="form-wrapper">
         <Form onSubmit={this.addActivitySubmit}>
@@ -116,11 +129,16 @@ export default class ActivitiesCreate  extends Component {
             <Form.Control type="text" name="price" value={this.state.price} onChange={this.createInputChange} />
           </Form.Group>
 
-          <Form.Group controlId="">
+          <Form.Group controlId="Type">
             <Form.Label>Type</Form.Label>
             <Form.Control type="text" name="type" value={this.state.type} onChange={this.createInputChange} />
           </Form.Group>
 
+          <Form.Group controlId="Image">
+            <Form.Label>Image Upload</Form.Label>
+            <Form.Control type="file" name="photoUrl" value={this.state.photoUrl} onChange={this.createImageUpload} />
+          </Form.Group>
+                    
           <Button variant="primary" size="lg" block="block" type="submit">
             Create Activity
           </Button>

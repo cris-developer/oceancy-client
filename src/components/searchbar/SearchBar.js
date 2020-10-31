@@ -3,7 +3,7 @@ import { searchActivities } from '../../services/activityService';
 import { Link} from 'react-router-dom';
 import {Form, Button,Container,Row,Col,Control} from 'react-bootstrap'
 import './SearchBar.css';
-import { DatePicker} from "react-datepicker";
+import DatePicker from "react-datepicker";
 //import { DateRangePicker } from "react-date-range";
 //import { Calendar } from "react-date-range";
 //import { DateRange } from "react-date-range";
@@ -60,6 +60,10 @@ export class SearchBar extends Component {
     });
   };
 
+  setSelectedDate = (selectedDate, name) => {
+    this.setState({ [name]: selectedDate });
+  };
+
   //DATA RANGE CALENDAR 
 
 
@@ -78,12 +82,13 @@ export class SearchBar extends Component {
   //   }
 
 
-  handleDatePickerChange = (date) => {
-    console.log(date);
-    this.setState({
-      startDate:date
-    });
-  };
+  // handleDatePickerChange = (date) => {
+  //   console.log(date);
+  //   this.setState({
+  //     startDate:date
+  //     endDate :date
+  //   });
+  // };
 
   render() {
 
@@ -94,7 +99,27 @@ export class SearchBar extends Component {
     //       };
 
     
-    const startDate= new Date();
+    //const startDate= new Date();
+      // console.log ('searchbar.es:',this.state)
+      // console.log ('searchbar.es:',this.props)
+       const {startDate,endDate,destinations, type} =this.state
+      
+      // return (<div>
+
+      //         <DatePicker
+      //             selected={startDate}
+      //             name="startDate"
+      //            // onChange={(startDate) => this.setSelectedDate(startDate)}
+      //             dateFormat="dd/MM/yyyy"
+      //             filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
+      //             isClearable
+      //           /> 
+
+
+      // </div>)
+
+      
+     
 
     return (
         <>
@@ -119,6 +144,25 @@ export class SearchBar extends Component {
                 showPreview ="false"
               /> */}
             
+                   <DatePicker
+                  selected={startDate}
+                  name="startDate"
+                  onChange={(date) => this.setSelectedDate(startDate, "startDate")}
+                  dateFormat="dd/MM/yyyy"
+                  //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
+                  isClearable
+                /> 
+                 <DatePicker
+                
+                  selected={endDate}
+                  name="endDate"
+                  onChange={(endDate) => this.setSelectedDate(endDate,"endDate")}
+                  dateFormat="dd/MM/yyyy"
+                  filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
+                  isClearable 
+                /> 
+
+
             <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
                 <Row>
                         <Col>
@@ -132,14 +176,23 @@ export class SearchBar extends Component {
                        
                          </Col>
                          <Col>
-                              <input
+                              {/* <input
                               type="datetime-local"
                               placeholder="When do you want to start to travel..."
                               name="startDate"
                               value={this.state.startDate}
                               onChange={this.handleSearchInputChange}
                               // className="tp-search-date tp-departing-date-wrap w-50 float-left"
-                              />
+                              /> */}
+
+                            <DatePicker
+                              selected={startDate}
+                              name="startDate"
+                              onChange={(date) => this.setSelectedDate(startDate, "startDate")}
+                              dateFormat="dd/MM/yyyy"
+                              //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
+                              isClearable
+                            /> 
                           </Col>
                           <Col>
                                 <input
@@ -163,12 +216,12 @@ export class SearchBar extends Component {
                                     onChange={this.handleSearchInputChange}
                                     //className="select w-50"
                                     />
-                                     <Form.Control as="select">
+                                     {/* <Form.Control as="select">
                                         <option>Diving</option>
                                         <option>Sailing</option>
                                         <option>Surfing</option>
                                         <option>Kite Surfing</option>
-                                      </Form.Control>
+                                      </Form.Control> */}
                               </Col>
                               <Col>
                                  <button type="submit" className='btn-lg' style={{backgroundColor: '#062dba', color: 'white'}}>Search</button>
