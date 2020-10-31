@@ -176,24 +176,24 @@ export class SearchBar extends Component {
                        
                          </Col>
                          <Col>
-                              {/* <input
+                              <input
                               type="datetime-local"
                               placeholder="When do you want to start to travel..."
                               name="startDate"
                               value={this.state.startDate}
                               onChange={this.handleSearchInputChange}
                               // className="tp-search-date tp-departing-date-wrap w-50 float-left"
-                              /> */}
+                              />
 
-                            <DatePicker
+                            {/* <DatePicker
                               selected={startDate}
                               name="startDate"
                               onChange={(date) => this.setSelectedDate(startDate, "startDate")}
                               dateFormat="dd/MM/yyyy"
                               //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
                               isClearable
-                            /> 
-                          </Col>
+                            />  */}
+                            </Col>
                           <Col>
                                 <input
                                 type="text"
