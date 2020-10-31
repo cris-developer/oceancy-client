@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Nav,Navbar,Container,Row,Col }from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import './NavBar.css'
+import './NavBar.css' 
 
 
 class NavBar extends Component {

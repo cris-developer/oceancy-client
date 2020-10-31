@@ -144,7 +144,7 @@ export class SearchBar extends Component {
                 showPreview ="false"
               /> */}
             
-                   <DatePicker
+                   {/* <DatePicker
                   selected={startDate}
                   name="startDate"
                   onChange={(date) => this.setSelectedDate(startDate, "startDate")}
@@ -161,7 +161,7 @@ export class SearchBar extends Component {
                   filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
                   isClearable 
                 /> 
-
+ */}
 
             <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
                 <Row>
