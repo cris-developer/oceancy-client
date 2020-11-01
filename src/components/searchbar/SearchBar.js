@@ -33,7 +33,7 @@ export class SearchBar extends Component {
     const { where, startDate,endDate,type } = this.state;
     //this.props.history.push(`/search?where=${where}`);
     const search = {
-        destinations: where,
+        destination: where,
         startDate : startDate,
         endDate : endDate,
         type :type,
@@ -162,9 +162,9 @@ export class SearchBar extends Component {
                   isClearable 
                 /> 
  */}
-
-            <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
-                <Row>
+          <div className='searchArea'>
+                <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
+                   <Row>
                         <Col>
                               <input
                               type="search"
@@ -176,23 +176,23 @@ export class SearchBar extends Component {
                        
                          </Col>
                          <Col>
-                              <input
+                              {/* <input
                               type="datetime-local"
                               placeholder="When do you want to start to travel..."
                               name="startDate"
                               value={this.state.startDate}
                               onChange={this.handleSearchInputChange}
                               // className="tp-search-date tp-departing-date-wrap w-50 float-left"
-                              />
+                              /> */}
 
-                            {/* <DatePicker
+                            <DatePicker
                               selected={startDate}
                               name="startDate"
                               onChange={(date) => this.setSelectedDate(startDate, "startDate")}
                               dateFormat="dd/MM/yyyy"
                               //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
                               isClearable
-                            />  */}
+                            /> 
                             </Col>
                           <Col>
                                 <input
@@ -206,7 +206,6 @@ export class SearchBar extends Component {
                             </Col>
                             <Col  >
                                     {/* <Form.Label>Type</Form.Label> */}
-                                    
                                     <input
                                     type="search"
                                     placeholder="What kind of travel are you searching for...?"
@@ -226,10 +225,10 @@ export class SearchBar extends Component {
                               <Col>
                                  <button type="submit" className='btn-lg' style={{backgroundColor: '#062dba', color: 'white'}}>Search</button>
                               </Col>
-                </Row>
-            </Form>
+                        </Row>
+                    </Form>
 
-          
+            </div>
 
             {this.state.searchActivities  ? this.state.searchActivities.map((el, idx) => (
                 <div key={idx}>   

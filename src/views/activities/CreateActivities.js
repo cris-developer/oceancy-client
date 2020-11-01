@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
 import { createActivity,uploadImagesCreate } from '../../services/activityService';
-//import {}
+import {fileService} from '../../services/fileService';
 import axios from "axios"
 
 export default class ActivitiesCreate  extends Component {
@@ -17,7 +17,7 @@ export default class ActivitiesCreate  extends Component {
       destination: '',
       price: '',
       type: '',
-      photoUrl: ''
+      photoUrl:''
       }
      
   createInputChange =  (event) => {
@@ -28,13 +28,34 @@ export default class ActivitiesCreate  extends Component {
   }
 
   // UPLOADING THE IMAGES
+
+   
+  handleFileUpload = e => {
+    const uploadData = new FormData()
+    uploadData.append("image", e.target.files[0])
+    this.filesService.handleUpload(uploadData)
+        .then(response => this.setState({ photoUrl: response.data.secure_url }))
+        .catch(err => {console.log('Error while uploading the image:',err)})
+  }
+  //new FormData().append('image',photoUrl)=uploadData
+
   createImageUpload = e => {  
     console.log("The file to be uploaded is: ", e.target.files[0]);
     ////UploadData.append("photoUrl", e.target.files[0]);
     //uploadImagesCreate(e.target.files[0])
-    uploadImagesCreate(e.target.files[0])
-      .catch(console.error)
-      .then((res) => (res));
+    fileService(e.target.files[0])
+    .then(response => {
+      console.log(response);
+      this.setState({ photoUrl: response.path });
+    })
+    .catch(err => {console.log('Error while uploading the image:',err)})
+
+    // () => {}
+    // (response) => {}
+    // response => {}
+    // response => this.setState({ photoUrl: response.path })
+    // response => { return this.setState({ photoUrl: response.path }) }
+}
       // .then((res) => addImage(res));
     
     // .then(response => {
@@ -46,7 +67,9 @@ export default class ActivitiesCreate  extends Component {
     //   .catch(err => {
     //     console.log("Error while uploading the file: ", err);
     //   });
-    }
+
+
+
 
    
 
@@ -64,10 +87,11 @@ export default class ActivitiesCreate  extends Component {
       destination:this.state.destination,
       price:this.state.price,
       type:this.state.type,
-      photoUrl:this.state.photoUrl
+      photoUrl:this.state.photoUrl,
     }
   
     createActivity(activity).then((response) => {
+      
       this.setState({
       name: '',
       description: '',
@@ -78,7 +102,8 @@ export default class ActivitiesCreate  extends Component {
       destination: '',
       price: '',
       type: '',
-      photoUrl: '',
+      photoUrl:''
+  
       });
     });
   };
@@ -136,7 +161,7 @@ export default class ActivitiesCreate  extends Component {
 
           <Form.Group controlId="Image">
             <Form.Label>Image Upload</Form.Label>
-            <Form.Control type="file" name="photoUrl" value={this.state.photoUrl} onChange={this.createImageUpload} />
+            <Form.Control type="file" name="image" onChange={this.createImageUpload} />
           </Form.Group>
                     
           <Button variant="primary" size="lg" block="block" type="submit">

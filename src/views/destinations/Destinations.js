@@ -43,26 +43,44 @@ export default class Listdestinations extends React.Component {
          console.log(this.state.destinations);
         return (
             <div className="mt-3">
-                {/* {this.state.destinations.map((el, idx) => 
-                (
-                <Container >
-                  {(idx % 4 == 0) ? (<Row>
-                  <Col xs="4"><DestinationCard 
-                      key={idx} 
-                      photoUrl={el.photoUrl}
-                      name={el.name}
-                      >
-                      </DestinationCard></Col>
-                  </Row>): 
-                  (<Col xs="4"><DestinationCard 
-                      key={idx} 
-                      photoUrl={el.photoUrl}
-                      name={el.name}
-                      >
-                      </DestinationCard>
-                </Col>)}   
-            </Container>
-                ))} */}
+              <main className ='container' style= {{position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'}}> 
+                <div className ='rowDestinations col-md-6 col-sm-12'>
+                  {this.state.destinations.map((el, idx) => (
+
+                  <Container>
+                    <Row>
+                    <Col>
+                    <DestinationCard 
+                        key={idx} 
+                        photoUrl={el.photoUrl}
+                        name={el.name}
+                        >
+                        </DestinationCard>
+                    </Col>
+                    </Row> 
+                  </Container>
+                  ))}
+
+
+                  {/* <Container >
+                    {(idx % 4 == 0) ? (<Row>
+                    <Col xs="4"><DestinationCard 
+                        key={idx} 
+                        photoUrl={el.photoUrl}
+                        name={el.name}
+                        >
+                        </DestinationCard></Col>
+                    </Row>): 
+                    (<Col xs="4"><DestinationCard 
+                        key={idx} 
+                        photoUrl={el.photoUrl}
+                        name={el.name}
+                        >
+                        </DestinationCard>
+                  </Col>)}     
+                  </Container> */}
+                </div>
+               </main>
               <div>
                   {this.state.destinations.map((el, idx) => (
                       <div key={idx} >

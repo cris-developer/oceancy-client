@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {Form, Button,Container,Row,Col} from 'react-bootstrap'
 import { getAllActivities} from '../../services/activityService';
+import ActivityCard from '../../components/activitycard/ActivityCard'
 import {  Link } from "react-router-dom";
-//import './Activities.css'
+import './Activities.css'
 
 
 export default class Activities extends React.Component {
@@ -41,29 +42,50 @@ export default class Activities extends React.Component {
          <Link to={"/activities/create/"} >
                        <div className="btn btn-primary">Create</div>  
           </Link>
-        <div className="mt-3">
-            {this.state.activities.map((el, idx) => (
-                <div key={idx}>   
-                    <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '40%' }}/>
-
-                    <div className= 'contentText'>  {el.name}</div>
-                    <div>{el.description}</div>   
-                    <div>{el.startDate}</div>  
-                    <div>{el.endDate}</div>  
-                    {/* <div>{el.duration}</div>  
-                    <div>{el.price}</div> 
-                    <div>{el.type}</div>  
-                    <div>{el.address}</div>   
-                    <div>{el.host}</div>   */}
-                    <Link to={"/activities/details/" + el._id} >
-                       <div className="btn btn-primary">details</div>  
-                    </Link>
-                            
-               </div>        
+          <div className="mt-3">
+             <main className ='container' style= {{position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'}}> 
+              <div className ='rowActivities col-md-6 col-sm-12'>
+             
+                  {this.state.activities.map((el, idx) => (
+                <Container >
+                 <Row>
+                   <Col xs ={{ span: 8}}>
+                      <ActivityCard 
+                          key={idx} 
+                          photoUrl={el.photoUrl}
+                          name={el.name}
+                          destination={el.destination}
+                          >
+                      </ActivityCard>
+                    </Col>
+                   </Row>
+                  <Link to={"/activities/details/" + el._id} >
+                          <div className="btn btn-primary">details</div>  
+                  </Link>
+               </Container>
+               
                 ))}
-            </div>
+
+         
+
+                  {/* {this.state.activities.map((el, idx) => (
+                    <div key={idx}>   
+                        <img src={el.photoUrl} alt="ActivityList" className="img" style={{width:'60%',borderRadius:'10px'}}/>
+
+                        <div className= 'destinationText' style = {{color:'white',position:'absolute',top:'10vh',left:'6vh'}}>  {el.destination}</div>
+                        <div className= 'destinationName' style = {{color:'white',position:'absolute',top:'80%'}}>  {el.name}</div>
+                  
+                        <Link to={"/activities/details/" + el._id} >
+                          <div className="btn btn-primary">details</div>  
+                        </Link>
+                                
+                  </div>        
+                    ))} */}
+                </div>
+           </main>
+          </div>
        </div>
-    
+
     );
   }
 }

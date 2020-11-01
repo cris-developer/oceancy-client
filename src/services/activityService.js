@@ -36,13 +36,13 @@ export const createActivity = (activity) => {
 
 //SERVICE UPLOADING IMAGES WHEN CREATING ACTIVITIES
 
- export const uploadImagesCreate = (image) => {
+ export const uploadImagesCreate = (photoUrl) => {
   //const search = {destinations:destinations,startDate:startDate,endDate:endDate,type:type}
   console.log ('I AM UPLOADING IMAGES WHEN CREATING ON THE CLIENT SIDE')
   
   const uploadData = new FormData();
 
-  uploadData.append("image", image);
+  uploadData.append("image", photoUrl);
   
   return service
     .post('/activities/upload',uploadData)

@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <nav> 
+        <nav>
           <NavBar authenticated={authenticated} handleLogout={this.handleLogout}/>
             {/* {authenticated && <Link to="/"> Home </Link>} */}
             {/* {!authenticated && <Link to="/login"> Login </Link>}
