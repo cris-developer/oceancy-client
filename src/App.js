@@ -91,14 +91,45 @@ class App extends React.Component {
               authenticate={this.authenticate}
               component={Signup}
             />
-            {/* <Destinations/> */}
-            <Route exact path="/destinations" component={Destinations}/>
-	          <Route exact path="/activities" component={Activities} />
-            <Route exact path="/activities/details/:id" component={ActivitiesDetails} />
-            <Route exact path="/activities/create" component={CreateActivities} />
-            <Route exact path="/activities/edit/:id" component={EditActivities} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profile/edit" component={EditProfile} authenticated={authenticated} handleLogout={this.handleLogout}/>    
+            <Route 
+            exact 
+            path="/destinations" 
+            component={Destinations}
+            />
+	          <Route 
+            exact 
+            path="/activities" 
+            component={Activities} 
+            />
+            <Route 
+            exact 
+            path="/activities/details/:id" 
+            component={ActivitiesDetails} 
+            />
+            <Route 
+            exact 
+            path="/activities/create" 
+            component={CreateActivities} 
+            />
+            <Route 
+            exact 
+            path="/activities/edit/:id" 
+            component={EditActivities} 
+            />
+            <PrivateRoute
+            exact
+            path="/profile"
+            authenticated={authenticated}  
+            user={this.state.user} 
+            component={Profile} 
+            />
+            <Route 
+            exact 
+            path="/profile/edit" 
+            component={EditProfile} 
+            authenticated={authenticated} 
+            handleLogout={this.handleLogout}
+            />    
           </Switch>
           </main>
         </BrowserRouter>

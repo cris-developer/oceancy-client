@@ -44,6 +44,7 @@ class Signup extends React.Component {
         {errorMessage !== "" && errorMessage}
         <form onSubmit={this.handleSubmit}>
           {/* <label>Full name: </label>
+          <div className="formContainer">
           <input
             name="fullName"
             value={fullName}
@@ -70,9 +71,10 @@ class Signup extends React.Component {
           <button type="submit"> Sign up </button>
           <Link to={"/login"} >
                 Log in
-          </Link> */}
-
-          <Form>
+          </Link>
+          <div> */}
+          
+          <Form className="formContainer">
           <Form.Group controlId="formGridfullName">
             <Form.Label>Full Name</Form.Label>
             <Form.Control  name="fullName"  value={fullName} onChange={this.handleChange} required={true} type="text"placeholder="your name.." />

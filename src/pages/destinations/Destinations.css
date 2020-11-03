@@ -3,16 +3,15 @@
     
 }
 
-.destinationList{
+.destination-card-wrapper {
 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-    align-items: stretch;
-
-
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: bisque;
+  justify-content: space-around;
 }
-
 
   /* .grid > article {
     border: 1px solid #ccc;

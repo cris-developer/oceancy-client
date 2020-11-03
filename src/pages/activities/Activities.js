@@ -38,35 +38,28 @@ export default class Activities extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="mt-3">
          <Link to={"/activities/create/"} >
                        <div className="btn btn-primary">Create</div>  
           </Link>
           <div className="mt-3">
              <main className ='container' style= {{position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'}}> 
-              <div className ='rowActivities col-md-6 col-sm-12'>
-             
-                  {this.state.activities.map((el, idx) => (
-                <Container >
-                 <Row>
-                   <Col xs ={{ span: 8}}>
-                      <ActivityCard 
-                          key={idx} 
-                          photoUrl={el.photoUrl}
-                          name={el.name}
-                          destination={el.destination}
-                          >
-                      </ActivityCard>
-                    </Col>
-                   </Row>
-                  <Link to={"/activities/details/" + el._id} >
-                          <div className="btn btn-primary">details</div>  
-                  </Link>
-               </Container>
-               
-                ))}
-
-         
+              <div className ='rowActivities'>
+   
+                    <div className="activity-card-wrapper">
+                    {this.state.activities.map((el, idx) => (
+                      
+                        <ActivityCard 
+                            key={idx} 
+                            photoUrl={el.photoUrl}
+                            name={el.name}
+                            destination={el.destination}
+                            id={el._id}
+                            >
+                        </ActivityCard>
+                
+                  ))}
+                    </div>
 
                   {/* {this.state.activities.map((el, idx) => (
                     <div key={idx}>   

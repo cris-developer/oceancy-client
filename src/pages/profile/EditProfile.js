@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { profileEdit} from '../../services/userService'
 import {Form, Button,Col} from 'react-bootstrap'
+import './EditProfile.css'
 
 export class EditProfile extends React.Component {
   state = {
@@ -9,6 +10,7 @@ export class EditProfile extends React.Component {
     password: '',
     photoUrl :'',
     favoriteActivity :'',
+    level :'',
     errorMessage: '',
   };
   handleChange = (event) => {
@@ -17,32 +19,35 @@ export class EditProfile extends React.Component {
       [name]: value,
     });
   };
+  
 
   handleSubmit = (event) => {
+    console.log ('I AM THE USER ID WHEN EDITING PROFILE')
     event.preventDefault();
     profileEdit({
+      userId: this.state.user._id,
       fullName: this.state.fullName,
       email: this.state.email,
       password: this.state.password,
       photoUrl: this.state.photoUrl,
-      favoriteActivity:this.state.favoriteActivity
-
+      favoriteActivity:this.state.favoriteActivity,
+      level:this.state.level
     })
-      .then((response) =>
-       
-         this.setState({
-              errorMessage: response.errorMessage,
-            })
-      )
-      .catch((err) => console.log(err));
+      .then((response) => {
+        this.props.authenticate(response.data.user);
+        this.props.history.push("/user");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-
+  
   render() {
     const { fullName, email, password, photoUrl,favoriteActivity } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-            <Form>  
+            <Form className="formContainer">  
               <Form.Group controlId="formGridfullName">
                   <Form.Label>Full Name</Form.Label>
                   <Form.Control  name="fullName" value={fullName} type="text" onChange={this.handleChange} />
@@ -66,24 +71,29 @@ export class EditProfile extends React.Component {
 
                   <Form.Group as={Col} controlId="formGridFavoriteActivity">
                     <Form.Label>Favorite Activity</Form.Label>
-                    <Form.Control as="select" defaultValue="Choose...">
+                    <Form.Control  name ="favoriteActivity"  value={favoriteActivity} type="text" onChange={this.handleChange} as="select" defaultValue="Choose... ">
                       <option>Choose...</option>
-                      <option>...</option>
+                      <option value="Diving">Diving</option>
+                      <option value="Sailing">Sailing</option>
+                      <option value="Surfing">Surfing</option>
+                      <option value="Kite Surfing">Kite Surfing</option>
                     </Form.Control>
                   </Form.Group>
-                  <Form.Group as={Col} controlId="formGridLevel">
+                  {/* <Form.Group as={Col} controlId="formGridLevel">
                     <Form.Label>Level </Form.Label>
-                    <Form.Control as="select" defaultValue="Choose...">
+                    <Form.Control type="search" name="type" value={level} onChange={this.handleChange} as="select" defaultValue="Choose...">
                       <option>Choose...</option>
-                      <option>...</option>
+                      <option value="Diving">Diving</option>
+                      <option value="Sailing">Sailing</option>
+                      <option value="Surfing">Surfing</option>
+                      <option value="Kite Surfing">Kite Surfing</option>
                     </Form.Control>
-                  </Form.Group>
+                  </Form.Group> */}
                 </Form.Row>
                 <Button variant="primary" type="submit">
                   Edit Profile
                 </Button>
               </Form>
-
           {/* <Form>
           <Form.Label>fullName: </Form.Label>
                 <input

@@ -65,7 +65,7 @@ class Login extends React.Component {
                 Sign Up
           </Link> */}
 
-          <Form>
+          <Form className="formContainer">
             <Form.Group  controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control name="email" value={email} onChange={this.handleChange} required={true} type="email" placeholder="Email" />

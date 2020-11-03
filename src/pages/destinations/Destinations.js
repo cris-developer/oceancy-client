@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Destinations.css'
 
 //import destinations from '../../destinations.json'
 
@@ -43,11 +44,11 @@ export default class Listdestinations extends React.Component {
          console.log(this.state.destinations);
         return (
             <div className="mt-3">
-
+               <div className="destination-card-wrapper"></div>
                     {/* const style= {position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'} */}
-              <main className ='destinationList' > 
+             
                 {/* <div className ='rowDestinations col-md-6 col-sm-12'> */}
-
+               
                   {this.state.destinations.map((el, idx) => (
 
                     <DestinationCard 
@@ -89,7 +90,7 @@ export default class Listdestinations extends React.Component {
                   </Col>)}     
                   </Container> */}
                 {/* </div> */}
-               </main>
+               
               {/* <div>
                   {this.state.destinations.map((el, idx) => (
                       <div key={idx} >

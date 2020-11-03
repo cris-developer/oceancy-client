@@ -1,0 +1,77 @@
+.ActivityCardContainer {
+  /* flex-direction: column; */
+    width: 300px;
+    height: 450px;
+
+    display: flex;
+    flex-flow: column;
+    background-color: aqua;
+    margin: 10px;
+
+  }
+.ActivityCardImage {
+    flex: 1 1 auto;
+
+    height: 350px;
+    overflow: hidden;
+    background-color: yellow;
+
+    display: flex;
+    flex-flow:row;
+    justify-content: center;
+    
+}
+
+.ActivityCardImage img {
+    width: 120%;
+}
+
+.description, name{
+    width: 100%;
+  text-align: left;
+
+}
+.ActivityCardInfo {
+  
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-flow: column;
+  background-color: purple;
+
+  align-items: stretch;
+    
+}
+
+.ActivityCardInfo .activityName {
+
+
+    flex: 1 1 auto;
+    background-color: pink;
+
+    display: flex;
+    flex-flow: row;
+
+    padding: 10px;
+
+    justify-content: flex-start;
+}
+
+.ActivityCardInfo .activityDetails {
+    flex: 1 1 auto;
+    background-color: green;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    padding: 10px;
+}
+
+.ActivityCardInfo .activityDetails .duration {
+    background-color: red;
+}
+
+.ActivityCardInfo .activityDetails .price-wrapper {
+    background-color: lime;
+}

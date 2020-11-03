@@ -61,47 +61,6 @@ export default NavBar
 
 
 
-// function NavBar(props) {
-
-
-//   return (
-//     <div>
-//         <Navbar bg="green"  fixed='top' className="with-border">
-//           <Container>
-//             <Navbar.Brand>
-//                OCEANCY
-//             </Navbar.Brand>
-//             <Nav className="justify-content-end">
-//               <Nav>
-//                 <Link to={"/destinations"} className="nav-link">
-//                   Destinations
-//                 </Link>
-//               </Nav>
-//               <Nav>
-//                 <Link to={"/activities"} className="nav-link">
-//                   Activities
-//                 </Link>
-//               </Nav>
-//               <Nav>
-//                 <Link to={"/home"} className="nav-link">
-//                   Home
-//                 </Link>
-//               </Nav>
-//               <Nav>
-//                 {this.props.authenticated && (
-//               <Link to={"/"} onClick={this.props.handleLogout}>
-//                 Logout
-//               </Link>
-//             )}
-//               </Nav>
-//             </Nav>
-
-//           </Container>
-//         </Navbar>
-//     </div>
-//   )
-// }
-
 
 
 

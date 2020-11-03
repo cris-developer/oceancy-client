@@ -35,15 +35,27 @@ export const login = ({ email, password }) => {
 
 
 // DISPLAY PROFILE   
-export const getProfile = (id) => {
-  console.log ('I AM DISPLAYING PROFILE FROM CLIENT SERVICE')
+
+export const getProfile = (user) => {
+  
+  console.log ('I AM THE USER in the services:', user)
   return service
-    .get('/user/profile/' + id)
+    .post("/user/profile", { userId: user._id })
     .then((response) => response.data)
     .catch((err) => {
       console.log("The error in the services: ", err);
     });
 };
+
+// export const getProfile = (id) => {
+//   console.log ('I AM DISPLAYING PROFILE FROM CLIENT SERVICE')
+//   return service
+//     .get('/user/profile/' + id)
+//     .then((response) => response.data)
+//     .catch((err) => {
+//       console.log("The error in the services: ", err);
+//     });
+// };
 // EDIT USER PROFILE
 export const profileEdit = ({ fullName: fullName, email:email, password: password, favoriteActivity:favoriteActivity,photoUrl:photoUrl,accessToken }) => {
   return service
