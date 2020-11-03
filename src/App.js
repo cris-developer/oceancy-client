@@ -15,7 +15,7 @@ import CreateActivities from './pages/activities/CreateActivities';
 import EditActivities from './pages/activities/EditActivities';
 import Profile from './pages/profile/Profile';
 import EditProfile from './pages/profile/EditProfile';
-//import NavBar from "./components/navbar/NavBar";
+import NavBar from "./components/navbar/NavBar";
 
 
 
@@ -58,7 +58,7 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
         <nav>
-          {/* <NavBar /> */}
+          <NavBar />
             {/* {authenticated && <Link to="/"> Home </Link>} */}
             {/* {!authenticated && <Link to="/login"> Login </Link>}
             {!authenticated && <Link to="/signup"> Signup </Link>} */}
