@@ -1,12 +1,12 @@
 import React from 'react';
 import './DestinationCard.css'
 
-function DestinationCard({ photoUrl,destination }) {
+function DestinationCard({ photoUrl,name }) {
     return (
-        <div className='card'>
-            <img src={photoUrl} alt="" />
-            <div className="cardInfo">
-                <p>{destination}</p>
+        <div className='card  col-xs-4' style={{ maxWidth:'300px' ,maxHeight:'300px'}}>
+            <img src={photoUrl} alt="" style={{ width:'100%', minHeight:'300px',maxHeight:'300px',borderRadius:'10px'}}></img>
+            <div className="cardInfo" >
+                <p style = {{color:'white',position:'absolute',top:'20vh', borderColor:'red'}}>{name}</p>
             </div>
         </div>
     )

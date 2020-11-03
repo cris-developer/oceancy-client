@@ -1,17 +1,15 @@
-import React, {Component} from 'react';
-import { profileEdit} from '../../services/userService';
+import React from "react";
+import { signup } from "../../services/userService";
+import { Link } from "react-router-dom";
 
-
-
-export class EditProfile extends React.Component {
+class Signup extends React.Component {
   state = {
-    username: '',
-    email: '',
-    password: '',
-    photoUrl :'',
-    favoriteActivity :'',
-    errorMessage: '',
+    fullName: "",
+    email: "",
+    password: "",
+    errorMessage: "",
   };
+ 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -21,8 +19,8 @@ export class EditProfile extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    profileEdit({
-      username: this.state.username,
+    signup({
+      fullName: this.state.fullName,
       email: this.state.email,
       password: this.state.password,
     })
@@ -39,14 +37,15 @@ export class EditProfile extends React.Component {
   };
 
   render() {
-    const { username, email, password } = this.state;
+    const { fullName, email, password, errorMessage } = this.state;
     return (
       <div>
+        {errorMessage !== "" && errorMessage}
         <form onSubmit={this.handleSubmit}>
-          <label>username: </label>
+          <label>Full name: </label>
           <input
-            name="username"
-            value={username}
+            name="fullName"
+            value={fullName}
             onChange={this.handleChange}
             required={true}
             type="text"
@@ -68,15 +67,13 @@ export class EditProfile extends React.Component {
             required={true}
           />
           <button type="submit"> Sign up </button>
-        </form>
+          <Link to={"/login"} >
+                Log in
+          </Link>
+        </form>   
       </div>
     );
   }
 }
 
-export default EditProfile;
-
-
-
-
-
+export default Signup;

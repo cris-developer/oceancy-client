@@ -34,84 +34,21 @@ export const createActivity = (activity) => {
     .catch((err) => err);
   }
 
-//SERVICE UPLOADING IMAGES WHEN CREATING ACTIVITIES
+//SERVICE UPLOADING IMAGES WHEN CREATING OR EDITING/UPDATING ACTIVITIES
 
- export const uploadImagesCreate = (photoUrl) => {
-  //const search = {destinations:destinations,startDate:startDate,endDate:endDate,type:type}
+export const uploadImage = (photoUrl) => {
+  
   console.log ('I AM UPLOADING IMAGES WHEN CREATING ON THE CLIENT SIDE')
   
   const uploadData = new FormData();
+  uploadData.append("image", photoUrl); 
 
-  uploadData.append("image", photoUrl);
-  
   return service
-    .post('/activities/upload',uploadData)
-    .then((response) => response.data)
+    .post('/activities/upload',uploadData) // new FormData().append('image',photoUrl)=uploadData
+    .then (response => response.data)
     .catch((err) => err);
-};
+ };
 
-
-// const errorHandler = err => {
-//   console.error(err);
-//   throw err;
-// };
-// export default {
-//   service,
-//   handleUpload (theFile) {
-//     console.log('file in service: ', theFile)
-//     return service.post('/upload', theFile)
-//       .then(res => res.data)
-//       .catch(errorHandler);
-//   },
-//   saveNewThing (newThing) {
-//     console.log('new thing is: ', newThing)
-//     return service.post('/things/create', newThing)
-//       .then(res => res.data)
-//       .catch(errorHandler);
-//   }
-// }
-
-//SERVICE UPLOADING IMAGES WHEN UPDATING ACTIVITIES
-
- export const uploadImagesEdit = (id,theFile) => {
-  
-  console.log ('I AM UPLOADING IMAGES WHEN EDITING ON THE CLIENT SIDE')
-  return service
-    .post(`/activities/update/${id}`,theFile)
-    .then((response) => response.data)
-    .catch((err) => err);
-};
-
-// export function uploadImageEdit(image) {
-//   const uploadData = new FormData();
-
-//   uploadData.append("image", image);
-//   return service
-//     .post("user/image", uploadData)
-//     .then(({ data }) => data)
-//     .catch(console.error);
-// }
-
-//---//
-// const errorHandler = err => {
-//   console.error(err);
-//   throw err;
-// };
-// export default {
-//   service,
-//   handleUpload (theFile) {
-//     console.log('file in service: ', theFile)
-//     return service.post('/upload', theFile)
-//       .then(res => res.data)
-//       .catch(errorHandler);
-//   },
-//   saveNewThing (newThing) {
-//     console.log('new thing is: ', newThing)
-//     return service.post('/things/create', newThing)
-//       .then(res => res.data)
-//       .catch(errorHandler);
-//   }
-// }
 
 // SERVICE TO UPDATE ACTIVITY
 export const updateActivity = (id,activity) => {

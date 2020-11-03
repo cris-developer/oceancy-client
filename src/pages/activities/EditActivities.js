@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
-import { updateActivity } from '../../services/activityService';
-import axios from "axios"
+import { updateActivity,uploadImage } from '../../services/activityService';
+
 
 export default class ActivitiesEdit  extends Component {
     
-    // Setting up state
     state = {
       name: '',
       description: '',
@@ -15,10 +14,10 @@ export default class ActivitiesEdit  extends Component {
       duration: '',
       destination: '',
       price: '',
-      type: ''
-      //activity :{},
+      type: '',
+      photoUrl:''
+      
       }
-
      
   EditInputChange=  (event) => {
     const { name, value } = event.target;
@@ -26,6 +25,18 @@ export default class ActivitiesEdit  extends Component {
       [name]: value
     });
   }
+
+  //UPLOADING IMAGES
+  createImageUpload = e => {  
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+    uploadImage(e.target.files[0])
+    .then(response => {
+      console.log(response);
+      this.setState({ photoUrl: response.path });
+    })
+    .catch(err => {console.log('Error while uploading the image:',err)})
+
+    }
 
   updateActivitySubmit = (e) => {
     console.log ('I AM UPDATING')
@@ -40,7 +51,8 @@ export default class ActivitiesEdit  extends Component {
       duration:this.state.duration,
       destination:this.state.destination,
       price:this.state.price,
-      type:this.state.type
+      type:this.state.type,
+      photoUrl:this.state.photoUrl
     }
     const {params}  = this.props.match
 
@@ -52,12 +64,12 @@ export default class ActivitiesEdit  extends Component {
     }).catch ((error=> {
       console.log(error)
     }))
-    //this.props.history.push('/activities')
+    this.props.history.push('/activities')
   };
 
   render() {
      // console.log ('I AM RENDERING THE UPDATE ACTIVITY', this.state)
-      const {name,description,address,startDate,endDate,duration,destination,type}=this.state;
+      const {name,description,address,startDate,endDate,duration,destination,type,photoUrl}=this.state;
     return (
       <div className="form-wrapper">
         <Form onSubmit={this.updateActivitySubmit}>
@@ -104,6 +116,11 @@ export default class ActivitiesEdit  extends Component {
           <Form.Group controlId="">
             <Form.Label>Type</Form.Label>
             <Form.Control type="text" name="type" value={type} onChange={this.EditInputChange} />
+          </Form.Group>
+
+          <Form.Group controlId="Image">
+            <Form.Label>Image Upload</Form.Label>
+            <Form.Control type="file" name="image" onChange={this.editImageUpload} />
           </Form.Group>
 
           <Button variant="primary" size="lg" block="block" type="submit">

@@ -43,23 +43,32 @@ export default class Listdestinations extends React.Component {
          console.log(this.state.destinations);
         return (
             <div className="mt-3">
-              <main className ='container' style= {{position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'}}> 
-                <div className ='rowDestinations col-md-6 col-sm-12'>
+
+                    {/* const style= {position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'} */}
+              <main className ='destinationList' > 
+                {/* <div className ='rowDestinations col-md-6 col-sm-12'> */}
+
                   {this.state.destinations.map((el, idx) => (
 
-                  <Container>
-                    <Row>
-                    <Col>
                     <DestinationCard 
-                        key={idx} 
-                        photoUrl={el.photoUrl}
-                        name={el.name}
-                        >
-                        </DestinationCard>
-                    </Col>
-                    </Row> 
-                  </Container>
-                  ))}
+                          key={idx} 
+                          photoUrl={el.photoUrl}
+                          name={el.name}
+                          >
+                          </DestinationCard>
+                  
+                    ))}
+
+                    {/* {<div className={(idx == 0 || idx % 4 == 0) ?  'row': ''}>
+                      <DestinationCard 
+                          key={idx} 
+                          photoUrl={el.photoUrl}
+                          name={el.name}
+                          >
+                          </DestinationCard>
+                    </div>
+
+                  ))} */}
 
 
                   {/* <Container >
@@ -79,16 +88,16 @@ export default class Listdestinations extends React.Component {
                         </DestinationCard>
                   </Col>)}     
                   </Container> */}
-                </div>
+                {/* </div> */}
                </main>
-              <div>
+              {/* <div>
                   {this.state.destinations.map((el, idx) => (
                       <div key={idx} >
                               <img src={el.photoUrl} alt="Contact" className="img" style={{width: '30%'}} />
                               <div className= 'contentText' >  {el.name}</div>
                       </div>
                 ))}
-              </div>
+              </div> */}
                 
           </div>
         );

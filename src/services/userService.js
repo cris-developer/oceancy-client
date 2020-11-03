@@ -1,5 +1,5 @@
 import axios from "axios";
-import Login from "../views/login/Login";
+import Login from "../pages/login/Login";
 
 const service = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL ||  "http://localhost:5000",
@@ -12,10 +12,10 @@ export const validateSession = (accessToken) => {
     .then((response) => response.data)
     .catch((err) => err);
 };                      
-                    // { username, email, password }
-export const signup = ({ username, email, password }) => {
+                    // { fullName, email, password }
+export const signup = ({ fullName, email, password }) => {
   return service
-    .post("/user/signup", { username, email, password })
+    .post("/user/signup", { fullName, email, password })
     .then((response) => response.data)
     .catch((err) => err);
 };
@@ -34,20 +34,20 @@ export const login = ({ email, password }) => {
 };
 
 
-
 // DISPLAY PROFILE   
-export const getProfile = (user) => {
+export const getProfile = (id) => {
+  console.log ('I AM DISPLAYING PROFILE FROM CLIENT SERVICE')
   return service
-    .get('/user/profile',user)
+    .get('/user/profile/' + id)
     .then((response) => response.data)
     .catch((err) => {
       console.log("The error in the services: ", err);
     });
 };
 // EDIT USER PROFILE
-export const profileEdit = ({ firstName, lastName, email, password, favoriteActivity,photoUrl,accessToken }) => {
+export const profileEdit = ({ fullName: fullName, email:email, password: password, favoriteActivity:favoriteActivity,photoUrl:photoUrl,accessToken }) => {
   return service
-    .post('/user/profile/edit',{ firstName, lastName, email, password, favoriteActivity,photoUrl })
+    .post('/user/profile/edit',{ fullName,email, password, favoriteActivity,photoUrl })
     .then((response) => response.data)
     .catch((err) => err);
 };

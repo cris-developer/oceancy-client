@@ -6,15 +6,7 @@ const service = axios.create({
 });
 
 
-// export const fileService = (photoUrl) => {
-
-  
-//   handleUpload = photoUrl => this.service.post('/activities/upload', photoUrl)
-// }
-
-
-
-export const fileService = (photoUrl) => {
+export const uploadImage = (photoUrl) => {
     //const search = {destinations:destinations,startDate:startDate,endDate:endDate,type:type}
     console.log ('I AM UPLOADING IMAGES WHEN CREATING ON THE CLIENT SIDE')
     
@@ -23,7 +15,7 @@ export const fileService = (photoUrl) => {
     uploadData.append("image", photoUrl); 
     
     return service
-      .post('/activities/upload',uploadData) // new FormData().append('image',photoUrl)=uploadData
+      .post('/upload',uploadData) // new FormData().append('image',photoUrl)=uploadData
       .then (response => response.data)
       .catch((err) => err);
   };

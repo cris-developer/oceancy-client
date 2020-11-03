@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button} from 'react-bootstrap'
-import { createActivity,uploadImagesCreate } from '../../services/activityService';
-import {fileService} from '../../services/fileService';
+import { createActivity,uploadImage } from '../../services/activityService';
+//import { uploadImage} from '../../services/uploadImage';
 import axios from "axios"
 
 export default class ActivitiesCreate  extends Component {
@@ -29,49 +29,17 @@ export default class ActivitiesCreate  extends Component {
 
   // UPLOADING THE IMAGES
 
-   
-  handleFileUpload = e => {
-    const uploadData = new FormData()
-    uploadData.append("image", e.target.files[0])
-    this.filesService.handleUpload(uploadData)
-        .then(response => this.setState({ photoUrl: response.data.secure_url }))
-        .catch(err => {console.log('Error while uploading the image:',err)})
-  }
-  //new FormData().append('image',photoUrl)=uploadData
-
   createImageUpload = e => {  
     console.log("The file to be uploaded is: ", e.target.files[0]);
-    ////UploadData.append("photoUrl", e.target.files[0]);
-    //uploadImagesCreate(e.target.files[0])
-    fileService(e.target.files[0])
+    uploadImage(e.target.files[0])
     .then(response => {
       console.log(response);
       this.setState({ photoUrl: response.path });
     })
     .catch(err => {console.log('Error while uploading the image:',err)})
 
-    // () => {}
-    // (response) => {}
-    // response => {}
-    // response => this.setState({ photoUrl: response.path })
-    // response => { return this.setState({ photoUrl: response.path }) }
-}
-      // .then((res) => addImage(res));
+    }
     
-    // .then(response => {
-    //     console.log('RESPONSE ON CREATING COMPONENT: ', response);
-    //     // after the console.log we can see that response carries 'secure_url' which we can use to update the state 
-    //     this.setState({ photoUrl: response.secure_url });
-    //     console.log ('UPLOADING IMAGES:',response.secure_url )
-    //   })
-    //   .catch(err => {
-    //     console.log("Error while uploading the file: ", err);
-    //   });
-
-
-
-
-   
 
  // SUBMIT THE FORM
 
@@ -106,6 +74,7 @@ export default class ActivitiesCreate  extends Component {
   
       });
     });
+    this.props.history.push('/activities')
   };
 
   render() {

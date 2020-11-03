@@ -4,17 +4,17 @@ import "./App.css";
 import AnonRoute from "./components/auth/AnonRoute";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import { validateSession } from "./services/userService";
-import Home from "./views/home/Home";
-import Login from "./views/login/Login";
-import Signup from "./views/signup/Signup";
-import Destinations from './views/destinations/Destinations.js';
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
+import Destinations from './pages/destinations/Destinations.js';
 import destinations from './destinations.json';
-import Activities from './views/activities/Activities';
-import ActivitiesDetails from './views/activities/ActivitiesDetails';
-import CreateActivities from './views/activities/CreateActivities';
-import EditActivities from './views/activities/EditActivities';
-import Profile from './views/profile/Profile';
-import EditProfile from './views/profile/EditProfile';
+import Activities from './pages/activities/Activities';
+import ActivitiesDetails from './pages/activities/ActivitiesDetails';
+import CreateActivities from './pages/activities/CreateActivities';
+import EditActivities from './pages/activities/EditActivities';
+import Profile from './pages/profile/Profile';
+import EditProfile from './pages/profile/EditProfile';
 import NavBar from "./components/navbar/NavBar";
 
 
@@ -44,11 +44,13 @@ class App extends React.Component {
   };
 
   handleLogout = () => {
+    console.log ('IM LOGGING OUT')
     localStorage.clear();
     this.setState({
       authenticated: false,
       user: {},
     });
+    this.props.history.push('/login')
   };
   render() {
     const { authenticated } = this.state;
@@ -56,7 +58,7 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
         <nav>
-          <NavBar authenticated={authenticated} handleLogout={this.handleLogout}/>
+          <NavBar />
             {/* {authenticated && <Link to="/"> Home </Link>} */}
             {/* {!authenticated && <Link to="/login"> Login </Link>}
             {!authenticated && <Link to="/signup"> Signup </Link>} */}
@@ -96,7 +98,7 @@ class App extends React.Component {
             <Route exact path="/activities/create" component={CreateActivities} />
             <Route exact path="/activities/edit/:id" component={EditActivities} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/profile/edit" component={EditProfile} />    
+            <Route exact path="/profile/edit" component={EditProfile} authenticated={authenticated} handleLogout={this.handleLogout}/>    
           </Switch>
           </main>
         </BrowserRouter>

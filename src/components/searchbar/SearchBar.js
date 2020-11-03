@@ -91,22 +91,13 @@ export class SearchBar extends Component {
   // };
 
   render() {
-
-    // const selectionRange = {
-    //       startDate: new Date(),
-    //       endDate: new Date(),
-    //       key: 'selection',
-    //       };
-
-    
-    //const startDate= new Date();
+      //const startDate= new Date();
       // console.log ('searchbar.es:',this.state)
       // console.log ('searchbar.es:',this.props)
        const {startDate,endDate,destinations, type} =this.state
       
       // return (<div>
-
-      //         <DatePicker
+      //            <DatePicker
       //             selected={startDate}
       //             name="startDate"
       //            // onChange={(startDate) => this.setSelectedDate(startDate)}
@@ -114,12 +105,8 @@ export class SearchBar extends Component {
       //             filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
       //             isClearable
       //           /> 
+      //          </div>)
 
-
-      // </div>)
-
-      
-     
 
     return (
         <>
@@ -206,48 +193,47 @@ export class SearchBar extends Component {
                             </Col>
                             <Col  >
                                     {/* <Form.Label>Type</Form.Label> */}
-                                    <input
+                                  <label>
+                                    {/* <input
                                     type="search"
                                     placeholder="What kind of travel are you searching for...?"
                                     name="type"
                                     value={this.state.type}
-                                     
                                     onChange={this.handleSearchInputChange}
                                     //className="select w-50"
-                                    />
-                                     {/* <Form.Control as="select">
-                                        <option>Diving</option>
-                                        <option>Sailing</option>
-                                        <option>Surfing</option>
-                                        <option>Kite Surfing</option>
-                                      </Form.Control> */}
+                                    /> */}
+                                  </label>
+                                  <label>
+                                  <select
+                                      type="search"
+                                      name="type"
+                                      value={this.state.type}
+                                      onChange={this.handleSearchInputChange}
+                                      >
+                                      <option value="Diving">Diving</option>
+                                      <option value="Sailing">Sailing</option>
+                                      <option value="Surfing">Surfing</option>
+                                      <option value="Kite Surfing">Kite Surfing</option>
+                                    </select>
+
+                                  </label>
                               </Col>
                               <Col>
                                  <button type="submit" className='btn-lg' style={{backgroundColor: '#062dba', color: 'white'}}>Search</button>
                               </Col>
                         </Row>
                     </Form>
-
             </div>
-
-            {this.state.searchActivities  ? this.state.searchActivities.map((el, idx) => (
+            <div className ='searchContainer row mx-md-n5'>
+              {this.state.searchActivities  ? this.state.searchActivities.map((el, idx) => (
                 <div key={idx}>   
-                    <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width: '50%' }}/>
+                    <img src={el.photoUrl} alt="ActivityList" className="img"  style={{width:'10%' ,display:'flex',flexDirection:'row' }}/>
                     <div className= 'contentText'>  {el.name}</div>
-                    <div>{el.description}</div>   
-                    <div>{el.startDate}</div>   
-                    {/* <div>{el.endDate}</div>  
-                    <div>{el.duration}</div>  
-                    <div>{el.price}</div> 
-                    <div>{el.type}</div>  
-                    <div>{el.address}</div>   */}
-                    <div>{el.host}</div>  
-                    <Link to={"/activities/details/" + el._id} >
-                    <div className="btn btn-primary">details</div>  
-                    </Link>
-                            
+                    <div>{el.description}</div> 
+     
                </div>        
             )): ''}
+          </div>
      </>
     );
   }

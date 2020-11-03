@@ -1,6 +1,8 @@
 import React from "react";
 import { login } from "../../services/userService";
+import { signup } from "../../services/userService";
 import {Form,Button} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -18,7 +20,7 @@ class Login extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     login({
-      username: this.state.username,
+      fullName: this.state.fullName,
       email: this.state.email,
       password: this.state.password,
     })
@@ -59,6 +61,9 @@ class Login extends React.Component {
             required={true}
           />
           <button type="submit"> Login </button>
+          <Link to={"/signup"} >
+                Sign Up
+          </Link>
         </form>
       </div>
     );
