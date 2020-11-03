@@ -43,48 +43,48 @@ export class EditProfile extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
             <Form>  
-            <Form.Group controlId="formGridUser">
-                <Form.Label>User</Form.Label>
-                <Form.Control  name="fullName" value={fullName} type="text" onChange={this.handleChange} />
-              </Form.Group>
-
-              <Form.Row>
-                <Form.Group as={Col} controlId="formGridEmail">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control name ="email" value={email} type="email" onChange={this.handleChange}  />
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control  name ="password"  value={password} type="password" onChange={this.handleChange}  />
-                </Form.Group>
-              </Form.Row>
-              <Form.Row>
-                <Form.Group as={Col} controlId="formGridCity">
-                  <Form.Label>City</Form.Label>
-                  <Form.Control />
+              <Form.Group controlId="formGridfullName">
+                  <Form.Label>Full Name</Form.Label>
+                  <Form.Control  name="fullName" value={fullName} type="text" onChange={this.handleChange} />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridFavoriteActivity">
-                  <Form.Label>Favorite Activity</Form.Label>
-                  <Form.Control as="select" defaultValue="Choose...">
-                    <option>Choose...</option>
-                    <option>...</option>
-                  </Form.Control>
-                </Form.Group>
-                <Form.Group as={Col} controlId="formGridLevel">
-                  <Form.Label>Level </Form.Label>
-                  <Form.Control as="select" defaultValue="Choose...">
-                    <option>Choose...</option>
-                    <option>...</option>
-                  </Form.Control>
-                </Form.Group>
-              </Form.Row>
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
-            </Form>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control name ="email" value={email} type="email" onChange={this.handleChange}  />
+                  </Form.Group>
+                  <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control  name ="password"  value={password} type="password" onChange={this.handleChange}  />
+                  </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                  {/* <Form.Group as={Col} controlId="formGridCity">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control />
+                  </Form.Group> */}
 
-          <Form>
+                  <Form.Group as={Col} controlId="formGridFavoriteActivity">
+                    <Form.Label>Favorite Activity</Form.Label>
+                    <Form.Control as="select" defaultValue="Choose...">
+                      <option>Choose...</option>
+                      <option>...</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group as={Col} controlId="formGridLevel">
+                    <Form.Label>Level </Form.Label>
+                    <Form.Control as="select" defaultValue="Choose...">
+                      <option>Choose...</option>
+                      <option>...</option>
+                    </Form.Control>
+                  </Form.Group>
+                </Form.Row>
+                <Button variant="primary" type="submit">
+                  Edit Profile
+                </Button>
+              </Form>
+
+          {/* <Form>
           <Form.Label>fullName: </Form.Label>
                 <input
                   name="fullName"
@@ -113,11 +113,13 @@ export class EditProfile extends React.Component {
               value={favoriteActivity}
               onChange={this.handleChange}
             />
-            <br />
-            <Button variant="primary" type="submit">
+            <br /> 
+            </Form>
+            */}
+            {/* <Button variant="primary" type="submit">
                   Edit Profile
                 </Button>
-            </Form>
+           */}
         </form>
       </div>
     );

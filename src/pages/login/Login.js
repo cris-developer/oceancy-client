@@ -44,7 +44,7 @@ class Login extends React.Component {
       <div>
         {errorMessage !== "" && errorMessage}
         <form onSubmit={this.handleSubmit}>
-          <label>Email: </label>
+          {/* <label>Email: </label>
           <input
             name="email"
             value={email}
@@ -63,7 +63,30 @@ class Login extends React.Component {
           <button type="submit"> Login </button>
           <Link to={"/signup"} >
                 Sign Up
-          </Link>
+          </Link> */}
+
+          <Form>
+            <Form.Group  controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control name="email" value={email} onChange={this.handleChange} required={true} type="email" placeholder="Email" />
+            </Form.Group>
+            <Form.Group  controlId="formGridPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control  name="password" type="password"value={password} onChange={this.handleChange} required={true}placeholder="Password" />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+            Login
+            </Button>
+
+            <Link to={"/signup"} >
+                  Sign up
+            </Link>
+          
+         </Form>
+
+
+
         </form>
       </div>
     );

@@ -153,6 +153,7 @@ export class SearchBar extends Component {
                 <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
                    <Row>
                         <Col>
+                        <label> Destination
                               <input
                               type="search"
                               placeholder="Where do you want to travel to..."
@@ -160,9 +161,10 @@ export class SearchBar extends Component {
                               value={this.state.where}
                               onChange={this.handleSearchInputChange}
                               />
-                       
+                        </label>
                          </Col>
                          <Col>
+                         <label> Check in
                               {/* <input
                               type="datetime-local"
                               placeholder="When do you want to start to travel..."
@@ -180,8 +182,10 @@ export class SearchBar extends Component {
                               //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
                               isClearable
                             /> 
+                            </label>
                             </Col>
                           <Col>
+                               <label> Check out
                                 <input
                                 type="text"
                                 placeholder="Departing?"
@@ -190,6 +194,7 @@ export class SearchBar extends Component {
                                 onChange={this.handleSearchInputChange}
                                 //className="tp-search-date tp-departing-date-wrap w-50 float-left"
                                 />
+                              </label>
                             </Col>
                             <Col  >
                                     {/* <Form.Label>Type</Form.Label> */}
@@ -203,7 +208,7 @@ export class SearchBar extends Component {
                                     //className="select w-50"
                                     /> */}
                                   </label>
-                                  <label>
+                                  <label> Type
                                   <select
                                       type="search"
                                       name="type"
