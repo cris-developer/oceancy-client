@@ -15,7 +15,7 @@ import CreateActivities from './pages/activities/CreateActivities';
 import EditActivities from './pages/activities/EditActivities';
 import Profile from './pages/profile/Profile';
 import EditProfile from './pages/profile/EditProfile';
-import NavBar from "./components/navbar/NavBar";
+import NavBar from "./components/navbar/navBar";
 
 
 
