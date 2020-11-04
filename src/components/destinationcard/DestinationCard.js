@@ -11,7 +11,9 @@ function DestinationCard({ photoUrl,name }) {
                     
                 </div>
                     <div className="cardInfo" >
-                        <h5>{name}</h5>
+                       <div className= 'destinationName'>
+                          <h5>{name}</h5>
+                       </div>
                     </div>
             </div>
         </>
