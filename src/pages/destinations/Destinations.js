@@ -44,7 +44,7 @@ export default class Listdestinations extends React.Component {
          console.log(this.state.destinations);
         return (
             <div className="mt-3">
-               <div className="destination-card-wrapper"></div>
+               <div className="destination-card-wrapper">
                     {/* const style= {position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'} */}
              
                 {/* <div className ='rowDestinations col-md-6 col-sm-12'> */}
@@ -59,7 +59,7 @@ export default class Listdestinations extends React.Component {
                           </DestinationCard>
                   
                     ))}
-
+                 </div>
                     {/* {<div className={(idx == 0 || idx % 4 == 0) ?  'row': ''}>
                       <DestinationCard 
                           key={idx} 
@@ -99,7 +99,7 @@ export default class Listdestinations extends React.Component {
                       </div>
                 ))}
               </div> */}
-                
+            
           </div>
         );
       }

@@ -7,53 +7,53 @@ import { Link } from 'react-router-dom'
 
 export class Profile extends Component {
 
-    // state = {
-    //     fullName: '',
-    //     email: '',
-    //     password: '',
-    //     photoUrl :'',
-    //     favoriteActivity :'',
-    //     errorMessage: '',
-    //     //user :this.props.
+    state = {
+        fullName: '',
+        email: '',
+        password: '',
+        photoUrl :'',
+        favoriteActivity :'',
+        errorMessage: '',
+        //user :this.props.
 
-    //      }
+         }
       
-    //      componentDidMount()  {
+         componentDidMount()  {
               
-    //         //console.log ('GETTING MY PROFILE ON CLIENT SIDE')
-    //         //const sessionId= localStorage.getItem("accessToken")
-    //         console.log('sessionId:',sessionId)
-    //         //'5fa03d60d8c33f71fe98afc1'
+            //console.log ('GETTING MY PROFILE ON CLIENT SIDE')
+            //const sessionId= localStorage.getItem("accessToken")
+            //console.log('sessionId:',sessionId)
+            //'5fa03d60d8c33f71fe98afc1'
 
             
-    //         getProfile(this.state.user)
-    //           .then(response => {
-    //               console.log ('WHAT IT IS HAPPENING GETTING PROFILE ON CLIENT SIDE:',response.data)
-    //               this.setState({ 
-    //                   //user :response
-    //                  fullName: response.fullName,
-    //                  email :response.email,
-    //                  password :response.email,
-    //                  favoriteActivity :response.favoriteActivity,
-    //                  photoUrl :response.photoUrl,
-    //                 });
-    //             console.log("RESULT:", response);
-    //           })
-    //           .catch((err)=>{
-    //               console.log(err)
-    //           });
-    //      }
+            getProfile(this.state.user)
+              .then(response => {
+                  console.log ('WHAT IT IS HAPPENING GETTING PROFILE ON CLIENT SIDE:',response.data)
+                  this.setState({ 
+                      //user :response
+                     fullName: response.fullName,
+                     email :response.email,
+                     password :response.email,
+                     favoriteActivity :response.favoriteActivity,
+                     photoUrl :response.photoUrl,
+                    });
+                console.log("RESULT:", response);
+              })
+              .catch((err)=>{
+                  console.log(err)
+              });
+         }
 
-    //      handleLogout = (e) => {
-    //         e.preventDefault();
-    //         console.log ('IM LOGGING OUT')
-    //         localStorage.clear();
-    //         this.setState({
-    //           authenticated: false,
-    //           user: {},
-    //         });
-    //         this.props.history.push('/login')
-    //       };
+         handleLogout = (e) => {
+            e.preventDefault();
+            console.log ('IM LOGGING OUT')
+            localStorage.clear();
+            this.setState({
+              authenticated: false,
+              user: {},
+            });
+            this.props.history.push('/login')
+          };
 
         render() {
             const {fullName,email, password,photoUrl,favoriteActivity } =this.state
