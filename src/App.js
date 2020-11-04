@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import AnonRoute from "./components/auth/AnonRoute";
 import PrivateRoute from "./components/auth/PrivateRoute";
@@ -8,7 +8,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Destinations from './pages/destinations/Destinations.js';
-import destinations from './destinations.json';
+//import destinations from './destinations.json';
 import Activities from './pages/activities/Activities';
 import ActivitiesDetails from './pages/activities/ActivitiesDetails';
 import CreateActivities from './pages/activities/CreateActivities';
@@ -20,10 +20,19 @@ import NavBar from "./components/navbar/NavBar";
 
 
 class App extends React.Component {
-  state = {
-    authenticated: false,
-    user: {},
-  };
+
+  constructor (props) {
+
+    super (props)
+    this.state = {
+      authenticated: false,
+      user: {},
+      
+     };
+     this.handleLogout.bind(this)
+  }
+
+  
   componentDidMount = () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -50,8 +59,10 @@ class App extends React.Component {
       authenticated: false,
       user: {},
     });
-    this.props.history.push('/login')
+    //this.props.history.push('/login')
+    window.location = '/login'
   };
+
   render() {
     const { authenticated } = this.state;
     return (
@@ -91,6 +102,7 @@ class App extends React.Component {
               authenticate={this.authenticate}
               component={Signup}
             />
+
             <Route 
             exact 
             path="/destinations" 
@@ -121,15 +133,19 @@ class App extends React.Component {
             path="/profile"
             authenticated={authenticated}  
             user={this.state.user} 
+            handleLogout ={this.handleLogout}  // to pass a function
             component={Profile} 
+
             />
             <Route 
             exact 
             path="/profile/edit" 
             component={EditProfile} 
             authenticated={authenticated} 
-            handleLogout={this.handleLogout}
-            />    
+            
+            />   
+
+
           </Switch>
           </main>
         </BrowserRouter>

@@ -1,6 +1,5 @@
 import React from "react";
 import { login } from "../../services/userService";
-import { signup } from "../../services/userService";
 import {Form,Button} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 

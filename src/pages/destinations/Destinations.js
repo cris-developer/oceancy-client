@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import './Destinations.css'
-
 //import destinations from '../../destinations.json'
-
 import { getAllDestinations } from '../../services/destinationService';
-import { Link } from 'react-router-dom';
 import DestinationCard from '../../components/destinationcard/DestinationCard'
-import { Container,Row,Col } from 'reactstrap';
 
 
-export default class Listdestinations extends React.Component {
+export default class Destinations extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -44,10 +40,13 @@ export default class Listdestinations extends React.Component {
          console.log(this.state.destinations);
         return (
             <div className="mt-3">
+              <div className='banner'>
+
+              </div>
                <div className="destination-card-wrapper">
                     {/* const style= {position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'} */}
              
-                {/* <div className ='rowDestinations col-md-6 col-sm-12'> */}
+                   {/* <div className ='rowDestinations col-md-6 col-sm-12'> */}
                
                   {this.state.destinations.map((el, idx) => (
 

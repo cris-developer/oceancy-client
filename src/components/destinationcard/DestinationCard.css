@@ -1,20 +1,88 @@
 
-.card {
+/* .card {
     margin-bottom: 40px;
 }
 
 .card img {
     width: 400px;
-    object-fit: cover;
+    object-fit: cover; 
 }
-  
+*/
+
 .DestinationCardContainer {
     /* flex-direction: column; */
       width: 300px;
       height: 450px;
+  
       display: flex;
       flex-flow: column;
       background-color: aqua;
       margin: 10px;
   
     }
+  .DestinationCardImage {
+      flex: 1 1 auto;
+  
+      height: 350px;
+      overflow: hidden;
+      background-color: yellow;
+  
+      display: flex;
+      flex-flow:row;
+      justify-content: center;
+      
+  }
+  
+  .DestinationCardImage img {
+      width: 100%;
+  }
+  
+  .description, name{
+      width: 100%;
+    text-align: left;
+  
+  }
+  .DestinationCardInfo {
+    
+    flex: 1 1 auto;
+  
+    display: flex;
+    flex-flow: column;
+    background-color: purple;
+  
+    align-items: stretch;
+      
+  }
+  
+  .DestinationCardInfo .activityName {
+  
+  
+      flex: 1 1 auto;
+      background-color: pink;
+  
+      display: flex;
+      flex-flow: row;
+  
+      padding: 10px;
+  
+      justify-content: flex-start;
+  }
+  
+  .DestinationCardInfo .activityDetails {
+      flex: 1 1 auto;
+      background-color: green;
+  
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+  
+      padding: 10px;
+  }
+  
+  .DestinationCardInfo .activityDetails .duration {
+      background-color: red;
+  }
+  
+  .DestinationCardInfo .activityDetails .price-wrapper {
+      background-color: lime;
+  }

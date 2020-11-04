@@ -83,7 +83,7 @@ class Signup extends React.Component {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control name="email" value={email} onChange={this.handleChange} required={true} type="email" type="email" placeholder="Enter email" />
+              <Form.Control name="email" value={email} onChange={this.handleChange} required={true} type="email" placeholder="Enter email" />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
@@ -91,9 +91,8 @@ class Signup extends React.Component {
             </Form.Group>
           </Form.Row>
 
-          <Form.Row>
-
-            {/* <Form.Group as={Col} controlId="formGridSfavoriteActivity">
+          {/* <Form.Row>
+             <Form.Group as={Col} controlId="formGridSfavoriteActivity">
               <Form.Label>Favorite Water Activity</Form.Label>
               <Form.Control as="select" defaultValue="Choose...">
                 <option>Choose...</option>
@@ -107,10 +106,8 @@ class Signup extends React.Component {
                 <option>Choose...</option>
                 <option>...</option>
               </Form.Control>
-            </Form.Group> */}
-
-
-          </Form.Row>
+            </Form.Group> 
+          </Form.Row> */}
 
           <Button variant="primary" type="submit">
             Submit

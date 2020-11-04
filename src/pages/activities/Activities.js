@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import {Form, Button,Container,Row,Col} from 'react-bootstrap'
 import { getAllActivities} from '../../services/activityService';
 import ActivityCard from '../../components/activitycard/ActivityCard'
 import {  Link } from "react-router-dom";
 import './Activities.css'
 
 
-export default class Activities extends React.Component {
+export default class Activities extends Component {
   constructor(props) {
     super(props);
     this.state = {

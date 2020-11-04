@@ -1,7 +1,6 @@
 import React from 'react';
 import './ActivityCard.css'
 import { Link } from 'react-router-dom'
-import {Card} from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
 
 

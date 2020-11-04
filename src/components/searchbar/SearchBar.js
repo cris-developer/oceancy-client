@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { searchActivities } from '../../services/activityService';
-import { Link} from 'react-router-dom';
-import {Form, Button,Container,Row,Col,Control} from 'react-bootstrap'
+import {Form, Row,Col} from 'react-bootstrap'
 import './SearchBar.css';
 import DatePicker from "react-datepicker";
 //import { DateRangePicker } from "react-date-range";

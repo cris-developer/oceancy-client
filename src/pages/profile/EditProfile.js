@@ -3,7 +3,7 @@ import { profileEdit} from '../../services/userService'
 import {Form, Button,Col} from 'react-bootstrap'
 import './EditProfile.css'
 
-export class EditProfile extends React.Component {
+export class EditProfile extends Component {
   state = {
     fullName: '',
     email: '',
