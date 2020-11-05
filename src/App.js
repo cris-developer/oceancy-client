@@ -142,10 +142,7 @@ class App extends React.Component {
             path="/profile/edit" 
             component={EditProfile} 
             authenticated={authenticated} 
-            
             />   
-
-
           </Switch>
           </main>
         </BrowserRouter>

@@ -78,7 +78,7 @@ export default class ActivitiesCreate  extends Component {
 
   render() {
 
-    const {name,description,address,startDate,endDate,duration, destination,photoUrl}=this.state;
+    const {name,description,address,startDate,endDate,duration, destination,price,type,photoUrl}=this.state;
     return (
       <div className="form-wrapper">
         <Form onSubmit={this.addActivitySubmit}>
@@ -119,12 +119,12 @@ export default class ActivitiesCreate  extends Component {
 
           <Form.Group controlId="Price">
             <Form.Label>Price</Form.Label>
-            <Form.Control type="text" name="price" value={this.state.price} onChange={this.createInputChange} />
+            <Form.Control type="text" name="price" value={price} onChange={this.createInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Type">
             <Form.Label>Type</Form.Label>
-            <Form.Control type="text" name="type" value={this.state.type} onChange={this.createInputChange} />
+            <Form.Control type="text" name="type" value={type} onChange={this.createInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Image">

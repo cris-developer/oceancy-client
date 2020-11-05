@@ -36,18 +36,6 @@ export const login = ({ email, password }) => {
 
 // DISPLAY PROFILE   
 
-// export const getProfile = (user) => {
-  
-//   console.log ('I AM THE USER in the services:', user)
-//   return service
-//     .post("/user/profile", { userId: user._id })
-//     .then((response) => response.data)
-//     .catch((err) => {
-//       console.log("The error in the services: ", err);
-//     });
-// };
-
-
 export const getProfile = (id) => {
   const accessToken = localStorage.getItem("accessToken")
 
@@ -60,11 +48,44 @@ export const getProfile = (id) => {
     });
 };
 
+//SERVICE UPLOADING IMAGES WHEN CREATING OR EDITING/UPDATING ACTIVITIES
+
+export const uploadImage = (photoUrl) => {
+  
+  console.log ('I AM UPLOADING IMAGES WHEN CREATING ON THE CLIENT SIDE')
+  
+  const uploadData = new FormData();
+  uploadData.append("image", photoUrl); 
+
+  return service
+    .post('/user/upload',uploadData) // new FormData().append('image',photoUrl)=uploadData
+    .then (response => response.data)
+    .catch((err) => err);
+ };
+
+
+
 // EDIT USER PROFILE
 
-export const profileEdit = ({ fullName: fullName, email:email, password: password, favoriteActivity:favoriteActivity,photoUrl:photoUrl,accessToken }) => {
+// FIRST OPTION
+// export const profileEdit = (user,accessToken ) => {
+
+//   console.log ("I AM UPDATING A USER PROFILE ON CLIENT SIDE")
+//   console.log ('user:',user)
+
+//   return service
+//     .post('/user/profile/edit'+ accessToken,user)
+//     .then((response) => response.data)
+//     .catch((err) => err);
+// };
+
+export const profileEdit = (user,id ) => {
+
+  console.log ("I AM UPDATING A USER PROFILE ON CLIENT SIDE")
+  console.log ('user:',user)
+
   return service
-    .post('/user/profile/edit',{ fullName,email, password, favoriteActivity,photoUrl })
+    .post('/user/profile/edit'+ id,user)
     .then((response) => response.data)
     .catch((err) => err);
 };

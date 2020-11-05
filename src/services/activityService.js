@@ -51,6 +51,7 @@ export const uploadImage = (photoUrl) => {
 
 
 // SERVICE TO UPDATE ACTIVITY
+
 export const updateActivity = (id,activity) => {
   console.log ("I AM UPDATING AN EVENT ON CLIENT SIDE")
   console.log ('activity:',activity)
@@ -72,6 +73,7 @@ export const bookingActivity = (id, accessToken) => {
 };
 
 //SERVICE TO SEARCH ALL ACTIVITIES
+
 export const searchActivities = (search) => {
   //const search = {destinations:destinations,startDate:startDate,endDate:endDate,type:type}
   console.log ('I AM SEARCHING ALL ACTIVITIES ON THE CLIENT SIDE')
@@ -82,6 +84,7 @@ export const searchActivities = (search) => {
 };
 
 // SERVICE DELETE ACTIVITIES
+
 export const deleteActivity = (id) => {
 
   console.log ("I AM DELETING AN ACTIITY ON CLIENT SIDE")

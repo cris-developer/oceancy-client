@@ -42,8 +42,8 @@ class Login extends React.Component {
     return (
       <div>
         {errorMessage !== "" && errorMessage}
-        <form onSubmit={this.handleSubmit}>
-          {/* <label>Email: </label>
+        {/* <form onSubmit={this.handleSubmit}>
+          <label>Email: </label>
           <input
             name="email"
             value={email}
@@ -62,9 +62,10 @@ class Login extends React.Component {
           <button type="submit"> Login </button>
           <Link to={"/signup"} >
                 Sign Up
-          </Link> */}
+          </Link>
+        </form> */}
 
-          <Form className="formContainer">
+          <Form className="formContainer" onSubmit={this.handleSubmit}>
             <Form.Group  controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control name="email" type="email"  value={email} onChange={this.handleChange} required={true}  placeholder="Email" />
@@ -81,12 +82,12 @@ class Login extends React.Component {
             <Link to={"/signup"} >
                   Sign up
             </Link>
-          
+
          </Form>
 
 
 
-        </form>
+        
       </div>
     );
   }

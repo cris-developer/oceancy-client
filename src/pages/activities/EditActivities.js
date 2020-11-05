@@ -69,53 +69,53 @@ export default class ActivitiesEdit  extends Component {
 
   render() {
      // console.log ('I AM RENDERING THE UPDATE ACTIVITY', this.state)
-      const {name,description,address,startDate,endDate,duration,destination,type,photoUrl}=this.state;
+      const {name,description,address,startDate,endDate,duration,destination,type,price,photoUrl}=this.state;
     return (
       <div className="form-wrapper">
         <Form onSubmit={this.updateActivitySubmit}>
           <Form.Group controlId="Name">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" name="name"  value={name} onChange ={this.EditInputChange} />
+            <Form.Control type="text" name="name"  value={name} placeholder={name} onChange ={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Description">
             <Form.Label>Description</Form.Label>
-            <Form.Control type="description"  name="description" value={description} onChange={this.EditInputChange} />
+            <Form.Control type="description"  name="description" value={description} placeholder={description} onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Address">
             <Form.Label>Address</Form.Label>
-            <Form.Control type="text" name="address" value={address} onChange={this.EditInputChange} />
+            <Form.Control type="text" name="address" value={address} placeholder={address} onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="startDate">
             <Form.Label>Start Date</Form.Label>
-            <Form.Control type="text" name="startDate" value={startDate} onChange={this.EditInputChange} />
+            <Form.Control type="text" name="startDate" value={startDate} placeholder={startDate}  onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="endDate">
             <Form.Label>End Date</Form.Label>
-            <Form.Control type="text" name="endDate"value={endDate} onChange={this.EditInputChange} />
+            <Form.Control type="text" name="endDate"value={endDate} placeholder={endDate}  onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Duration">
             <Form.Label>Duration</Form.Label>
-            <Form.Control type="text" name="duration"value={duration} onChange={this.EditInputChange} />
+            <Form.Control type="text" name="duration"value={duration} placeholder={duration}  onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Destination">
             <Form.Label>Destination</Form.Label>
-            <Form.Control type="text" name="destination" value={destination} onChange={this.EditInputChange} />
+            <Form.Control type="text" name="destination" value={destination} placeholder={destination} onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Price">
             <Form.Label>Price</Form.Label>
-            <Form.Control type="text" name="price" value={this.state.price} onChange={this.EditInputChange} />
+            <Form.Control type="text" name="price" value={price} placeholder={price} onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="">
             <Form.Label>Type</Form.Label>
-            <Form.Control type="text" name="type" value={type} onChange={this.EditInputChange} />
+            <Form.Control type="text" name="type" value={type} placeholder={type} onChange={this.EditInputChange} />
           </Form.Group>
 
           <Form.Group controlId="Image">
