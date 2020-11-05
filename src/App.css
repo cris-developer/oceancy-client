@@ -1,3 +1,8 @@
+/* body {
+  font-family: 'Montserrat', sans-serif;
+} */
+
+
 .App {
   display: flex;
   justify-content: center;
@@ -15,3 +20,18 @@ form{
   margin-top: 20px;
 
 }
+
+
+
+  /* h4 {
+  font-size: 20px;
+  line-height: 1.5em;
+  font-weight: 700;
+  }
+
+  h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  font-family: playfair display,serif;
+   color: #303030; 
+  }
+   */

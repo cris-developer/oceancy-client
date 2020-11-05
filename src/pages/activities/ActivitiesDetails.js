@@ -26,33 +26,6 @@ class ActivitiesDetails extends Component {
               })
         }
         
-        // super(props);
-        // console.log(this.props.match.params.id);
-    
-        //     props = props;
-        
-        // renderEditForm = () => {
-        //     if(!this.state.title){
-        //       this.getActivityDetails();
-        //     } else {
-        //     //                                                    {...props} => so we can have 'this.props.history' in Edit.js
-        //     //                                                                                          ^
-        //     //                                                                                          |
-        //       return <EditActivities theActivity={this.state} getTheActivity={this.getActivityDetails} {...this.props} />
-        //     }
-        //   }
-        
-        // // DELETE PROJECT:
-        //   deleteProject = () => {
-        //     const { params } = this.props.match;
-        //     axios.delete(`http://localhost:5000/api/projects/${params.id}`)
-        //     .then( () =>{
-        //         this.props.history.push('/projects'); // !!!         
-        //     })
-        //     .catch((err)=>{
-        //         console.log(err)
-        //     })
-        //   }
 
         bookingActivity =()=>{
             const {params}= this.props.match;

@@ -1,6 +1,7 @@
+
 import React, { Component } from 'react';
 import { searchActivities } from '../../services/activityService';
-import {Form, Row,Col} from 'react-bootstrap'
+import {Form, Row,Col, Dropdown,Button} from 'react-bootstrap'
 import './SearchBar.css';
 import DatePicker from "react-datepicker";
 //import { DateRangePicker } from "react-date-range";
@@ -9,7 +10,7 @@ import DatePicker from "react-datepicker";
 //import './DatePicker.js';
 // import React, { useState } from "react";
 // import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 export class SearchBar extends Component {
   
@@ -18,12 +19,7 @@ export class SearchBar extends Component {
       startDate: '',
       endDate :'',
       type :'',
-      searchActivities:[]
-      // selectionRange :{
-      //   startDate: new Date(),
-      //   endDate: new Date(),
-      //   key: 'selection',
-      //   }
+
     };
   
 
@@ -60,174 +56,96 @@ export class SearchBar extends Component {
   };
 
   setSelectedDate = (selectedDate, name) => {
+    console.log(typeof selectedDate)
+    let date = new Date(selectedDate);
+    console.log({ [name]: date })
     this.setState({ [name]: selectedDate });
   };
 
-  //DATA RANGE CALENDAR 
-
-
-  //DATA RANGE PICKER
   
-  // handleSelect= (ranges)=> {
-  //   this.setState({
-  //     selectionRange:{
-  //       startDate: ranges.selection.startDate,
-  //       endDate: ranges.selection.endDate,
-  //       key: 'selection',
-  //     }
-  //       }
-  //   );
-    
-  //   }
-
-
-  // handleDatePickerChange = (date) => {
-  //   console.log(date);
-  //   this.setState({
-  //     startDate:date
-  //     endDate :date
-  //   });
-  // };
 
   render() {
       //const startDate= new Date();
       // console.log ('searchbar.es:',this.state)
       // console.log ('searchbar.es:',this.props)
        const {startDate,endDate,destinations, type} =this.state
-      
-      // return (<div>
-      //            <DatePicker
-      //             selected={startDate}
-      //             name="startDate"
-      //            // onChange={(startDate) => this.setSelectedDate(startDate)}
-      //             dateFormat="dd/MM/yyyy"
-      //             filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
-      //             isClearable
-      //           /> 
-      //          </div>)
-
 
     return (
         <>
+ 
+          <div className="searchArea-wrapper-outer">
+            <div className="searchArea-wrapper-inner">
+              <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
+                <Row >
+                  <Col>
+                    <label> Destination
+                      <input
+                      type="search"
+                      placeholder="Maldives..."
+                      name = "where"
+                      value={this.state.where}
+                      onChange={this.handleSearchInputChange}
+                      />
+                    </label>
+                  </Col>
+                  <Col>
+                    <label> Check in
+                      <DatePicker
+                      selected={startDate}
+                      name="startDate"
+                      onChange={(date) => this.setSelectedDate(date, "startDate")}
+                      dateFormat="dd/MM/yyyy"
+                      //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
+                      isClearable
+                      /> 
+                    </label>
+                  </Col>
+                  <Col>
+                    <label> Check out
+                      <DatePicker
+                      selected={endDate}
+                      name="endDate"
+                      onChange={(date) => this.setSelectedDate(date, "endDate")}
+                      dateFormat="dd/MM/yyyy"
+                      //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
+                      isClearable
+                      /> 
+                    </label>
+                  </Col>
+                  <Col>
+                  <label> Type
+                    <select
+                        type="search"
+                        name="type"
+                        value={this.state.type}
+                        onChange={this.handleSearchInputChange}
+                        >
+                        <option value="Diving">Diving</option>
+                        <option value="Sailing">Sailing</option>
+                        <option value="Surfing">Surfing</option>
+                        <option value="Kite Surfing">Kite Surfing</option>
+                    </select>
+                  </label>
+                      {/* <Form.Group as={Col} controlId="formGridSType">
+                        <Form.Label> Actvity Type</Form.Label>
+                        <Form.Control  type="search" name="type" value={this.state.type} onChange={this.handleSearchInputChange}as="select" defaultValue="Choose...">
+                          <option> Activity Type</option>
+                          <option value="Diving"> Diving</option>
+                          <option value="Sailing"> Sailing</option>
+                          <option value="Surfing">Surfing</option>
+                          <option value="Kite Surfing">Kite Surfing</option>
+                        </Form.Control>
+                      </Form.Group> */}
 
-              {/* <DatePicker 
-              selected={startDate}
-              onChange={this.handleDatePickerChange}
-              dropdownMode="select"              
-              /> */}
-            
-              {/* <DateRange
-                onInit={this.handleSelect}
-                onChange={this.handleSelect}
-              /> */}
-          
-            
-              {/* <DateRangePicker
-                ranges={[selectionRange]}
-                onChange={this.handleSelect}
-                showSelectionPreview="false"
-                showMonthAndYearPickers="false"
-                showPreview ="false"
-              /> */}
-            
-                   {/* <DatePicker
-                  selected={startDate}
-                  name="startDate"
-                  onChange={(date) => this.setSelectedDate(startDate, "startDate")}
-                  dateFormat="dd/MM/yyyy"
-                  //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
-                  isClearable
-                /> 
-                 <DatePicker
-                
-                  selected={endDate}
-                  name="endDate"
-                  onChange={(endDate) => this.setSelectedDate(endDate,"endDate")}
-                  dateFormat="dd/MM/yyyy"
-                  filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
-                  isClearable 
-                /> 
- */}
-          <div className='searchArea'>
-                <Form className="search-bar mt-3" onSubmit={this.handleFormSubmission}>
-                   <Row>
-                        <Col>
-                        <label> Destination
-                              <input
-                              type="search"
-                              placeholder="Where do you want to travel to..."
-                              name = "where"
-                              value={this.state.where}
-                              onChange={this.handleSearchInputChange}
-                              />
-                        </label>
-                         </Col>
-                         <Col>
-                         <label> Check in
-                              {/* <input
-                              type="datetime-local"
-                              placeholder="When do you want to start to travel..."
-                              name="startDate"
-                              value={this.state.startDate}
-                              onChange={this.handleSearchInputChange}
-                              // className="tp-search-date tp-departing-date-wrap w-50 float-left"
-                              /> */}
-
-                            <DatePicker
-                              selected={startDate}
-                              name="startDate"
-                              onChange={(date) => this.setSelectedDate(startDate, "startDate")}
-                              dateFormat="dd/MM/yyyy"
-                              //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
-                              isClearable
-                            /> 
-                            </label>
-                            </Col>
-                          <Col>
-                               <label> Check out
-                                <input
-                                type="text"
-                                placeholder="Departing?"
-                                name="endDate"
-                                value={this.state.endDate}
-                                onChange={this.handleSearchInputChange}
-                                //className="tp-search-date tp-departing-date-wrap w-50 float-left"
-                                />
-                              </label>
-                            </Col>
-                            <Col  >
-                                    {/* <Form.Label>Type</Form.Label> */}
-                                  <label>
-                                    {/* <input
-                                    type="search"
-                                    placeholder="What kind of travel are you searching for...?"
-                                    name="type"
-                                    value={this.state.type}
-                                    onChange={this.handleSearchInputChange}
-                                    //className="select w-50"
-                                    /> */}
-                                  </label>
-                                  <label> Type
-                                  <select
-                                      type="search"
-                                      name="type"
-                                      value={this.state.type}
-                                      onChange={this.handleSearchInputChange}
-                                      >
-                                      <option value="Diving">Diving</option>
-                                      <option value="Sailing">Sailing</option>
-                                      <option value="Surfing">Surfing</option>
-                                      <option value="Kite Surfing">Kite Surfing</option>
-                                    </select>
-
-                                  </label>
-                              </Col>
-                              <Col>
-                                 <button type="submit" className='btn-lg' style={{backgroundColor: '#062dba', color: 'white'}}>Search</button>
-                              </Col>
-                        </Row>
-                    </Form>
+                    </Col>
+                     <Col>
+                      <button type="submit" className='btn-lg' style={{backgroundColor: '#062dba', color: 'white'}}>Search</button>      
+                    </Col>
+                </Row>
+              </Form>
             </div>
+          </div>
+          
             <div className ='searchContainer row mx-md-n5'>
               {this.state.searchActivities  ? this.state.searchActivities.map((el, idx) => (
                 <div key={idx}>   

@@ -1,8 +1,23 @@
+
 .carouselWrapper {
     position: relative;
     max-height: 80vh; 
-    /* background-image: url(../images/uploads/pagebanner/header1-banner.jpg); */
-    /* background-image :"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1653&q=80";  */
     background-position: center;
     background-size: cover;
 }
+
+.carousel-caption {
+
+    /* color: lime; */
+    position: absolute !important;
+    top: 25%;
+    bottom: auto;
+}
+
+.carousel-caption > h3 {
+
+    font-size: 4.375rem; /* 70px */
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+ 
+ }

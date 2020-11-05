@@ -5,8 +5,10 @@
 
     display: flex;
     flex-flow: column;
-    background-color: aqua;
+     background-color :white;
+    /* background-color: aqua; */
     margin: 10px;
+    border-radius: 5px;
 
   }
 .ActivityCardImage {
@@ -14,7 +16,9 @@
 
     height: 350px;
     overflow: hidden;
-    background-color: yellow;
+    /* background-color: yellow; */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 
     display: flex;
     flex-flow:row;
@@ -28,7 +32,7 @@
 
 .description, name{
     width: 100%;
-  text-align: left;
+    text-align: left;
 
 }
 .ActivityCardInfo {
@@ -37,7 +41,7 @@
 
   display: flex;
   flex-flow: column;
-  background-color: purple;
+  /* background-color: purple; */
 
   align-items: stretch;
     
@@ -47,31 +51,62 @@
 
 
     flex: 1 1 auto;
-    background-color: pink;
+    /* background-color: pink; */
 
     display: flex;
     flex-flow: row;
 
     padding: 10px;
+    
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
 
     justify-content: flex-start;
 }
 
 .ActivityCardInfo .activityDetails {
     flex: 1 1 auto;
-    background-color: green;
+    /* background-color: green; */
 
     display: flex;
     flex-flow: row;
     justify-content: space-between;
 
+   
+
     padding: 10px;
 }
 
 .ActivityCardInfo .activityDetails .duration {
-    background-color: red;
+    /* background-color: red; */
+    font-family: 'Cabin,' sans-serif;
+    font-size: 16px;
 }
 
 .ActivityCardInfo .activityDetails .price-wrapper {
-    background-color: lime;
+    /* background-color: lime; */
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
 }
+
+
+.ActivityCardInfo .button-wrapper {
+  /* background-color: lime; */
+  font-family: 'Cabin', sans-serif;
+  font-size: 12px;
+  
+}
+
+h4 {
+  /* font-size: 20px; */
+  line-height: 1.5em;
+  font-weight: 700;
+  
+  }
+/* 
+  h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  font-family: playfair display,serif;
+  color: #303030;
+  }  */

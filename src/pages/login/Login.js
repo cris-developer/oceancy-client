@@ -67,15 +67,15 @@ class Login extends React.Component {
           <Form className="formContainer">
             <Form.Group  controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control name="email" value={email} onChange={this.handleChange} required={true} type="email" placeholder="Email" />
+              <Form.Control name="email" type="email"  value={email} onChange={this.handleChange} required={true}  placeholder="Email" />
             </Form.Group>
             <Form.Group  controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control  name="password" type="password"value={password} onChange={this.handleChange} required={true}placeholder="Password" />
+              <Form.Control  name="password" type="password" value={password} onChange={this.handleChange} required={true} placeholder="Password" />
             </Form.Group>
 
             <Button variant="primary" type="submit">
-            Login
+                 Login
             </Button>
 
             <Link to={"/signup"} >
