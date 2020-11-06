@@ -1,7 +1,8 @@
 import React from 'react'
 //import { getProfile} from '../../services/userService';
 import { Link } from 'react-router-dom'
-import {Button} from 'react-bootstrap'
+import {Button,Form} from 'react-bootstrap'
+import { uploadImage } from '../../services/userService';
 //import './profile.css'
 
 
@@ -13,6 +14,8 @@ const Profile = ({user,handleLogout}) =>{
     
     const {fullName,email,photoUrl,favoriteActivity } = user
 
+
+
    
     return (
 
@@ -20,7 +23,7 @@ const Profile = ({user,handleLogout}) =>{
                     <h1>TEST</h1>
                         <nav className='mt-3'>
                        
-                            <img src={photoUrl} alt="UserImage" className="img"/>   
+                            <img src={photoUrl} alt="UserImage" className="UserImg"/>   
                                     
                                     <Button variant='primary'  onClick={handleLogout} >
                                     Log Out
@@ -33,7 +36,10 @@ const Profile = ({user,handleLogout}) =>{
                         </nav>
                         <main>
                                 <div>{fullName}</div>  
-                                <div>{favoriteActivity}</div> <div>{email}</div>   
+                                <div>{favoriteActivity}</div> <div>{email}</div>
+                                
+                            
+                    
                        </main>
                  </>
         

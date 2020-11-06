@@ -14,6 +14,21 @@ export class EditProfile extends Component {
     errorMessage: '',
   };
 
+  // const {id} = this.props.match.params
+
+  // componentDidMount() {
+  //   profileEdit()
+  //   .then((res) =>
+  //     this.setState({
+  //       fullName: res.data.fullName,
+  //       email :res.data.email,
+  //       password :res.data.password,
+  //       favoriteActivity:res.data.favoriteActivity,
+  //       level:res.data.level,
+  //       photoUrl:res.data.photoUrl
+  //     }));
+  // }
+
   
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -38,7 +53,7 @@ export class EditProfile extends Component {
     handleSubmit = (e) => {
       console.log ('I AM UPDATING THE USER PROFILE')
       e.preventDefault();
-  
+      
       const user= {
         fullName: this.state.fullName,
         email :this.state.email,
@@ -46,17 +61,18 @@ export class EditProfile extends Component {
         favoriteActivity:this.state.favoriteActivity,
         photoUrl:this.state.photoUrl
       }
-      const {params}  = this.props.match
+      //const {params}  = this.props.match 
   
       console.log ('I AM RENDERING THE UPDATED USER PROFILE', user)
      
-      profileEdit(params.id,user)
+      profileEdit(user)
       .then((response) => {
         console.log (response)
+        this.props.history.push('/profile')
       }).catch ((error=> {
         console.log(error)
       }))
-      this.props.history.push('/profile')
+      
     };
 
 

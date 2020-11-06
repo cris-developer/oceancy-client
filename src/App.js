@@ -140,8 +140,8 @@ class App extends React.Component {
             <Route 
             exact 
             path="/profile/edit" 
+            authenticated={authenticated}  
             component={EditProfile} 
-            authenticated={authenticated} 
             />   
           </Switch>
           </main>

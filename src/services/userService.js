@@ -68,27 +68,30 @@ export const uploadImage = (photoUrl) => {
 // EDIT USER PROFILE
 
 // FIRST OPTION
-// export const profileEdit = (user,accessToken ) => {
-
-//   console.log ("I AM UPDATING A USER PROFILE ON CLIENT SIDE")
-//   console.log ('user:',user)
-
-//   return service
-//     .post('/user/profile/edit'+ accessToken,user)
-//     .then((response) => response.data)
-//     .catch((err) => err);
-// };
-
-export const profileEdit = (user,id ) => {
+export const profileEdit = (user ) => {
 
   console.log ("I AM UPDATING A USER PROFILE ON CLIENT SIDE")
   console.log ('user:',user)
 
+  const accessToken = localStorage.getItem("accessToken");
+
   return service
-    .post('/user/profile/edit'+ id,user)
+    .post('/user/profile/edit/'+ accessToken,user)
     .then((response) => response.data)
     .catch((err) => err);
 };
+
+// export const profileEdit = (id,user ) => {
+
+//   console.log ("I AM UPDATING A USER PROFILE ON CLIENT SIDE")
+//   console.log ('user:',user)
+//   console.log ('id:',id)
+
+//   return service
+//     .post('/user/profile/edit'+ id,user)
+//     .then((response) => response.data)
+//     .catch((err) => err);
+// };
 
 // DELETE USER PROFILE
 export const profileDelete = (id) => {
