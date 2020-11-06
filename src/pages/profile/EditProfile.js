@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Button,Col} from 'react-bootstrap'
-import { profileEdit,uploadImage } from '../../services/userService';
+import { profileEdit,uploadImage,getProfile } from '../../services/userService';
 import './EditProfile.css'
 
 export class EditProfile extends Component {
@@ -12,22 +12,30 @@ export class EditProfile extends Component {
     favoriteActivity:'',
     level :'',
     errorMessage: '',
+    
   };
 
-  // const {id} = this.props.match.params
 
-  // componentDidMount() {
-  //   profileEdit()
-  //   .then((res) =>
-  //     this.setState({
-  //       fullName: res.data.fullName,
-  //       email :res.data.email,
-  //       password :res.data.password,
-  //       favoriteActivity:res.data.favoriteActivity,
-  //       level:res.data.level,
-  //       photoUrl:res.data.photoUrl
-  //     }));
-  // }
+
+  componentDidMount() {    
+    
+    console.log ('GETTING ON CLIENT SIDE EDITING AN ACTIVITY')
+  getProfile()
+      .then(editingProfile => {
+          this.setState({ 
+            fullName: editingProfile.fullName,
+            email: editingProfile.email,
+            password: editingProfile.password,
+            photoUrl: editingProfile.photoUrl,
+            favoriteActivity: editingProfile.favoriteActivity,
+            level: editingProfile.level
+            });
+        console.log(editingProfile);
+      })
+      .catch((err)=>{
+          console.log(err)
+      })
+}
 
   
   handleChange = (event) => {
@@ -57,9 +65,10 @@ export class EditProfile extends Component {
       const user= {
         fullName: this.state.fullName,
         email :this.state.email,
-        passoword :this.state.password,
+        password :this.state.password,
         favoriteActivity:this.state.favoriteActivity,
-        photoUrl:this.state.photoUrl
+        photoUrl:this.state.photoUrl,
+        level:this.state.level
       }
       //const {params}  = this.props.match 
   
@@ -76,28 +85,6 @@ export class EditProfile extends Component {
     };
 
 
-
-
-  // handleSubmit = (event) => {
-  //   console.log ('I AM THE USER ID WHEN EDITING PROFILE')
-  //   event.preventDefault();
-  //   profileEdit({
-      
-  //     fullName: this.state.fullName,
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     photoUrl: this.state.photoUrl,
-  //     favoriteActivity:this.state.favoriteActivity,
-  //     level:this.state.level
-  //   })
-  //     .then((response) => {
-  //       this.props.authenticate(response.data);
-  //       this.props.history.push("/");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
   
   render() {
     const { fullName, email, password, photoUrl,favoriteActivity,level } = this.state;
@@ -133,7 +120,7 @@ export class EditProfile extends Component {
                           type="search"
                           name= 'favoriteActivity'
                           value={favoriteActivity}
-                          onChange={this.handleSearchInputChange}
+                          onChange={this.handleChange}
                           >
                           <option value="Diving">Diving</option>
                           <option value="Sailing">Sailing</option>
@@ -155,13 +142,30 @@ export class EditProfile extends Component {
                   </Form.Group> */}
                   <Form.Group as={Col} controlId="formGridLevel">
                     <Form.Label>Level </Form.Label>
-                    <Form.Control type="search" name="type" value={level} onChange={this.handleChange} as="select" defaultValue="none">
+                    <Form.Control type="search" name="level" value={level} onChange={this.handleChange} as="select" defaultValue="none">
                       <option value="Beginner">Beginner</option>
                       <option value="Intermediate">Intermediate</option>
                       <option value="Advanced">Advanced</option>
                     </Form.Control>
                   </Form.Group> 
                 </Form.Row>
+
+                
+                    <label> Level
+                      {/* <select multiple={true} value={['Diving','Sailing','Surfing','Kite Surfing']} */}
+                      <select
+                          type="search"
+                          name= 'level'
+                          value={level}
+                          onChange={this.handleChange}
+                          >
+                      <option value="Beginner">Beginner</option>
+                      <option value="Intermediate">Intermediate</option>
+                      <option value="Advanced">Advanced</option>
+                      </select>
+                    </label>
+                  
+
 
                 <Form.Group controlId="Image">
                   <Form.Label>Image Upload</Form.Label>

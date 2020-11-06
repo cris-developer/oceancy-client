@@ -36,7 +36,7 @@ export const login = ({ email, password }) => {
 
 // DISPLAY PROFILE   
 
-export const getProfile = (id) => {
+export const getProfile = () => {
   const accessToken = localStorage.getItem("accessToken")
 
   console.log ('I AM DISPLAYING PROFILE FROM CLIENT SERVICE')
@@ -67,7 +67,6 @@ export const uploadImage = (photoUrl) => {
 
 // EDIT USER PROFILE
 
-// FIRST OPTION
 export const profileEdit = (user ) => {
 
   console.log ("I AM UPDATING A USER PROFILE ON CLIENT SIDE")
@@ -81,17 +80,6 @@ export const profileEdit = (user ) => {
     .catch((err) => err);
 };
 
-// export const profileEdit = (id,user ) => {
-
-//   console.log ("I AM UPDATING A USER PROFILE ON CLIENT SIDE")
-//   console.log ('user:',user)
-//   console.log ('id:',id)
-
-//   return service
-//     .post('/user/profile/edit'+ id,user)
-//     .then((response) => response.data)
-//     .catch((err) => err);
-// };
 
 // DELETE USER PROFILE
 export const profileDelete = (id) => {

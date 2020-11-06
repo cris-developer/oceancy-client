@@ -10,7 +10,7 @@ import Signup from "./pages/signup/Signup";
 import Destinations from './pages/destinations/Destinations.js';
 //import destinations from './destinations.json';
 import Activities from './pages/activities/Activities';
-import ActivitiesDetails from './pages/activities/ActivitiesDetails';
+import ActivityDetails from './pages/activities/ActivityDetails';
 import CreateActivities from './pages/activities/CreateActivities';
 import EditActivities from './pages/activities/EditActivities';
 import Profile from './pages/profile/Profile';
@@ -116,7 +116,7 @@ class App extends React.Component {
             <Route 
             exact 
             path="/activities/details/:id" 
-            component={ActivitiesDetails} 
+            component={ActivityDetails} 
             />
             <Route 
             exact 
@@ -142,6 +142,7 @@ class App extends React.Component {
             path="/profile/edit" 
             authenticated={authenticated}  
             component={EditProfile} 
+            user={this.state.user} 
             />   
           </Switch>
           </main>

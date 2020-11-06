@@ -12,14 +12,14 @@ import './Carousel.css'
 
 const items = [
   {
-    src: 'images/header1.jpeg',
+    src: 'images/Header2_Cropped_1780pxwidht_1000height.jpeg',
     altText: 'Slide 1',
     caption: 'Slide 1',
     header: 'Slide 1 Header',
     key: '1'
   },
   {
-    src: 'images/header2.jpeg',
+    src: 'images/Croacia_Test.jpeg',
     altText: 'Slide 2',
     caption: 'Slide 2',
     header: 'Slide 2 Header',
@@ -41,7 +41,7 @@ function CarouselComponent() {
         <Carousel.Item interval={4000}>
           <img
           className="d-block w-100"
-          src="images/header1.jpeg"
+          src="images/Maldives.jpeg"
           alt="First slide"
           />
           <Carousel.Caption>
@@ -51,7 +51,7 @@ function CarouselComponent() {
       <Carousel.Item interval={4000}>
         <img
         className="d-block w-100"
-        src="images/header2.jpeg"
+        src="images/Croacia.jpg"
         alt="Third slide"
         />
         <Carousel.Caption>

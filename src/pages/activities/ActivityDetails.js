@@ -4,7 +4,7 @@ import { getActivityDetails,deleteActivity } from '../../services/activityServic
 import {  bookingActivity } from '../../services/activityService';
 import {  Link } from "react-router-dom";
 
-class ActivitiesDetails extends Component {
+class ActivityDetails extends Component {
 
         state = {
             activity: {}
@@ -86,7 +86,7 @@ class ActivitiesDetails extends Component {
     }
 }
 
-export default ActivitiesDetails
+export default ActivityDetails
 
 
 
