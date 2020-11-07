@@ -22,13 +22,95 @@ header  {
     background-size: cover;
   }
 
-  .search-results-container {
-
-    margin-top: 20px;
+.search-results-container {
     display: flex;  
     flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    /* margin-top: 20px; */
+    margin: 5rem;
+    padding-right: 1.1rem;
+    padding-left: 1.1rem;
     padding: 50px;
-
-    justify-content: flex-start;
+    /* background-color: yellowgreen; */
     
+}
+
+.HomeCardContainer {
+  /* flex-direction: column; */
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-flow: column;
+    /* background-color: aqua;   */
+    margin: 10px;
+    position: relative;
+
   }
+
+.HomeCardImage {
+    flex: 1 1 auto;
+    height: 10px;
+    overflow: hidden;
+    /* background-color: yellow; */
+    display: flex;
+    flex-flow:row;
+    justify-content: center;
+    
+}
+
+.HomeCardImage img {
+    width: 150%;
+    height: auto;
+    object-fit: cover;
+}
+
+.HomeCardContainer .cardInfo {
+
+  position: absolute;
+  /* background-color: blue;  */
+  color: white;
+  font-size: 1rem;
+  bottom: 20px;
+  left: 20px;
+  /* font-weight: 20; */
+  font-family: 'Playfair Display', serif;
+
+}
+
+.description, name{
+    width: 100%;
+    text-align: left;
+}
+
+
+.HomeCardInfo .activityName {
+
+    flex: 1 1 auto;
+    /* background-color: pink; */
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+    justify-content: flex-start;
+}
+
+.HomeCardInfo .activityDetails {
+    flex: 1 1 auto;
+    /* background-color: green; */
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    padding: 10px;
+}
+
+/* .HomeCardInfo .activityDetails .duration {
+    background-color: red;
+}
+
+.HomeCardInfo .activityDetails .price-wrapper {
+    background-color: lime;
+} */
