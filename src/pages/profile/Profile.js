@@ -11,32 +11,34 @@ const Profile = ({user,handleLogout}) =>{
     console.log ('THIS IS HANDLELOG OUT:', handleLogout)
     console.log  ('I AM THE USER ON THE PROFILE PAGE:',user)
     
-    const {fullName,email,photoUrl,favoriteActivity,level } = user
+    const {fullName,photoUrl,favoriteActivity,level } = user
    
     return (
 
               <>
                         <nav className='mt-3'>
-                           <div class="profileContainer">
-                                <div class="profile">
-                                    <div class="profileImage">
+                           <div className="profileContainer">
+                                <div className="profile">
+                                    <div className="profileImage">
                                       <img src={photoUrl} alt="UserImage" className="UserImg"/>   
                                     </div>
-                                    <div class="profileUserSettings">
+                                    <div className="profileUserSettings">
                                         <div className ='profileUserName'>{fullName}</div>  
                                     </div>
-                                    <Link  to="/profile/edit">
-                                        <Button variant="outline-secondary" className="profileEditBtn">Edit Profile</Button>
-                                    </Link>   
-                                    
-                                    <Button variant='primary'  onClick={handleLogout} >
-                                        Log Out
-                                    </Button>
-                                    {/* <div className="profileSettingsBtn" aria-label="profile settings" <i class="fas fa-cog" aria-hidden="true"><div></div> */}
-                                    <div>
-                                        <div>{favoriteActivity}</div> <div>{email}</div>
-                                        <div>{level}</div>  
+                                    <div className ='activityGroup'>
+                                        <div className='favoriteActivity'> Favorite Water Activity :  {favoriteActivity}</div> 
+                                        <div className='level'>Level : {level}</div>
                                     </div>
+                                    <div className= "profileButtonGroup">
+                                        <Link  to="/profile/edit">
+                                            <Button variant="outline-secondary" className="profileEditBtn">Edit Profile</Button>
+                                        </Link>   
+                                        <Button variant='primary' className='profileLogOutBtn' onClick={handleLogout} >
+                                            Log Out
+                                        </Button>
+                                    </div>
+                                    {/* <div className="profileSettingsBtn" aria-label="profile settings" <i className="fas fa-cog" aria-hidden="true"><div></div> */}
+                                    
                                 </div>
                             </div>
                         </nav>

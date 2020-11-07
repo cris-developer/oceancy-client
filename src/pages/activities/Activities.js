@@ -53,6 +53,8 @@ export default class Activities extends Component {
                             photoUrl={el.photoUrl}
                             name={el.name}
                             destination={el.destination}
+                            price={el.price}
+                            duration={el.duration}
                             id={el._id}
                             >
                         </ActivityCard>

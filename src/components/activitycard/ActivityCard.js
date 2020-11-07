@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
 
-function ActivityCard({ photoUrl, name, destination, price, id }) {
+function ActivityCard({ photoUrl, name, duration,destination, price, id }) {
     console.log(price)
     return (
         
@@ -20,8 +20,8 @@ function ActivityCard({ photoUrl, name, destination, price, id }) {
                          <h4>{name}</h4> 
                     </div>
                     <div className ='activityDetails'>
-                        <div className="duration" >4 days</div>
-                        <div className="price-wrapper">{"$400.00"}</div>
+                        <div className="duration" >{duration}</div>
+                        <div className="price-wrapper">{price}</div>
                     </div>
                 </div>
 

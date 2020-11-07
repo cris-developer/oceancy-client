@@ -12,14 +12,14 @@ import './Carousel.css'
 
 const items = [
   {
-    src: 'images/Header2_Cropped_1780pxwidht_1000height.jpeg',
+    src: 'images/Header1.Cropped.jpeg',
     altText: 'Slide 1',
     caption: 'Slide 1',
     header: 'Slide 1 Header',
     key: '1'
   },
   {
-    src: 'images/Croacia_Test.jpeg',
+    src: 'images/Croacia.jpeg',
     altText: 'Slide 2',
     caption: 'Slide 2',
     header: 'Slide 2 Header',
@@ -34,7 +34,11 @@ const items = [
   }
 ];
 
-function CarouselComponent() {
+function CarouselComponent(props) {
+
+  let renderSearchResults = (results) => {
+    props.renderResults(results)
+  }
   return (
     <div className="carouselWrapper">
       <Carousel items={items} >
@@ -71,12 +75,9 @@ function CarouselComponent() {
         </Carousel.Item>
       </Carousel>
 
-      <SearchBar />
+      <SearchBar renderSearchResults={renderSearchResults}/>
     </div>
   );
 }
  
 export default CarouselComponent;
-
-
-

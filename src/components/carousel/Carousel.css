@@ -1,9 +1,12 @@
 
 .carouselWrapper {
     position: relative;
-    max-height: 80vh; 
+    /* height: 300px; */
+    overflow: hidden;
+    max-height: 70vh; 
     background-position: center;
     background-size: cover;
+
 }
 
 .carousel-caption {

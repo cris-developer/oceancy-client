@@ -1,15 +1,8 @@
-
 import React, { Component } from 'react';
 import { searchActivities } from '../../services/activityService';
-import {Form, Row,Col, Dropdown,Button} from 'react-bootstrap'
+import {Form, Row,Col} from 'react-bootstrap'
 import './SearchBar.css';
 import DatePicker from "react-datepicker";
-//import { DateRangePicker } from "react-date-range";
-//import { Calendar } from "react-date-range";
-//import { DateRange } from "react-date-range";
-//import './DatePicker.js';
-// import React, { useState } from "react";
-// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export class SearchBar extends Component {
@@ -26,6 +19,7 @@ export class SearchBar extends Component {
   handleFormSubmission = event => {
     event.preventDefault();
     const { where, startDate,endDate,type } = this.state;
+    console.log(where, startDate, endDate, type);
     //this.props.history.push(`/search?where=${where}`);
     const search = {
         destination: where,
@@ -37,10 +31,12 @@ export class SearchBar extends Component {
     console.log(search);
     searchActivities(search)
       .then(searchActivities => {
-          this.setState({ 
-              searchActivities: searchActivities
-            });
-        console.log(searchActivities);
+
+        this.props.renderSearchResults(searchActivities)
+        //   this.setState({ 
+        //       searchActivities: searchActivities
+        //     });
+        // console.log(searchActivities);
       })
       .catch((err)=>{
           console.log(err)
@@ -68,7 +64,7 @@ export class SearchBar extends Component {
       //const startDate= new Date();
       // console.log ('searchbar.es:',this.state)
       // console.log ('searchbar.es:',this.props)
-       const {startDate,endDate,destinations, type} =this.state
+       const {startDate,endDate,where, type} =this.state
 
     return (
         <>
@@ -83,7 +79,7 @@ export class SearchBar extends Component {
                       type="search"
                       placeholder="Maldives..."
                       name = "where"
-                      value={this.state.where}
+                      value={where}
                       onChange={this.handleSearchInputChange}
                       />
                     </label>
@@ -113,18 +109,33 @@ export class SearchBar extends Component {
                     </label>
                   </Col>
                   <Col>
+                  {/* <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic" className="custom-dropdown">
+                      Select an activity
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item eventKey="Diving">Diving</Dropdown.Item>
+                      <Dropdown.Item eventKey="Sailing">Sailing</Dropdown.Item>
+                      <Dropdown.Item eventKey="Surfing">Surfing</Dropdown.Item>
+                      <Dropdown.Item eventKey="Kite Surfing">Kite Surfing</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown> */}
                   <label> Type
-                    <select
+                    <div>
+                      <select
                         type="search"
                         name="type"
-                        value={this.state.type}
+                        value={type}
                         onChange={this.handleSearchInputChange}
+                        className="custom-dropdown"
                         >
+                        <option value="">Select an activity</option>
                         <option value="Diving">Diving</option>
                         <option value="Sailing">Sailing</option>
                         <option value="Surfing">Surfing</option>
                         <option value="Kite Surfing">Kite Surfing</option>
                     </select>
+                    </div>
                   </label>
                       {/* <Form.Group as={Col} controlId="formGridSType">
                         <Form.Label> Actvity Type</Form.Label>
@@ -163,10 +174,3 @@ export class SearchBar extends Component {
 
 
 export default SearchBar
-// In the search bar component, we'll need to use the history prop
-// that is passed by the router to any view
-// Since this component IS NOT a view (it's not being passed to a Route component)
-// we need to wrap it in the `withRouter` function
-// const SearchBarWithRouterProps = withRouter(SearchBar);
-
-// export default SearchBarWithRouterProps;

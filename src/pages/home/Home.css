@@ -1,8 +1,34 @@
 
+.home-wrapper {
+
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  /* justify-content: stretch; */
+
+}
+
+.carousel-wrapper {
+  flex: 1 1 auto;
+  background-color: brown;
+  /* height: 400px; */
+
+}
 header  {
     position: relative;
     height: 910px;
     /* background-image: url(../images/uploads/pagebanner/header1-banner.jpg); */
     background-position: center;
     background-size: cover;
+  }
+
+  .search-results-container {
+
+    margin-top: 20px;
+    display: flex;  
+    flex-flow: row;
+    padding: 50px;
+
+    justify-content: flex-start;
+    
   }
