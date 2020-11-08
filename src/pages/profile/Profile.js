@@ -17,6 +17,9 @@ const Profile = ({user,handleLogout}) =>{
 
               <>
                         <nav className='mt-3'>
+                           <div className='banner'>
+                           <h2 className='headerText'>Profile</h2>
+                           </div>
                            <div className="profileContainer">
                                 <div className="profile">
                                     <div className="profileImage">

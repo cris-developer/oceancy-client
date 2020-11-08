@@ -3,21 +3,30 @@
 } */
 
 
-.App {
+/* .App {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}
-form{
+} */
+.formWrapperInner{
   display: flex;
   flex-direction: column;
-  
+  background-color: coral;
+
 }
 
 .formContainer {
 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
+  background-color: green;
+  width:95%;
+  margin-left:5rem;
+
 
 }
 

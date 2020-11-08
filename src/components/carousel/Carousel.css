@@ -1,9 +1,15 @@
 
+.full-screen {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
 .carouselWrapper {
     position: relative;
     /* height: 300px; */
     overflow: hidden;
-    max-height: 70vh; 
+    max-height: 95vh; 
     background-position: center;
     background-size: cover;
 
@@ -13,7 +19,7 @@
 
     /* color: lime; */
     position: absolute !important;
-    top: 25%;
+    top: 40%;
     bottom: auto;
 }
 

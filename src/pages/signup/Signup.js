@@ -73,7 +73,9 @@ class Signup extends React.Component {
                 Log in
           </Link>
           <div> */}
-          
+          <div className='banner'>
+                 <h2 className='headerText'>Oceancy Signup</h2>
+          </div>
           <Form className="formContainer">
           <Form.Group controlId="formGridfullName">
             <Form.Label>Full Name</Form.Label>

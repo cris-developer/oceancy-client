@@ -91,6 +91,9 @@ export class EditProfile extends Component {
     return (
       <div>
         {/* <form onSubmit={this.handleSubmit}> */}
+            <div className='banner'>
+                 <h2 className='headerText'>Profile Settings</h2>
+            </div>
             <Form className="formContainer"  onSubmit={this.handleSubmit}>  
               <Form.Group controlId="formGridfullName">
                   <Form.Label>Full Name</Form.Label>

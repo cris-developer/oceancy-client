@@ -64,7 +64,9 @@ class Login extends React.Component {
                 Sign Up
           </Link>
         </form> */}
-
+         <div className='banner'>
+                 <h2 className='headerText'> Oceancy Login</h2>
+          </div>
           <Form className="formContainer" onSubmit={this.handleSubmit}>
             <Form.Group  controlId="formGridEmail">
               <Form.Label>Email</Form.Label>

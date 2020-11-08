@@ -3,6 +3,7 @@ import { Button} from 'react-bootstrap'
 import { getActivityDetails,deleteActivity } from '../../services/activityService';
 import {  bookingActivity } from '../../services/activityService';
 import {  Link } from "react-router-dom";
+import './ActivityDetails.css'
 
 class ActivityDetails extends Component {
 
@@ -53,11 +54,18 @@ class ActivityDetails extends Component {
 
         const activity = this.state.activity;
         console.log ('ACTIVITY DEL RENDER')
+        let imageUrl = '/images'
         return (
-            <div className ="mt-3 text-center"> 
-                        <div>          
-                            <img src={activity.photoUrl} alt="ActivityList" className="img"  style={{width: '50%'}}/>           
-                            <div className= 'contentText'>  {activity.name}</div>
+            <div>
+            {/* <div className ="mt-3 text-center">  */}
+                       <div className='header'>
+                                <div className='headerBanner'>  
+                                </div>
+                       </div>
+                        <div>
+                        {/* style={{backgroundImage :`url(${imageUrl})`  */}
+                            <img src={activity.photoUrl} alt="ActivityList" className="imgActivityDetails"  style={{backgroundImage :`url(${imageUrl})` }}/>           
+                            <div className= 'headerText'>  {activity.name}</div>
                             <div>{activity.description}</div>  
                             <div>{activity.startDate}</div>  
                             <div>{activity.endDate}</div>  
@@ -66,7 +74,8 @@ class ActivityDetails extends Component {
                             <div>{activity.type}</div>  
                             <div>{activity.address}</div>
                             <div>{activity.host}</div>                              
-                        </div>        
+                        </div>  
+                          
                     
                     {/* <Link to={"/activities/book/" + this.props.match.params.id}> */}
                         {/* <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>   */}

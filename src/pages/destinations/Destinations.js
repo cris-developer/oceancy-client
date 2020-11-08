@@ -41,7 +41,7 @@ export default class Destinations extends Component {
         return (
             <div className="mt-3">
               <div className='banner'>
-
+                  <h2 className='headerText'>Destinations</h2>
               </div>
                <div className="destination-card-wrapper">
                     {/* const style= {position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'} */}

@@ -19,7 +19,7 @@ const items = [
     key: '1'
   },
   {
-    src: 'images/Croacia.jpeg',
+    src: 'images/Indonesia_steph-smith-hyqK01Pslrg-unsplash.jpg',
     altText: 'Slide 2',
     caption: 'Slide 2',
     header: 'Slide 2 Header',

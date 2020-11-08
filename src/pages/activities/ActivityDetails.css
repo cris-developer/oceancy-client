@@ -1,0 +1,88 @@
+
+/* main */
+header {
+    height: 360px;
+    z-index: 10;
+    background: green;
+}
+
+.imgActivityDetails {
+    background-color: #333;
+    /* background-image: url('/images/Maldives.jpeg'); */
+    /* background-image : url ('/images/Surfing_Tablas_tatonomusic-FFCgotROOTY-unsplash.jpg');
+    background-image: url('/images/SouthAfrica_Surfing_MediumPicture_sincerely-media-oC32cy4x-ZA-unsplash.jpg');
+    background-image: url('/images/Banner_Destinations_Vietnam_thai-an-P7__veGsXww-unsplash.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    background-size: cover;
+    width: 205vh;
+    height:60vh;
+    object-fit: cover;
+    position:relative;
+    /* height: 357px; */
+    /* max-height:120vh; */
+    /* background:blue; */
+}
+
+.headerText {
+    position: absolute;
+    /* background-color: rgba(18,72,120, 0.8); */
+    color:black;
+    /* padding: 0 1rem; */
+    font-size: 60px;
+    font-weight: 700;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    /* text-align: center; */
+    /* top: 2rem; 
+    left: 2rem; */
+
+    
+    /* background-color: chartreuse; */
+}
+
+.fixedHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+}
+
+/* .hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  } */
+  
+  /* .headerText {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    transform: translate(-50%, -50%);
+    color: white;
+    height:100%;
+    background-color: crimson;
+  } */
+  
+  .hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .hero-text button:hover {
+    background-color: #555;
+    color: white;
+  }

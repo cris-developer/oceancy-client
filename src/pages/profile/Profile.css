@@ -1,3 +1,43 @@
+.banner {
+    background-color: #333;
+    /* background-image: url('/images/Maldives.jpeg'); */
+    background-image : url ('/images/Surfing_Tablas.jpg');
+    /* background-image: url('/images/SouthAfrica_Surfing_MediumPicture_sincerely-media-oC32cy4x-ZA-unsplash.jpg'); */
+    background-image: url('/images/Banner_Destinations_Vietnam_thai-an-P7__veGsXww-unsplash.jpg');
+    /* background-image: url('/images/Roof_Original Size_michael-mims-0ZL0O-eDOpU-unsplash.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: contain; */
+    background-size: cover;
+    width: 205vh;
+    height:40vh;
+    object-fit: cover;
+    position:relative;
+    /* height: 357px; */
+    /* max-height:120vh; */
+    /* background:blue; */
+        
+    }
+    
+
+ .headerText {
+    position: absolute;
+    /* background-color: rgba(18,72,120, 0.8); */
+    color:white;
+    /* padding: 0 1rem; */
+    font-size: 60px;
+    font-weight: 700;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    /* top: 2rem; 
+    left: 2rem; */
+    /* background-color: chartreuse; */
+}
+
+
+
+
 img {
     display: block;
 }

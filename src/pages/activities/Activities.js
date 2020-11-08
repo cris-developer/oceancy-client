@@ -38,6 +38,9 @@ export default class Activities extends Component {
 
     return (
       <div className="mt-3">
+        <div className='banner'>
+                 <h2 className='headerText'>Activities</h2>
+          </div>
          <Link to={"/activities/create/"} >
                        <div className="btn btn-primary">Create</div>  
           </Link>
