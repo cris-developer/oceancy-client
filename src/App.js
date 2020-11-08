@@ -60,7 +60,7 @@ class App extends React.Component {
       user: {},
     });
     //this.props.history.push('/login')
-    window.location = '/login'
+     window.location = '/login'
   };
 
   render() {

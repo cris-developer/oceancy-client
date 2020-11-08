@@ -1,7 +1,7 @@
 import React from "react";
 import { signup } from "../../services/userService";
 import { Link } from "react-router-dom";
-import {Form, Button,Col} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 
 class Signup extends React.Component {
   state = {
@@ -42,7 +42,7 @@ class Signup extends React.Component {
     return (
       <div>
         {errorMessage !== "" && errorMessage}
-        <form onSubmit={this.handleSubmit}>
+        {/* <form onSubmit={this.handleSubmit}> */}
           {/* <label>Full name: </label>
           <div className="formContainer">
           <input
@@ -72,55 +72,39 @@ class Signup extends React.Component {
           <Link to={"/login"} >
                 Log in
           </Link>
-          <div> */}
-          <div className='banner'>
-                 <h2 className='headerText'>Oceancy Signup</h2>
-          </div>
-          <Form className="formContainer">
-          <Form.Group controlId="formGridfullName">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control  name="fullName"  value={fullName} onChange={this.handleChange} required={true} type="text"placeholder="your name.." />
-          </Form.Group>
+          <div> 
+          </form> */}
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridEmail">
+          <div className='banner'>
+                 <h2 className='headerText'>Signup</h2>
+          </div>
+          <Form className="formContainer" onSubmit={this.handleSubmit}>
+            <Form.Group controlId="formGridfullName" >
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control  name="fullName"  value={fullName} onChange={this.handleChange} required={true} type="text"placeholder="your name.." />
+            </Form.Group>
+
+          
+            <Form.Group  controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control name="email" value={email} onChange={this.handleChange} required={true} type="email" placeholder="Enter email" />
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridPassword">
+
+            <Form.Group  controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control  name="password" type="password"value={password} onChange={this.handleChange} required={true}placeholder="Password" />
             </Form.Group>
-          </Form.Row>
+          
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
 
-          {/* <Form.Row>
-             <Form.Group as={Col} controlId="formGridSfavoriteActivity">
-              <Form.Label>Favorite Water Activity</Form.Label>
-              <Form.Control as="select" defaultValue="Choose...">
-                <option>Choose...</option>
-                <option>...</option>
-              </Form.Control>
-            </Form.Group>
-              
-            <Form.Group as={Col} controlId="formGridLevel">
-              <Form.Label>Level</Form.Label>
-              <Form.Control as="select" defaultValue="Choose...">
-                <option>Choose...</option>
-                <option>...</option>
-              </Form.Control>
-            </Form.Group> 
-          </Form.Row> */}
+              <Link to={"/login"} >
+                    Log in
+              </Link>
+           </Form>
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-
-          <Link to={"/login"} >
-                Log in
-          </Link>
-       </Form>
-
-       </form> 
+       
       </div>
     );
   }

@@ -27,7 +27,6 @@ class ActivityDetails extends Component {
               })
         }
         
-
         bookingActivity =()=>{
             const {params}= this.props.match;
             const userId = localStorage.getItem('accessToken');
@@ -58,35 +57,67 @@ class ActivityDetails extends Component {
         return (
             <div>
             {/* <div className ="mt-3 text-center">  */}
-                       <div className='header'>
-                                <div className='headerBanner'>  
-                                </div>
-                       </div>
-                        <div>
-                        {/* style={{backgroundImage :`url(${imageUrl})`  */}
+                       <div>
+                            {/* style={{backgroundImage :`url(${imageUrl})`  */}
                             <img src={activity.photoUrl} alt="ActivityList" className="imgActivityDetails"  style={{backgroundImage :`url(${imageUrl})` }}/>           
-                            <div className= 'headerText'>  {activity.name}</div>
-                            <div>{activity.description}</div>  
-                            <div>{activity.startDate}</div>  
-                            <div>{activity.endDate}</div>  
-                            <div>{activity.duration}</div>  
-                            <div>{activity.price}</div> 
-                            <div>{activity.type}</div>  
-                            <div>{activity.address}</div>
-                            <div>{activity.host}</div>                              
-                        </div>  
-                          
-                    
+                            <div className= 'headerText'>  {activity.name}</div>       
+                       </div>
+                        
+                         <section className ="mt-3 text-center" >
+                                <table className='tableContainer' style ={{color :"blue" ,marginLeft:'30px'}}>
+                                            <thead>
+                                                    <tr>
+                                                        <th id="heading">Description</th>
+                                                        <td id="content">{activity.description}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th d="heading">Start Date</th> 
+                                                        <td d="row">{activity.startDate}</td> 
+                                                    </tr>
+                                                    <tr>
+                                                        <th d="heading">End Date</th> 
+                                                        <td d="row">{activity.endDate}</td>  
+                                                    </tr>
+                                                    <tr>
+                                                        <th d="heading">Duration</th>  
+                                                        <td d="heading">{activity.duration}</td>  
+                                                    </tr>
+                                                    <tr>
+                                                        <th d="heading">Price</th>  
+                                                        <td d="heading">{activity.price}</td>  
+                                                    </tr>
+                                                    <tr>    
+                                                        <th d="heading">Type</th>  
+                                                        <td d="heading">{activity.type}</td>  
+                                                     </tr>
+                                                    <tr>    
+                                                        <th d="heading">Address</th> 
+                                                        <td d="heading">{activity.address}</td>  
+                                                    </tr>
+                                                    <tr>   
+                                                        <th d="heading">Host</th>  
+                                                        <td d="heading">{activity.host}</td>  
+                                                    </tr>
+                                                    <tr>  
+                                                        <th d="heading">Price Includes</th>
+                                                    </tr>
+                                                    <tr>    
+                                                        <th d="heading">Price Not Includes</th>
+                                                    </tr>
+                                            </thead>
+                                        
+                                            <tbody>
+                                                    <td d="heading">Action</td>
+                                            </tbody>
+                                </table>
+                        </section>
                     {/* <Link to={"/activities/book/" + this.props.match.params.id}> */}
                         {/* <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>   */}
                     {/* </Link> */}
                     <Link to={"/activities/edit/" + this.props.match.params.id}>
                         <div className="btn btn-warning">Edit</div> 
                     </Link>
-                    {/* <Link to={"/activities/delete/" + this.props.match.params.id}> */}
-                        {/* <div className="btn btn-danger">Delete</div> */}
-                        {/* <button className="btn btn-danger" onClick={this.deleteActivity(this.props.match.params.id)}>Delete</button>   */}
-                    {/* </Link> */}
+                   
 
                     <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
                     <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>

@@ -10,6 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import Header3 from '../../images/header3.png'
 import './Carousel.css'
 
+
 const items = [
   {
     src: 'images/Header1.Cropped.jpeg',

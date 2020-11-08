@@ -12,17 +12,22 @@ const Profile = ({user,handleLogout}) =>{
     console.log  ('I AM THE USER ON THE PROFILE PAGE:',user)
     
     const {fullName,photoUrl,favoriteActivity,level } = user
+
+    // const avatarImage = '/Avatar_Icon_Black.png'
+
+    
    
     return (
 
               <>
                         <nav className='mt-3'>
                            <div className='banner'>
-                           <h2 className='headerText'>Profile</h2>
+                               <h2 className='headerText'>Profile</h2>
                            </div>
                            <div className="profileContainer">
                                 <div className="profile">
                                     <div className="profileImage">
+                                    {/* || '/Avatar_Icon_Black.png' */}
                                       <img src={photoUrl} alt="UserImage" className="UserImg"/>   
                                     </div>
                                     <div className="profileUserSettings">

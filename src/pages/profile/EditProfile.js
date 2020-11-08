@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Form, Button,Col} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 import { profileEdit,uploadImage,getProfile } from '../../services/userService';
 import './EditProfile.css'
 
@@ -14,8 +14,6 @@ export class EditProfile extends Component {
     errorMessage: '',
     
   };
-
-
 
   componentDidMount() {    
     
@@ -94,56 +92,35 @@ export class EditProfile extends Component {
             <div className='banner'>
                  <h2 className='headerText'>Profile Settings</h2>
             </div>
-            <Form className="formContainer"  onSubmit={this.handleSubmit}>  
-              <Form.Group controlId="formGridfullName">
-                  <Form.Label>Full Name</Form.Label>
-                  <Form.Control  name="fullName" value={fullName} type="text" placeholder={fullName} onChange={this.handleChange} />
-                </Form.Group>
+              <Form className="formContainer"  onSubmit={this.handleSubmit}>  
 
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group controlId="formGridfullName">
+                    <Form.Label>Full Name</Form.Label>
+                    <Form.Control  name="fullName" value={fullName} type="text" placeholder={fullName} onChange={this.handleChange} />
+                  </Form.Group>
+
+                  <Form.Group controlId="formGridEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control name ="email" value={email} type="email"   placeholder={email}  onChange={this.handleChange}  />
                   </Form.Group>
-                  <Form.Group as={Col} controlId="formGridPassword">
+                  
+                  <Form.Group  controlId="formGridPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control  name ="password"  value={password} type="password"  placeholder={password} onChange={this.handleChange}  />
                   </Form.Group>
-                </Form.Row>
-                <Form.Row>
-                  {/* <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control />
-                  </Form.Group> */}
 
-                  <Form.Row>
-                    <label> Favorite Activity
-                      {/* <select multiple={true} value={['Diving','Sailing','Surfing','Kite Surfing']} */}
-                      <select
-                          type="search"
-                          name= 'favoriteActivity'
-                          value={favoriteActivity}
-                          onChange={this.handleChange}
-                          >
-                          <option value="Diving">Diving</option>
-                          <option value="Sailing">Sailing</option>
-                          <option value="Surfing">Surfing</option>
-                          <option value="Kite Surfing">Kite Surfing</option>
-                      </select>
-                    </label>
-                  </Form.Row>
-
-                  {/* <Form.Group as={Col} controlId="formGridFavoriteActivity">
+                  <Form.Group  controlId="formGridFavoriteActivity">
                     <Form.Label>Favorite Activity</Form.Label>
-                    <Form.Control  name ="favoriteActivity"  value={favoriteActivity} type="text" onChange={this.handleChange} as="select" defaultValue="Choose... ">
+                    <Form.Control type="search" name ="favoriteActivity"  value={favoriteActivity}  onChange={this.handleChange} as="select" defaultValue="Choose... ">
                       <option>Choose...</option>
                       <option value="Diving">Diving</option>
                       <option value="Sailing">Sailing</option>
                       <option value="Surfing">Surfing</option>
                       <option value="Kite Surfing">Kite Surfing</option>
                     </Form.Control>
-                  </Form.Group> */}
-                  <Form.Group as={Col} controlId="formGridLevel">
+                  </Form.Group>
+
+                  <Form.Group  controlId="formGridLevel">
                     <Form.Label>Level </Form.Label>
                     <Form.Control type="search" name="level" value={level} onChange={this.handleChange} as="select" defaultValue="none">
                       <option value="Beginner">Beginner</option>
@@ -151,25 +128,7 @@ export class EditProfile extends Component {
                       <option value="Advanced">Advanced</option>
                     </Form.Control>
                   </Form.Group> 
-                </Form.Row>
-
                 
-                    <label> Level
-                      {/* <select multiple={true} value={['Diving','Sailing','Surfing','Kite Surfing']} */}
-                      <select
-                          type="search"
-                          name= 'level'
-                          value={level}
-                          onChange={this.handleChange}
-                          >
-                      <option value="Beginner">Beginner</option>
-                      <option value="Intermediate">Intermediate</option>
-                      <option value="Advanced">Advanced</option>
-                      </select>
-                    </label>
-                  
-
-
                 <Form.Group controlId="Image">
                   <Form.Label>Image Upload</Form.Label>
                   <Form.Control type="file" name="image" onChange={this.createImageUpload} />
@@ -181,7 +140,43 @@ export class EditProfile extends Component {
 
               </Form>
 
-          {/* <Form>
+
+
+
+                      {/* <Form.Row>
+                    <label> Favorite Activity */}
+                      {/* <select multiple={true} value={['Diving','Sailing','Surfing','Kite Surfing']} */}
+                      {/* <select
+                          type="search"
+                          name= 'favoriteActivity'
+                          value={favoriteActivity}
+                          onChange={this.handleChange}
+                          >
+                          <option value="Diving">Diving</option>
+                          <option value="Sailing">Sailing</option>
+                          <option value="Surfing">Surfing</option>
+                          <option value="Kite Surfing">Kite Surfing</option>
+                      </select>
+                    </label>
+                  </Form.Row> */}
+
+                    {/* <label> Level */}
+                      {/* <select multiple={true} value={['Diving','Sailing','Surfing','Kite Surfing']} */}
+                      {/* <select
+                          type="search"
+                          name= 'level'
+                          value={level}
+                          onChange={this.handleChange}
+                          >
+                      <option value="Beginner">Beginner</option>
+                      <option value="Intermediate">Intermediate</option>
+                      <option value="Advanced">Advanced</option>
+                      </select>
+                    </label> */}
+                  
+
+
+                       {/* <Form>
           <Form.Label>fullName: </Form.Label>
                 <input
                   name="fullName"
@@ -218,6 +213,9 @@ export class EditProfile extends Component {
                 </Button>
            */}
         {/* </form> */}
+                
+
+         
       </div>
     );
   }

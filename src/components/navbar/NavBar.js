@@ -8,29 +8,31 @@ class NavBar extends Component {
   render() {
     return (
       <div>
+       {/* <div classNmae="containerFluidMain"> */}
         <Navbar  bg="blue"  fixed='top' className="navBar">
           <Container>
             {/* <Navbar.Brand style ={{color:'white'}}> */}
+            {/* style ={{color:'white'}} */}
               <Nav>
-                  <Link to={"/"} className="nav-link" style ={{color:'white'}}>
+                  <Link to={"/"} className="nav-link" style ={{color:'black'}} >
                     OCEANCY
                   </Link>
                 </Nav>
             {/* </Navbar.Brand> */}
             <Nav className="justify-content-end">
               <Nav>
-                <Link to={"/destinations"} className="nav-link" style ={{color:'white'}}>
-                  Destinations
+                <Link to={"/destinations"} className="nav-link" style ={{color:'black'}}>
+                  DESTINATIONS
                 </Link>
               </Nav>
               <Nav>
-                <Link to={"/activities"} className="nav-link" style ={{color:'white'}}>
-                  Activities
+                <Link to={"/activities"} className="nav-link" style ={{color:'black'}}>
+                  ACTIVITIES
                 </Link>
               </Nav>
               <Nav>
-                <Link to={"/profile"} className="nav-link"style ={{color:'white'}}>
-                  Profile
+                <Link to={"/profile"} className="nav-link" style ={{color:'black'}}>
+                  PROFILE
                 </Link>
               </Nav>
               {/* <Nav>
@@ -50,12 +52,12 @@ class NavBar extends Component {
             </Nav>
           </Container>
         </Navbar>
+      {/* </div> */}
     </div>
     
     )
   }
 }
-
 export default NavBar
 
 

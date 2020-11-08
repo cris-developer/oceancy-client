@@ -1,7 +1,7 @@
 .banner {
     background-color: #333;
     /* background-image: url('/images/Maldives.jpeg'); */
-    background-image : url ('/images/Surfing_Tablas.jpg');
+    /* background-image : url ('/images/Surfing_Tablas.jpg'); */
     /* background-image: url('/images/SouthAfrica_Surfing_MediumPicture_sincerely-media-oC32cy4x-ZA-unsplash.jpg'); */
     background-image: url('/images/Banner_Destinations_Vietnam_thai-an-P7__veGsXww-unsplash.jpg');
     /* background-image: url('/images/Roof_Original Size_michael-mims-0ZL0O-eDOpU-unsplash.jpg'); */
@@ -13,6 +13,7 @@
     height:40vh;
     object-fit: cover;
     position:relative;
+    margin-top:0;
     /* height: 357px; */
     /* max-height:120vh; */
     /* background:blue; */
@@ -38,14 +39,11 @@
 
 
 
-img {
-    display: block;
-}
-
 .profileContainer {
     max-width: 93.5rem;
     margin: 0 auto;
     padding: 0 2rem;
+   
     
 	/* background-color: orange*/
 } 
@@ -78,6 +76,11 @@ img {
     max-height: 75%;
 }
 
+
+/* .UserImg {
+    display: block;
+    
+} */
 .profileUserSettings {
     margin-top: 1.1rem;
    

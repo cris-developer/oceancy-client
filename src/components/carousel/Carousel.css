@@ -12,6 +12,7 @@
     max-height: 95vh; 
     background-position: center;
     background-size: cover;
+    object-fit: cover;
 
 }
 
@@ -19,13 +20,14 @@
 
     /* color: lime; */
     position: absolute !important;
-    top: 40%;
+    /* top: 40%; */
+    top: 45vh;
     bottom: auto;
 }
 
 .carousel-caption > h3 {
 
-    font-size: 4.375rem; /* 70px */
+    font-size: 4.375rem; /* 70px */  
     font-family: 'Playfair Display', serif;
     font-weight: 700;
  
