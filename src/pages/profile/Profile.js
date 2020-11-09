@@ -13,7 +13,7 @@ const Profile = ({user,handleLogout}) =>{
     
     const {fullName,photoUrl,favoriteActivity,level } = user
 
-    // const avatarImage = '/Avatar_Icon_Black.png'
+    const avatarImage = 'images/Avatar_Icon_Black.png'
 
    
     return (
@@ -27,7 +27,7 @@ const Profile = ({user,handleLogout}) =>{
                                 <div className="profile">
                                     <div className="profileImage">
                                     {/* || '/Avatar_Icon_Black.png' */}
-                                      <img src={photoUrl} alt="UserImage" className="UserImg"/>   
+                                      <img src={photoUrl || avatarImage}  alt="UserImage" className="UserImg"/>   
                                     </div>
                                     <div className="profileUserSettings">
                                         <div className ='profileUserName'>{fullName}</div>  

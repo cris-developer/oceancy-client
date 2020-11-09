@@ -106,8 +106,8 @@ class App extends React.Component {
             <AnonRoute
               exact
               path="/signup"
-              authenticated={authenticated}
-              authenticate={this.authenticate}
+              authenticated={authenticated}     //props=variable (setState)
+              authenticate={this.authenticate} //props=function
               component={Signup}
             />
 
@@ -160,6 +160,7 @@ class App extends React.Component {
             path="/profile/edit" 
             authenticated={authenticated}  
             component={EditProfile} 
+            authenticate={this.authenticate} // to set state of the user
             user={this.state.user} 
             />   
           </Switch>

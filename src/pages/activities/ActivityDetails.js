@@ -54,6 +54,9 @@ class ActivityDetails extends Component {
         const activity = this.state.activity;
         console.log ('ACTIVITY DEL RENDER')
         let imageUrl = '/images'
+        let formatStartDate = new Date(activity.startDate).toLocaleDateString()
+        let formatEndDate = new Date(activity.endDate).toLocaleDateString()
+
         return (
             <div>
             {/* <div className ="mt-3 text-center">  */}
@@ -77,11 +80,11 @@ class ActivityDetails extends Component {
                                     </div>
                                     <div className="table-row-wrapper">
                                         <div className="heading-wrapper">Start Date</div> 
-                                        <div className="content-wrapper">{activity.startDate}</div> 
+                                        <div className="content-wrapper">{formatStartDate}</div> 
                                     </div>
                                     <div className="table-row-wrapper">
                                         <div className="heading-wrapper">End Date</div> 
-                                        <div className="content-wrapper">{activity.endDate}</div>  
+                                        <div className="content-wrapper">{formatEndDate}</div>  
                                     </div>
                                     <div className="table-row-wrapper">
                                         <div className="heading-wrapper">Duration</div>  

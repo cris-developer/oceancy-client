@@ -75,6 +75,7 @@ export class EditProfile extends Component {
       profileEdit(user)
       .then((response) => {
         console.log (response)
+        this.props.authenticate(user)
         this.props.history.push('/profile')
       }).catch ((error=> {
         console.log(error)
@@ -116,7 +117,7 @@ export class EditProfile extends Component {
                       <option value="Diving">Diving</option>
                       <option value="Sailing">Sailing</option>
                       <option value="Surfing">Surfing</option>
-                      <option value="Kite Surfing">Kite Surfing</option>
+                      <option value="Kite Surfing">Kitesurfing</option>
                     </Form.Control>
                   </Form.Group>
 
