@@ -1,4 +1,4 @@
-import { parseWithOptions } from 'date-fns/fp';
+//import { parseWithOptions } from 'date-fns/fp';
 import React, { Component } from 'react'
 import {Form, Button,Row,Col} from 'react-bootstrap'
 import { updateActivity,uploadImage,getActivityDetails } from '../../services/activityService';
@@ -74,7 +74,7 @@ export default class ActivitiesEdit  extends Component {
       name: this.state.name,
       description: this.state.description,
       address:this.state.address,
-      startDate:this.state.startdDate,
+      startDate:this.state.startDate,
       endDate:this.state.endDate,
       duration:this.state.duration,
       destination:this.state.destination,
@@ -102,7 +102,7 @@ export default class ActivitiesEdit  extends Component {
       <div>
 
           <div className='banner'>
-                  <h2 className='headerText'>Edit Actiivity</h2>
+                  <h2 className='headerText'>Edit Activity</h2>
            </div>
             
           <div className='formContainer'>
@@ -158,7 +158,7 @@ export default class ActivitiesEdit  extends Component {
 
                           <Form.Group controlId="Image">
                             <Form.Label>Image Upload</Form.Label>
-                            <Form.Control type="file" name="image" onChange={this.editImageUpload} />
+                            <Form.Control type="file" name="image" onChange={this.createImageUpload} />
                           </Form.Group>
 
                           <Button variant="primary" size="lg" block="block" type="submit">

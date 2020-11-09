@@ -63,8 +63,8 @@ class ActivityDetails extends Component {
                             <div className= 'headerText'>  {activity.name}</div>       
                        </div>
                         
-                         <section className ="mt-3 text-center" >
-                                <table className='tableContainer' style ={{color :"blue" ,marginLeft:'30px'}}>
+                         <section  >
+                                <table className='tableContainer' >
                                             <thead>
                                                     <tr>
                                                         <th id="heading">Description</th>
@@ -100,14 +100,21 @@ class ActivityDetails extends Component {
                                                     </tr>
                                                     <tr>  
                                                         <th d="heading">Price Includes</th>
+                                                        <td d="heading">All equipment needed. Insurance.Experienced instructor,where needed</td> 
                                                     </tr>
                                                     <tr>    
                                                         <th d="heading">Price Not Includes</th>
+                                                        <td d="heading">Transport.Flighs.Acommodation</td> 
                                                     </tr>
+                                                    <tr>  
+                                                        <th d="heading">What to bring</th>
+                                                        <td d="heading">Sun glasses.Sun hat.Sun screen</td> 
+                                                    </tr>
+
                                             </thead>
                                         
                                             <tbody>
-                                                    <td d="heading">Action</td>
+                                                
                                             </tbody>
                                 </table>
                         </section>

@@ -6,13 +6,18 @@ const service = axios.create({
   
 });
 
+
+
 export const validateSession = (accessToken) => {
+  console.log ('My accesstoken in userroute:',accessToken)
   return service
     .get(`/user/session/${accessToken}`)
     .then((response) => response.data)
     .catch((err) => err);
 };                      
-                    // { fullName, email, password }
+             
+// SIGN UP
+
 export const signup = ({ fullName, email, password }) => {
   return service
     .post("/user/signup", { fullName, email, password })
@@ -20,10 +25,14 @@ export const signup = ({ fullName, email, password }) => {
     .catch((err) => err);
 };
 
+// LOGIN
 export const login = ({ email, password }) => {
+
+  console.log ('Email in userroute:',email);
+  console.log ('password in useroute:', password)
+
   return service
     .post("/user/login", { email, password })
-      
     .then((response) => {
       console.log(" Signup response from axios call: ", response);
       return response.data;
@@ -33,6 +42,16 @@ export const login = ({ email, password }) => {
     });
 };
 
+// LOG OUT   
+
+export const logout = (accessToken) => {
+  return service
+    .post("auth/logout", { accessToken })
+    .then((response) => response.data)
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 // DISPLAY PROFILE   
 

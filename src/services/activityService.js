@@ -54,6 +54,7 @@ export const uploadImage = (photoUrl) => {
 
 export const updateActivity = (id,activity) => {
   console.log ("I AM UPDATING AN EVENT ON CLIENT SIDE")
+  // start date llega en undefined
   console.log ('activity:',activity)
   return service
     .post(`/activities/update/${id}`,activity)

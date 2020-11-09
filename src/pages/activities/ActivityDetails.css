@@ -57,16 +57,16 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  background-color: blueviolet;
+  /* background-color:blue; */
   width:31.25rem; /* 31.25 rem */ /* 500 px */
   /* margin-left:5rem; */
   box-sizing: border-box;
   height: 50%;
-  overflow: hidden;
-  border: 0px solid #000;
-  margin: auto;  /* 3.75 rem *//* 60 px */
+  margin-left:500px;
+  
+  /*margin: auto;*/  /* 3.75 rem *//* 60 px */
   padding: 10px;
-  margin-top:40px;
+ 
 
 }
 /* .hero-image {

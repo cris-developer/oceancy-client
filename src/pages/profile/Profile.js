@@ -15,7 +15,6 @@ const Profile = ({user,handleLogout}) =>{
 
     // const avatarImage = '/Avatar_Icon_Black.png'
 
-    
    
     return (
 

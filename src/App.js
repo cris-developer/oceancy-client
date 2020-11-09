@@ -21,16 +21,23 @@ import NavBar from "./components/navbar/NavBar";
 
 class App extends React.Component {
 
-  constructor (props) {
+  state = {
+    authenticated: false,
+    user: {},
+  };
 
-    super (props)
-    this.state = {
-      authenticated: false,
-      user: {},
+
+  // constructor (props) {
+
+  //   super (props)
+  //   this.state = {
+  //     authenticated: false,
+  //     user: {},
       
-     };
-     this.handleLogout.bind(this)
-  }
+  //    };
+  //    //this.handleLogout.bind(this)
+  //    this.authenticate.bind (this)
+  // }
 
   
   componentDidMount = () => {
@@ -60,7 +67,8 @@ class App extends React.Component {
       user: {},
     });
     //this.props.history.push('/login')
-     window.location = '/login'
+    console.log ('THIS PROPS IN HANDLELOGOUT:', this.props)
+     //window.location = '/login'
   };
 
   render() {
@@ -106,26 +114,36 @@ class App extends React.Component {
             <Route 
             exact 
             path="/destinations" 
+            user={this.state.user}
+            authenticated={authenticated}
             component={Destinations}
             />
 	          <Route 
             exact 
             path="/activities" 
+            user={this.state.user}
+            authenticated={authenticated}
             component={Activities} 
             />
             <Route 
             exact 
             path="/activities/details/:id" 
+            user={this.state.user}
+            authenticated={authenticated}
             component={ActivityDetails} 
             />
             <Route 
             exact 
-            path="/activities/create" 
+            path="/activities/create"
+            user={this.state.user}
+            authenticated={authenticated}
             component={CreateActivities} 
             />
             <Route 
             exact 
-            path="/activities/edit/:id" 
+            path="/activities/edit/:id"
+            user={this.state.user}
+            authenticated={authenticated}
             component={EditActivities} 
             />
             <PrivateRoute
@@ -137,7 +155,7 @@ class App extends React.Component {
             component={Profile} 
 
             />
-            <Route 
+            <PrivateRoute
             exact 
             path="/profile/edit" 
             authenticated={authenticated}  
