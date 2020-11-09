@@ -76,7 +76,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-        <nav>
+        
           <NavBar />
             {/* {authenticated && <Link to="/"> Home </Link>} */}
             {/* {!authenticated && <Link to="/login"> Login </Link>}
@@ -86,8 +86,8 @@ class App extends React.Component {
                 Logout
               </Link>
             )} */}
-          </nav>
-          <main className="mt-5">
+          
+          <main className="">
           <Switch>
             <PrivateRoute
               exact

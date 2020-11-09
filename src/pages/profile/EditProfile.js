@@ -120,7 +120,7 @@ export class EditProfile extends Component {
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group  controlId="formGridLevel">
+                  <Form.Group controlId="formGridLevel">
                     <Form.Label>Level </Form.Label>
                     <Form.Control type="search" name="level" value={level} onChange={this.handleChange} as="select" defaultValue="none">
                       <option value="Beginner">Beginner</option>

@@ -42,32 +42,42 @@
 .profileContainer {
     max-width: 93.5rem;
     margin: 0 auto;
-    padding: 0 2rem;
-   
+    padding: 2rem;
+    display: flex;
+    flex-flow: column;
     
-	/* background-color: orange*/
+	/*background-color: orange;*/
 } 
 /* Profile Section */
 
 .profile {
+    flex: 1 1 auto;
     padding: 5rem 0;
     max-height: 40.5rem;
-	/* background-color :blue */
+    /*background-color :blue;*/
+    
+    width: 300px;
+    margin:auto;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    box-shadow: 0px 5px 10px 10px rgba(214, 214, 214, 0.47);
 }
 
 .profileImage {
 
+    flex: 1 1 auto;
     display: flex;
     /* float:left; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 3rem;
+    
     border-radius: 10px; 
-  	height: 200px;
-	width: 100%;
-    overflow: hidden;
-    /* background-color:green; */
+  
+	height: auto;
+    
+    /*background-color:green;*/ 
 }
 
 .profileImage img {
@@ -87,12 +97,15 @@
 }
 
 .profileUserName {
-    display: inline-block;
+    flex: 1 1 auto;
+    display: flex;
     font-size: 2.2rem;
     font-weight: 300;
 }
 
 .activityGroup {
+    flex: 1 1 auto;
+
     display:flex ;
     flex-direction: column;
     padding-top: 3rem;
@@ -112,8 +125,12 @@
 }
 
 .profileButtonGroup{
+    flex: 0 0 auto;
+
+    display: flex;
+    flex-flow: row;
     /* display: inline-block; */
-    justify-content: space-;
+    justify-content: space-between;
     /* background-color: pink; */
     margin-top: 5rem;
 }

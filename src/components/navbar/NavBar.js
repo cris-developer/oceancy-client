@@ -7,7 +7,7 @@ import './NavBar.css'
 class NavBar extends Component {
   render() {
     return (
-      <div>
+      <div className="nav-bar-wrapper">
        {/* <div classNmae="containerFluidMain"> */}
         <Navbar  bg="blue"  fixed='top' className="navBar">
           <Container>

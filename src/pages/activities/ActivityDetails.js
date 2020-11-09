@@ -63,71 +63,97 @@ class ActivityDetails extends Component {
                             <div className= 'headerText'>  {activity.name}</div>       
                        </div>
                         
-                         <section  >
-                                <table className='tableContainer' >
-                                            <thead>
-                                                    <tr>
-                                                        <th id="heading">Description</th>
-                                                        <td id="content">{activity.description}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th d="heading">Start Date</th> 
-                                                        <td d="row">{activity.startDate}</td> 
-                                                    </tr>
-                                                    <tr>
-                                                        <th d="heading">End Date</th> 
-                                                        <td d="row">{activity.endDate}</td>  
-                                                    </tr>
-                                                    <tr>
-                                                        <th d="heading">Duration</th>  
-                                                        <td d="heading">{activity.duration}</td>  
-                                                    </tr>
-                                                    <tr>
-                                                        <th d="heading">Price</th>  
-                                                        <td d="heading">{activity.price}</td>  
-                                                    </tr>
-                                                    <tr>    
-                                                        <th d="heading">Type</th>  
-                                                        <td d="heading">{activity.type}</td>  
-                                                     </tr>
-                                                    <tr>    
-                                                        <th d="heading">Address</th> 
-                                                        <td d="heading">{activity.address}</td>  
-                                                    </tr>
-                                                    <tr>   
-                                                        <th d="heading">Host</th>  
-                                                        <td d="heading">{activity.host}</td>  
-                                                    </tr>
-                                                    <tr>  
-                                                        <th d="heading">Price Includes</th>
-                                                        <td d="heading">All equipment needed. Insurance.Experienced instructor,where needed</td> 
-                                                    </tr>
-                                                    <tr>    
-                                                        <th d="heading">Price Not Includes</th>
-                                                        <td d="heading">Transport.Flighs.Acommodation</td> 
-                                                    </tr>
-                                                    <tr>  
-                                                        <th d="heading">What to bring</th>
-                                                        <td d="heading">Sun glasses.Sun hat.Sun screen</td> 
-                                                    </tr>
+                         <section>
+                            <div className="section-column">
+                                <div className='tableContainer' >
+                                            
+                                    <div className="table-row-wrapper table-row-wrapper-description">
+                                        <div className="heading-wrapper">Description</div>
+                                        <div className="content-wrapper">
+                                        <div>
+                                        {activity.description}
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div className="table-row-wrapper">
+                                        <div className="heading-wrapper">Start Date</div> 
+                                        <div className="content-wrapper">{activity.startDate}</div> 
+                                    </div>
+                                    <div className="table-row-wrapper">
+                                        <div className="heading-wrapper">End Date</div> 
+                                        <div className="content-wrapper">{activity.endDate}</div>  
+                                    </div>
+                                    <div className="table-row-wrapper">
+                                        <div className="heading-wrapper">Duration</div>  
+                                        <div className="content-wrapper">{activity.duration}</div>  
+                                    </div>
+                                    <div className="table-row-wrapper">
+                                        <div className="heading-wrapper">Price</div>  
+                                        <div className="content-wrapper">{activity.price}</div>  
+                                    </div>
+                                    <div className="table-row-wrapper">    
+                                        <div className="heading-wrapper">Type</div>  
+                                        <div className="content-wrapper">{activity.type}</div>  
+                                    </div>
+                                    <div className="table-row-wrapper">    
+                                        <div className="heading-wrapper">Address</div> 
+                                        <div className="content-wrapper">{activity.address}</div>  
+                                    </div>
+                                    <div className="table-row-wrapper">   
+                                        <div className="heading-wrapper">Host</div>  
+                                        <div className="content-wrapper">{activity.host}</div>  
+                                    </div>
+                                    <div className="table-row-wrapper">  
+                                        <div className="heading-wrapper">Price Includes</div>
+                                        <div className="content-wrapper">
+                                            <ul>
+                                                <li>All equipment needed</li>
+                                                <li>Insurance</li>
+                                                <li>Experienced instructor,where needed</li>
+                                            </ul>
+                                        </div> 
+                                    </div>
+                                    <div className="table-row-wrapper">    
+                                        <div className="heading-wrapper">Price Not Includes</div>
+                                        <div className="content-wrapper">
+                                        <ul>
+                                                <li>Transport</li>
+                                                <li>Flights</li>
+                                                <li>Accomodation</li>
+                                            </ul>
+                                            </div> 
+                                    </div>
+                                    <div className="table-row-wrapper">  
+                                        <div className="heading-wrapper">What to bring</div>
+                                        <div className="content-wrapper">
+                                        <ul>
+                                                <li>Sun glasses</li>
+                                                <li>Sun hat</li>
+                                                <li>Sun screen</li>
+                                            </ul>
+                                            </div>
+                                    </div>
 
-                                            </thead>
                                         
-                                            <tbody>
-                                                
-                                            </tbody>
-                                </table>
+                                        
+                                        
+                                </div>
+
+                                <div className="button-wrapper">
+                                    <Link to={"/activities/edit/" + this.props.match.params.id}>
+                                        <div className="btn btn-warning">Edit</div> 
+                                    </Link>
+                                
+
+                                    <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
+                                    <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>
+                                </div>
+                            </div>
                         </section>
                     {/* <Link to={"/activities/book/" + this.props.match.params.id}> */}
                         {/* <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>   */}
                     {/* </Link> */}
-                    <Link to={"/activities/edit/" + this.props.match.params.id}>
-                        <div className="btn btn-warning">Edit</div> 
-                    </Link>
-                   
-
-                    <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
-                    <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>
+                    
             </div>
         )
     }

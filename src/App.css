@@ -1,6 +1,4 @@
-/* body {
-  font-family: 'Montserrat', sans-serif;
-} */
+ 
 
 
 /* .App {
@@ -16,6 +14,8 @@
 
 }
 
+
+
 .formContainer  {
 
   display: flex;
@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  background-color: green;
+  /*background-color: green;*/
   width:31.25rem; /* 31.25 rem */ /* 500 px */
   /* margin-left:5rem; */
   box-sizing: border-box;
