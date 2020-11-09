@@ -7,7 +7,7 @@ export class EditProfile extends Component {
   state = {
     fullName: '',
     email: '',
-    password: '',
+    //password: '',
     photoUrl :'',
     favoriteActivity:'',
     level :'',
@@ -23,7 +23,7 @@ export class EditProfile extends Component {
           this.setState({ 
             fullName: editingProfile.fullName,
             email: editingProfile.email,
-            password: editingProfile.password,
+            //password: editingProfile.password,
             photoUrl: editingProfile.photoUrl,
             favoriteActivity: editingProfile.favoriteActivity,
             level: editingProfile.level
@@ -63,7 +63,7 @@ export class EditProfile extends Component {
       const user= {
         fullName: this.state.fullName,
         email :this.state.email,
-        password :this.state.password,
+        //password :this.state.password,
         favoriteActivity:this.state.favoriteActivity,
         photoUrl:this.state.photoUrl,
         level:this.state.level
@@ -82,6 +82,8 @@ export class EditProfile extends Component {
       }))
       
     };
+    
+
 
 
   
