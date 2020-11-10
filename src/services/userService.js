@@ -101,6 +101,7 @@ export const profileEdit = (user ) => {
 
 
 // DELETE USER PROFILE
+
 export const profileDelete = (id) => {
   return service
     .post(`/user/delete/${id}`)
@@ -109,9 +110,11 @@ export const profileDelete = (id) => {
 };
 
 // DISPLAY ALL PROFILES
-export const getAllProfiles = (id) => {
+
+export const getAllProfiles = () => {
+  console.log ('I AM DISPLAYING ALL PROFILES FROM CLIENT SERVICE')
   return service
-    .get('/members')
+    .get('/user/members')
     .then((response) => response.data)
     .catch((err) => err);
 };    

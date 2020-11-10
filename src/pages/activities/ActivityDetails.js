@@ -58,10 +58,8 @@ class ActivityDetails extends Component {
         let formatEndDate = new Date(activity.endDate).toLocaleDateString()
 
         return (
-            <div>
-            {/* <div className ="mt-3 text-center">  */}
+            <>
                        <div>
-                            {/* style={{backgroundImage :`url(${imageUrl})`  */}
                             <img src={activity.photoUrl} alt="ActivityList" className="imgActivityDetails"  style={{backgroundImage :`url(${imageUrl})` }}/>           
                             <div className= 'headerText'>  {activity.name}</div>       
                        </div>
@@ -157,7 +155,7 @@ class ActivityDetails extends Component {
                         {/* <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>   */}
                     {/* </Link> */}
                     
-            </div>
+            </>
         )
     }
 }

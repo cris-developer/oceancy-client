@@ -40,9 +40,10 @@ const Profile = ({user,handleLogout}) =>{
                                         <Link  to="/profile/edit">
                                             <Button variant="outline-secondary" className="profileEditBtn">Edit Profile</Button>
                                         </Link>   
-                                        <Button variant='primary' className='profileLogOutBtn' onClick={handleLogout} >
+                                        <Button variant='primary' className='profileLogOutBtn'  onClick={handleLogout} >
                                             Log Out
                                         </Button>
+                                        <i className="fas fa-cog"></i>
                                     </div>
                                     {/* <div className="profileSettingsBtn" aria-label="profile settings" <i className="fas fa-cog" aria-hidden="true"><div></div> */}
                                     

@@ -15,6 +15,7 @@ import CreateActivities from './pages/activities/CreateActivities';
 import EditActivities from './pages/activities/EditActivities';
 import Profile from './pages/profile/Profile';
 import EditProfile from './pages/profile/EditProfile';
+import Members from './pages/members/Members';
 import NavBar from "./components/navbar/NavBar";
 
 
@@ -111,58 +112,72 @@ class App extends React.Component {
               component={Signup}
             />
 
-            <Route 
-            exact 
-            path="/destinations" 
-            user={this.state.user}
-            authenticated={authenticated}
-            component={Destinations}
+            <PrivateRoute 
+              exact 
+              path="/destinations" 
+              user={this.state.user}
+              authenticated={authenticated}
+              component={Destinations}
             />
-	          <Route 
-            exact 
-            path="/activities" 
-            user={this.state.user}
-            authenticated={authenticated}
-            component={Activities} 
+	          <PrivateRoute 
+              exact 
+              path="/activities" 
+              user={this.state.user}
+              authenticated={authenticated}
+              component={Activities} 
             />
-            <Route 
-            exact 
-            path="/activities/details/:id" 
-            user={this.state.user}
-            authenticated={authenticated}
-            component={ActivityDetails} 
+            <PrivateRoute 
+              exact 
+              path="/activities/details/:id" 
+              user={this.state.user}
+              authenticated={authenticated}
+              component={ActivityDetails} 
             />
-            <Route 
-            exact 
-            path="/activities/create"
-            user={this.state.user}
-            authenticated={authenticated}
-            component={CreateActivities} 
+            <PrivateRoute 
+              exact 
+              path="/activities/create"
+              user={this.state.user}
+              authenticated={authenticated}
+              component={CreateActivities} 
             />
-            <Route 
-            exact 
-            path="/activities/edit/:id"
-            user={this.state.user}
-            authenticated={authenticated}
-            component={EditActivities} 
+            <PrivateRoute 
+              exact 
+              path="/activities/edit/:id"
+              user={this.state.user}
+              authenticated={authenticated}
+              component={EditActivities} 
             />
             <PrivateRoute
-            exact
-            path="/profile"
-            authenticated={authenticated}  
-            user={this.state.user} 
-            handleLogout ={this.handleLogout}  // to pass a function
-            component={Profile} 
+              exact
+              path="/profile"
+              user={this.state.user} 
+              authenticated={authenticated}  
+              handleLogout ={this.handleLogout}  // to pass a function
+              component={Profile} 
+            />
+            <PrivateRoute
+              exact 
+              path="/profile/edit" 
+              user={this.state.user} 
+              authenticated={authenticated} 
+              authenticate={this.authenticate} // to set state of the user 
+              component={EditProfile} 
+            />  
 
-            />
-            <PrivateRoute
+            <Route
             exact 
-            path="/profile/edit" 
-            authenticated={authenticated}  
-            component={EditProfile} 
-            authenticate={this.authenticate} // to set state of the user
-            user={this.state.user} 
-            />   
+            path="/members" 
+            component={Members} 
+            />  
+
+
+            {/* <PrivateRoute
+              exact
+              path="/members"
+              user={this.state.user} 
+              authenticated={authenticated}  
+              component={Members} 
+            />  */}
           </Switch>
           </main>
         </BrowserRouter>
