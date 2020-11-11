@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //import SearchBar from '../../components/searchbar/SearchBar.js';
 import Carousel from '../../components/carousel/Carousel.js';
 //import {Carousel} from 'react-bootstrap'
-
+import TopDestinations from '../../components/topDestinations/topDestinations.js'
 
 import './Home.css'
 
@@ -19,6 +19,15 @@ export default class Home extends Component {
 
   }
 
+  showPlaceholderContent = () => {
+
+    return (
+      <div className="top-tours-destinations-wrapper">
+        <TopDestinations />
+    </div>
+    )
+  }
+
   render() {
     return (
       <div className="home-wrapper">
@@ -29,8 +38,10 @@ export default class Home extends Component {
 
         </div>
         <div className ='search-results-container'>
+          {
 
-            {this.state.searchActivities  ? this.state.searchActivities.map((el, idx) => (
+          }
+            {this.state.searchActivities.length > 0  ? this.state.searchActivities.map((el, idx) => (
               <div key={idx}> 
                <div className='HomeCardContainer'>
                   <div className="HomeCardImage"> 
@@ -43,7 +54,7 @@ export default class Home extends Component {
                 </div>
             </div>
               </div>        
-          )): ''}
+          )): this.showPlaceholderContent() }
         </div>
       
       </div>

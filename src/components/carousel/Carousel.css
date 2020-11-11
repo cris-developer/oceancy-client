@@ -8,7 +8,7 @@
 .carouselWrapper {
     position: relative;
     /* height: 300px; */
-    overflow: hidden;
+    
     max-height: 95vh; 
     background-position: center;
     background-size: cover;

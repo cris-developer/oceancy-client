@@ -83,6 +83,8 @@ export class SearchBar extends Component {
                       onChange={this.handleSearchInputChange}
                       />
                     </label>
+                    <i className="ti-location-pin" />
+                    <i className="fa fa-dot-circle-o" />
                   </Col>
                   <Col>
                     <label> Check in
@@ -95,6 +97,7 @@ export class SearchBar extends Component {
                       isClearable
                       /> 
                     </label>
+                    <i className="fa fa-calendar-minus-o" />
                   </Col>
                   <Col>
                     <label> Check out
@@ -107,6 +110,7 @@ export class SearchBar extends Component {
                       isClearable
                       /> 
                     </label>
+                    <i className="fa fa-calendar-minus-o" />
                   </Col>
                   <Col>
                   {/* <Dropdown>
