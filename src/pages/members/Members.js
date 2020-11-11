@@ -35,19 +35,20 @@ export class Members extends Component {
      render() {
         return (
             <div>
-                <div>TEST</div>
                 <div className='banner'>
                  <h2 className='headerText'>Members</h2>
                </div>
                
                <div className="profile-card-wrapper">
+                  {/* {this.state.userList.filter(item => item.favoriteActivity === this.state.Search).map((el, idx) => ( */}
+                      
                     {this.state.userList.map((el, idx) => (
                       
                         <ProfileCard 
                             key={idx} 
                             photoUrl={el.photoUrl}
                             fullName={el.fullName}
-                            favoriteMembers={el.favoriteMembers}
+                            favoriteActivity={el.favoriteActivity}
                             level={el.level}
                             >
                         </ProfileCard>

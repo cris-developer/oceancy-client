@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { Button} from 'react-bootstrap'
+import { Button,Modal,ToggleButton} from 'react-bootstrap'
 import { getActivityDetails,deleteActivity } from '../../services/activityService';
 import {  bookingActivity } from '../../services/activityService';
-import {  Link } from "react-router-dom";
+//import {  Link } from "react-router-dom";
 import './ActivityDetails.css'
 
 class ActivityDetails extends Component {
 
         state = {
-            activity: {}
+            activity: {},
+            show:false,
+
         };
         
         componentDidMount() {
@@ -18,7 +20,7 @@ class ActivityDetails extends Component {
           getActivityDetails(params.id)
               .then(activityDetails => {
                   this.setState({ 
-                      activity: activityDetails
+                      activity: activityDetails,
                     });
                 console.log(activityDetails);
               })
@@ -26,13 +28,20 @@ class ActivityDetails extends Component {
                   console.log(err)
               })
         }
-        
+        editActivity = () =>{
+            this.props.history.push("/activities/edit/" + this.props.match.params.id)
+        }
         bookingActivity =()=>{
             const {params}= this.props.match;
-            const userId = localStorage.getItem('accessToken');
+            // const userId = localStorage.getItem('accessToken');
+            const userId =this.props.user;
             bookingActivity(params.id,userId)
-            .then((response)=>{
+            .then((bookingActivity)=>{
                 console.log ('I AM BOOKING FROM CLIENT SIDE COMPONENT')
+                console.log ('Booking Activity :',bookingActivity)
+                this.setState({
+                    activity: bookingActivity,
+                    show:true})
             }).catch((error) => {
                 console.log(error)
             });
@@ -48,6 +57,16 @@ class ActivityDetails extends Component {
             })
             this.props.history.push('/activities')
         }
+
+
+         handleClose = () => {
+             this.setState({show:false})}
+
+         handleShow = () => {
+             this.setState({show:true})}
+
+        
+
 
     render() {
 
@@ -102,8 +121,11 @@ class ActivityDetails extends Component {
                                     </div>
                                     <div className="table-row-wrapper">   
                                         <div className="heading-wrapper">Host</div>  
-                                        <div className="content-wrapper">{activity.host}</div>  
+                                        {/* <div className="content-wrapper">{activity.host.fullName}</div>   */}
+                                        <div className="content-wrapper">{activity.host && activity.host.fullName}</div>  
                                     </div>
+                                    
+
                                     <div className="table-row-wrapper">  
                                         <div className="heading-wrapper">Price Includes</div>
                                         <div className="content-wrapper">
@@ -134,27 +156,73 @@ class ActivityDetails extends Component {
                                             </ul>
                                             </div>
                                     </div>
-
-                                        
-                                        
-                                        
+                                    <div className="table-row-wrapper">  
+                                        <div className="heading-wrapper">Attendees</div>
+                                        <div className="content-wrapper">
+                                        {activity.attendees && activity.attendees.map((el,idx) => {
+                                    return (
+                                        <ul>
+                                            <li>{el.fullName}</li>
+                                            {/* <img
+                                                src={el.photoUrl}
+                                                alt =""
+                                                /> */}
+                                        </ul>
+                                    );
+                                })}
+                                            </div>
+                                    </div>      
                                 </div>
 
                                 <div className="button-wrapper">
-                                    <Link to={"/activities/edit/" + this.props.match.params.id}>
-                                        <div className="btn btn-warning">Edit</div> 
-                                    </Link>
-                                
+                                        {/* {console.log (activity.host)}
 
-                                    <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
-                                    <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>
+                                         {this.props.user === activity.host && (
+
+                                                
+                                            
+                                            <>
+
+                                              
+
+                                                <Link to={"/activities/edit/" + this.props.match.params.id}>
+                                                    <div className="btn btn-warning">Edit</div> 
+                                                </Link>
+
+                                                <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
+                                                <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>
+                                            </>
+
+                                        )} 
+                                     */}
+                                        {/* <Link to={"/activities/edit/" + this.props.match.params.id}>
+                                                    <div className="btn btn-warning">Edit</div> 
+                                        </Link> */}
+
+
+                                        <Button onClick={this.editActivity} size="md" variant="warning">Edit</Button>
+                                        {activity.attendees && activity.attendees.includes(this.props.user) && (<Button onClick={this.bookingActivity} size="md" variant="primary">Cancel</Button>)}
+                                        <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
+                                        <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>
+
+                                    
                                 </div>
                             </div>
                         </section>
-                    {/* <Link to={"/activities/book/" + this.props.match.params.id}> */}
-                        {/* <button className="btn btn-primary" onClick={this.bookingActivity(this.props.match.params.id)}>Book</button>   */}
-                    {/* </Link> */}
                     
+                                <Modal show={this.state.show} onHide={this.handleClose}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>You have booked the {activity.name}</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>It will start on {formatStartDate}</Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={this.handleClose}>
+                                        Close
+                                        </Button>
+                                        
+                                    </Modal.Footer>
+                            </Modal>
+                                
             </>
         )
     }

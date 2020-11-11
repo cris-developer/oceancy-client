@@ -14,7 +14,7 @@ export const getAllActivities = (id) => {
     .catch((err) => err);
 };
 
-//SERVICE TO GET ALL ACTIVITY DETAILS
+//SERVICE TO GET ONE ACTIVITY DETAILS
 export const getActivityDetails = (id) => {
   console.log ('I AM GETTING ONE DETAIL ON THE CLIENT SIDE')
   return service
@@ -64,11 +64,13 @@ export const updateActivity = (id,activity) => {
 
 //SERVICE TO BOOK AN ACTIVITY
 
-export const bookingActivity = (id, accessToken) => {
+export const bookingActivity = (id, user) => {
+
+  console.log ('UserId WHEN BOOKING ACTIIVTY:',user)
 
   console.log ("I AM ATTENDING AN EVENT ON CLIENT SIDE")
   return service
-    .post(`/activities/${id}`, { accessToken: accessToken })
+    .post(`/activities/${id}`,{user:user} )
     .then((response) => response.data)
     .catch((err) => err);
 };

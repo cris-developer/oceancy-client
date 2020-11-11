@@ -9,17 +9,21 @@ export default class Activities extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activities: [],
+      //activities: [], //set now from App
       Search: ''
     };
   }
 
   componentDidMount() {
     getAllActivities()
-    .then((res) =>
-      this.setState({
+    .then((res) => {
+        console.log('i am this.props.appSetState on activities:',this.props.appSetState)
+      this.props.appSetState({
         activities: res,
-      }));
+      });
+    })
+       
+      
   }
 
   handleChange = (e) => {
@@ -49,7 +53,7 @@ export default class Activities extends Component {
               <div className ='rowActivities'>
    
                     <div className="activity-card-wrapper">
-                    {this.state.activities.map((el, idx) => (
+                    {this.props.activities.map((el, idx) => (
                       
                         <ActivityCard 
                             key={idx} 

@@ -12,6 +12,7 @@
     "date-fns": "^2.16.1",
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
+    "rc-footer": "^0.6.3",
     "react": "^16.14.0",
     "react-animation": "^1.2.2",
     "react-bootstrap": "^1.4.0",

@@ -17,7 +17,7 @@ import Profile from './pages/profile/Profile';
 import EditProfile from './pages/profile/EditProfile';
 import Members from './pages/members/Members';
 import NavBar from "./components/navbar/NavBar";
-
+import Footer from "./components/footer/Footer";
 
 
 class App extends React.Component {
@@ -25,6 +25,7 @@ class App extends React.Component {
   state = {
     authenticated: false,
     user: {},
+    activities: [],
   };
 
 
@@ -40,7 +41,13 @@ class App extends React.Component {
   //    this.authenticate.bind (this)
   // }
 
-  
+    // setActivities = ()=> {
+    //   this.setState({
+    //     res:res
+    //   })
+    // }
+
+
   componentDidMount = () => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -123,6 +130,8 @@ class App extends React.Component {
               exact 
               path="/activities" 
               user={this.state.user}
+              activities={this.state.activities}
+              appSetState={this.setState.bind(this)}
               authenticated={authenticated}
               component={Activities} 
             />
@@ -138,6 +147,8 @@ class App extends React.Component {
               path="/activities/create"
               user={this.state.user}
               authenticated={authenticated}
+              activities= {this.state.activities}
+              appSetState={this.setState.bind(this)}
               component={CreateActivities} 
             />
             <PrivateRoute 
@@ -179,7 +190,9 @@ class App extends React.Component {
               component={Members} 
             />  */}
           </Switch>
+          
           </main>
+          <Footer/>
         </BrowserRouter>
       </div>
     );

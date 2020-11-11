@@ -35,6 +35,11 @@ class NavBar extends Component {
                   PROFILE
                 </Link>
               </Nav>
+              <Nav>
+                <Link to={"/members"} className="nav-link" style ={{color:'black'}}>
+                  MEMBERS
+                </Link>
+              </Nav>
               {/* <Nav>
                 <Link to={"/"} className="nav-link" style ={{color:'white'}}>
                   Home

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Button,Row,Col} from 'react-bootstrap'
 import { createActivity,uploadImage } from '../../services/activityService';
-
+import DatePicker from "react-datepicker";
 
 export default class ActivitiesCreate  extends Component {
   
@@ -16,9 +16,12 @@ export default class ActivitiesCreate  extends Component {
       destination: '',
       price: '',
       type: '',
-      photoUrl:''
+      photoUrl:'',
+      host: this.props.user._id
       }
      
+  
+    
   createInputChange =  (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -40,6 +43,15 @@ export default class ActivitiesCreate  extends Component {
     }
     
 
+    // DATAPICKER
+
+    setSelectedDate = (selectedDate, name) => {
+      console.log(typeof selectedDate)
+      let date = new Date(selectedDate);
+      console.log({ [name]: date })
+      this.setState({ [name]: selectedDate });
+    };
+
  // SUBMIT THE FORM
 
   addActivitySubmit = (e) => {
@@ -55,10 +67,13 @@ export default class ActivitiesCreate  extends Component {
       price:this.state.price,
       type:this.state.type,
       photoUrl:this.state.photoUrl,
+      host: this.state.host
     }
-  
+    
     createActivity(activity).then((response) => {
-      
+      console.log ('Response create activities:', response)
+      this.props.appSetState({activities: this.props.activities.concat(response)})
+
       this.setState({
       name: '',
       description: '',
@@ -69,16 +84,23 @@ export default class ActivitiesCreate  extends Component {
       destination: '',
       price: '',
       type: '',
-      photoUrl:''
-  
+      photoUrl:'',
+      host:''
       });
     });
     this.props.history.push('/activities')
+    //this.props.authenticate (user)
   };
 
-  render() {
 
+
+
+
+  render() {
+    //const {name,description,address,startDate,endDate,duration, destination,price,type,photoUrl,host}=this.state;
     const {name,description,address,startDate,endDate,duration, destination,price,type,photoUrl}=this.state;
+    //let formatStartDate = new Date(startDate).toLocaleDateString()
+    //let formatEndDate = new Date(endDate).toLocaleDateString()
     return (
 
       <>
@@ -120,16 +142,27 @@ export default class ActivitiesCreate  extends Component {
                             <Form.Label>Price</Form.Label>
                             <Form.Control type="text" name="price" value={price} onChange={this.createInputChange} />
                           </Form.Group>
-
+{/* 
                         <Form.Group controlId="startDate">
                           <Form.Label>Start Date</Form.Label>
                           <Form.Control type="text" name="startDate" value={startDate} onChange={this.createInputChange} />
+                        </Form.Group> */}
+
+                        <Form.Group controlId="startDate">
+                          <Form.Label>Start Date</Form.Label>
+                          <DatePicker className="form-control" selected={startDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "startDate")} dateFormat="dd/MM/yyyy" isClearable />
                         </Form.Group>
-                    
-                        <Form.Group controlId="endDate">
+
+                        <Form.Group controlId="endDate">  
+                          <Form.Label>End Date</Form.Label>
+                          <DatePicker className="form-control" selected={endDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} dateFormat="dd/MM/yyyy" isClearable />
+                        </Form.Group>
+
+
+                        {/* <Form.Group controlId="endDate">
                             <Form.Label>End Date</Form.Label>
                             <Form.Control type="text" name="endDate"value={endDate} onChange={this.createInputChange} />
-                        </Form.Group>
+                        </Form.Group> */}
 
                         <Form.Group controlId="Address">
                           <Form.Label>Address</Form.Label>
