@@ -121,11 +121,7 @@ class ActivityDetails extends Component {
                                         <div className="heading-wrapper">Address</div> 
                                         <div className="content-wrapper">{activity.address}</div>  
                                     </div>
-                                    <div className="table-row-wrapper">   
-                                        <div className="heading-wrapper">Host</div>  
-                                        {/* <div className="content-wrapper">{activity.host.fullName}</div>   */}
-                                        <div className="content-wrapper">{activity.host && activity.host.fullName}</div>  
-                                    </div>
+                                    
                                     
 
                                     <div className="table-row-wrapper">  
@@ -158,6 +154,13 @@ class ActivityDetails extends Component {
                                             </ul>
                                             </div>
                                     </div>
+
+                                    <div className="table-row-wrapper">   
+                                        <div className="heading-wrapper">Host</div>  
+                                        {/* <div className="content-wrapper">{activity.host.fullName}</div>   */}
+                                        <div className="content-wrapper">{activity.host && activity.host.fullName}</div>  
+                                    </div>
+
                                     <div className="table-row-wrapper">  
                                         <div className="heading-wrapper">Attendees</div>
                                         <div className="content-wrapper">

@@ -10,7 +10,8 @@ export class Members extends Component {
 
     state = {
         userList: [],
-        Search :''
+        favoriteActivitySearch : '',
+        levelSearch:''
     }
 
     componentDidMount () {
@@ -21,29 +22,67 @@ export class Members extends Component {
             }))    
       }
 
-    //   handleChange = (e) => {
-    //     this.setState({
-    //       Search: e.target.value,
-    //     });
-    //     this.searchMembers(this.state.Search)
-    //   };
+      favoriteActivityHandleChange = (e) => {
+        this.setState({
+          favoriteActivitySearch: e.target.value,
+        });
+      };
     
-    //   searchMembers = (params) => {
-    //     searchMembers(this.state.Search)
-    //       .then (res => this.setState({userList : res}))
-    //   }
+      levelHandleChange = (e) => {
+        this.setState({
+          levelSearch: e.target.value,
+        });
+      };
+
 
      render() {
+
+        const filterUserList= this.state.userList.filter(user=> {
+            
+
+            if (this.state.favoriteActivitySearch ) {
+
+                if (user.favoriteActivity.toLowerCase() !== this.state.favoriteActivitySearch.toLowerCase() ) {
+                    return false
+                } 
+
+            }
+
+            if (this.state.levelSearch ) {
+
+                if (user.level.toLowerCase() !== this.state.levelSearch.toLowerCase()) {
+                    return false
+                } 
+                
+            } 
+            return true
+
+            
+            } )
+
         return (
             <div>
                 <div className='banner'>
                  <h2 className='headerText'>Members</h2>
                </div>
                
+               <input
+                value={this.state.favoriteActivitySearch}
+                onChange= {this.favoriteActivityHandleChange}
+                placeholder='search by favoriteActivity'
+               />
+
+                <input
+                value={this.state.levelSearch}
+                onChange= {this.levelHandleChange}
+                placeholder='search by levelActivity'
+               />
+
+
                <div className="profile-card-wrapper">
-                  {/* {this.state.userList.filter(item => item.favoriteActivity === this.state.Search).map((el, idx) => ( */}
-                      
-                    {this.state.userList.map((el, idx) => (
+
+
+                    {filterUserList.map((el, idx) => (
                       
                         <ProfileCard 
                             key={idx} 

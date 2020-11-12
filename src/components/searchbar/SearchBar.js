@@ -138,7 +138,7 @@ export class SearchBar extends Component {
                         <option value="Diving">Diving</option>
                         <option value="Sailing">Sailing</option>
                         <option value="Surfing">Surfing</option>
-                        <option value="Kite Surfing">Kite Surfing</option>
+                        <option value="Kitesurfing">Kitesurfing</option>
                     </select>
                     </div>
                   </label>

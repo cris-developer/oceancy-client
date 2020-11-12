@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import {Form, Button,Row,Col} from 'react-bootstrap'
 import { updateActivity,uploadImage,getActivityDetails } from '../../services/activityService';
+import DatePicker from "react-datepicker";
 //import Footer from "../../components/footer/Footer";
 
 
@@ -67,6 +68,16 @@ export default class ActivitiesEdit  extends Component {
 
     }
 
+    // DATAPICKER
+
+    setSelectedDate = (selectedDate, name) => {
+      console.log(typeof selectedDate)
+      let date = new Date(selectedDate);
+      console.log({ [name]: date })
+      this.setState({ [name]: selectedDate });
+    };
+
+  
   updateActivitySubmit = (e) => {
     console.log ('I AM UPDATING')
     e.preventDefault();
@@ -99,6 +110,8 @@ export default class ActivitiesEdit  extends Component {
   render() {
      // console.log ('I AM RENDERING THE UPDATE ACTIVITY', this.state)
       const {name,description,address,startDate,endDate,duration,destination,type,price,photoUrl}=this.state;
+      //let formatStartDate = new Date(startDate).toLocaleDateString()
+      //let formatEndDate = new Date(endDate).toLocaleDateString()
     return (
       <div>
 
@@ -125,15 +138,28 @@ export default class ActivitiesEdit  extends Component {
                               <Form.Control type="text" name="address" value={address} placeholder={address} onChange={this.EditInputChange} />
                             </Form.Group>
 
-                            <Form.Group controlId="startDate">
+                            {/* <Form.Group controlId="startDate">
                               <Form.Label>Start Date</Form.Label>
-                              <Form.Control type="text" name="startDate" value={startDate} placeholder={startDate}  onChange={this.EditInputChange} />
+                              <Form.Control type="text" name="startDate" value={formatStartDate} placeholder={startDate}  onChange={this.EditInputChange} />
                             </Form.Group>
-
+s
                             <Form.Group controlId="endDate">
                               <Form.Label>End Date</Form.Label>
-                              <Form.Control type="text" name="endDate"value={endDate} placeholder={endDate}  onChange={this.EditInputChange} />
+                              <Form.Control type="text" name="endDate"value={formatEndDate} placeholder={endDate}  onChange={this.EditInputChange} />
+                            </Form.Group> */}
+
+
+                            <Form.Group controlId="startDate">
+                              <Form.Label>Start Date</Form.Label>
+                              <DatePicker className="form-control" selected={startDate ? new Date(startDate) : '' } name="startDate" onChange={(date) => this.setSelectedDate(date, "startDate")} dateFormat="dd/MM/yyyy" isClearable />
                             </Form.Group>
+
+                            <Form.Group controlId="endDate">  
+                              <Form.Label>End Date</Form.Label>
+                              <DatePicker className="form-control" selected={endDate ? new Date(endDate) : '' } name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} dateFormat="dd/MM/yyyy" isClearable />
+                            </Form.Group>
+
+
                       </Col>
                   
                       <Col xs={6}>
