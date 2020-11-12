@@ -1,6 +1,8 @@
  
 
-
+.body {
+  font-family: 'Cabin', sans-serif;
+}
 /* .App {
   display: flex;
   justify-content: center;

@@ -3,6 +3,7 @@ import { getAllActivities} from '../../services/activityService';
 import ActivityCard from '../../components/activitycard/ActivityCard'
 import {  Link } from "react-router-dom";
 import './Activities.css'
+import { Row,Col,Container } from 'react-bootstrap';
 //import Footer from "../../components/footer/Footer";
 
 
@@ -42,13 +43,22 @@ export default class Activities extends Component {
   render() {
 
     return (
-      <div className="mt-3">
+      <div >
           <div className='banner'>
-                 <h2 className='headerText'>Activities</h2>
+                 <h2 className='headerText'>Activities</h2> 
           </div>
-         <Link to={"/activities/create/"} >
-                       <div className="btn btn-primary">Create</div>  
-          </Link>
+          <Container>
+            <Row>
+              <Col xs={12}>
+                  <div className="createButton">
+                  <Link to={"/activities/create/"} >
+                                <div className="btn btn-primary mt-3 " >Create</div>  
+                    </Link>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+          
           <div className="mt-3">
              <main className ='container' style= {{textAlign:'center'}}> 
               <div className ='rowActivities'>

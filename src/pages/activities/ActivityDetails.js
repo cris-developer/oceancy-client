@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button,Modal,ToggleButton} from 'react-bootstrap'
+import { Button,Modal} from 'react-bootstrap'
+import {ToggleButton} from 'react-bootstrap';
 import { getActivityDetails,deleteActivity } from '../../services/activityService';
 import {  bookingActivity } from '../../services/activityService';
 //import {  Link } from "react-router-dom";

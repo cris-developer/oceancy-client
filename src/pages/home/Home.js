@@ -42,7 +42,7 @@ export default class Home extends Component {
             {
 
             }
-              {this.state.searchActivities.length > 0  ? this.state.searchActivities.map((el, idx) => (
+              {/* {this.state.searchActivities.length > 0  ? this.state.searchActivities.map((el, idx) => (
                 <div key={idx}> 
                 <div className='HomeCardContainer'>
                     <div className="HomeCardImage"> 
@@ -55,7 +55,22 @@ export default class Home extends Component {
                   </div>
               </div>
                 </div>        
-            )): this.showPlaceholderContent() }
+            )): this.showPlaceholderContent() } */}
+            {this.state.searchActivities  ? this.state.searchActivities.map((el, idx) => (
+              <div key={idx}> 
+               <div className='HomeCardContainer'>
+                  <div className="HomeCardImage"> 
+                    <img src={el.photoUrl} alt="ActivityList" className="img"/>
+                  </div>
+                 
+                <div className="cardInfo" >
+                    <div className= 'contentText'>  {el.name}</div>
+                    {/* <div>{el.description}</div>  */}
+                </div>
+            </div>
+              </div>        
+          )): ''}
+
           </div>
         </div>
          {/* <Footer/> */}

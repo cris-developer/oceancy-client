@@ -13,14 +13,14 @@ import './Carousel.css'
 
 const items = [
   {
-    src: 'images/Header1.Cropped.jpeg',
+    src: 'images/header1.jpeg',
     altText: 'Slide 1',
     caption: 'Slide 1',
     header: 'Slide 1 Header',
     key: '1'
   },
   {
-    src: 'images/Indonesia_steph-smith-hyqK01Pslrg-unsplash.jpg',
+    src: 'images/header2.jpeg',
     altText: 'Slide 2',
     caption: 'Slide 2',
     header: 'Slide 2 Header',
@@ -46,7 +46,8 @@ function CarouselComponent(props) {
         <Carousel.Item interval={4000}>
           <img
           className="d-block w-100"
-          src="images/Maldives.jpeg"
+          // src="images/Header1_Cropped_2121 width_Maldives_photo.jpg"
+          src='images/Maldives_tropical_water_2121*1410.jpg'
           alt="First slide"
           />
           <Carousel.Caption>
@@ -56,7 +57,7 @@ function CarouselComponent(props) {
       <Carousel.Item interval={4000}>
         <img
         className="d-block w-100"
-        src="images/Croacia.jpg"
+        src="images/maldives medim 2121*1414.jpg"
         alt="Third slide"
         />
         <Carousel.Caption>
@@ -66,7 +67,7 @@ function CarouselComponent(props) {
         <Carousel.Item interval={4000}>
           <img
           className="d-block w-100"
-          src="images/header3.png"
+          src="images/Underwater_medium 2121 *1414.jpg"
           alt="Third slide"
           />
           <Carousel.Caption>

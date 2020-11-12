@@ -76,7 +76,7 @@ class Signup extends React.Component {
           </form> */}
 
           <div className='banner'>
-                 <h2 className='headerText'>Signup</h2>
+                 <h2 className='headerText'style ={{textAlign:'center'}}>Signup</h2>
           </div>
           <Form className="formContainer" onSubmit={this.handleSubmit}>
             <Form.Group controlId="formGridfullName" >
@@ -99,7 +99,7 @@ class Signup extends React.Component {
               Submit
             </Button>
 
-              <Link to={"/login"} >
+              <Link to={"/login"} style ={{marginTop:'15px'}}>
                     Log in
               </Link>
            </Form>
