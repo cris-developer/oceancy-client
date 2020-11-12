@@ -96,8 +96,9 @@ export class SearchBar extends Component {
                       //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
                       isClearable
                       /> 
+                      <i className="fa fa-calendar-minus-o" />
                     </label>
-                    <i className="fa fa-calendar-minus-o" />
+                    
                   </Col>
                   <Col>
                     <label> Check out

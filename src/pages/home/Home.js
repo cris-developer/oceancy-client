@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Carousel from '../../components/carousel/Carousel.js';
 //import {Carousel} from 'react-bootstrap'
 import TopDestinations from '../../components/topDestinations/topDestinations.js'
-
+//mport Footer from "../../components/footer/Footer";
 import './Home.css'
 
 export default class Home extends Component {
@@ -30,34 +30,36 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="home-wrapper">
-        
-        <div className="carousel-wrapper">
+      <>
+        <div className="home-wrapper">
           
-          <Carousel renderResults={this.renderResults} />
+          <div className="carousel-wrapper">
+            
+            <Carousel renderResults={this.renderResults} />
 
-        </div>
-        <div className ='search-results-container'>
-          {
+          </div>
+          <div className ='search-results-container'>
+            {
 
-          }
-            {this.state.searchActivities.length > 0  ? this.state.searchActivities.map((el, idx) => (
-              <div key={idx}> 
-               <div className='HomeCardContainer'>
-                  <div className="HomeCardImage"> 
-                    <img src={el.photoUrl} alt="ActivityList" className="img"/>
+            }
+              {this.state.searchActivities.length > 0  ? this.state.searchActivities.map((el, idx) => (
+                <div key={idx}> 
+                <div className='HomeCardContainer'>
+                    <div className="HomeCardImage"> 
+                      <img src={el.photoUrl} alt="ActivityList" className="img"/>
+                    </div>
+                  
+                  <div className="cardInfo" >
+                      <div className= 'contentText'>  {el.name}</div>
+                      <div>{el.description}</div> 
                   </div>
-                 
-                <div className="cardInfo" >
-                    <div className= 'contentText'>  {el.name}</div>
-                    <div>{el.description}</div> 
-                </div>
-            </div>
-              </div>        
-          )): this.showPlaceholderContent() }
+              </div>
+                </div>        
+            )): this.showPlaceholderContent() }
+          </div>
         </div>
-      
-      </div>
+         {/* <Footer/> */}
+      </>
     );
   }
   

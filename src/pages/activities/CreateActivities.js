@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Form, Button,Row,Col} from 'react-bootstrap'
 import { createActivity,uploadImage } from '../../services/activityService';
 import DatePicker from "react-datepicker";
+//import Footer from "../../components/footer/Footer";
 
 export default class ActivitiesCreate  extends Component {
   
@@ -105,82 +106,83 @@ export default class ActivitiesCreate  extends Component {
 
       <>
        
-       <div className='banner'>
-                  <h2 className='headerText'>Create Activity</h2>
-      </div>
-        <div className='formContainer'>
-          <Form onSubmit={this.addActivitySubmit}>             
-            <Row>
-                  <Col xs={6}>
-                      <Form.Group controlId="Name">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" name="name"  value={name} onChange={this.createInputChange} />
-                      </Form.Group>
-
-                      <Form.Group controlId="Type">
-                          <Form.Label>Type</Form.Label>
-                          <Form.Control type="text" name="type" value={type} onChange={this.createInputChange} />
-                        </Form.Group>
-
-                       <Form.Group controlId="Destination">
-                            <Form.Label>Destination</Form.Label>
-                            <Form.Control type="text" name="destination" value={destination} onChange={this.createInputChange} />
-                         </Form.Group>
-
-                        <Form.Group controlId="Description">
-                          <Form.Label>Description</Form.Label>
-                          <Form.Control type="description"  name="description" value={description} onChange={this.createInputChange} />
-                        </Form.Group>
-
-                        <Form.Group controlId="Duration">
-                            <Form.Label>Duration</Form.Label>
-                            <Form.Control type="text" name="duration"value={duration} onChange={this.createInputChange} />
-                        </Form.Group>
-                  </Col>
-                  <Col xs={6}>
-                        <Form.Group controlId="Price">
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control type="text" name="price" value={price} onChange={this.createInputChange} />
+          <div className='banner'>
+                      <h2 className='headerText'>Create Activity</h2>
+          </div>
+            <div className='formContainer'>
+              <Form onSubmit={this.addActivitySubmit}>             
+                <Row>
+                      <Col xs={6}>
+                          <Form.Group controlId="Name">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" name="name"  value={name} onChange={this.createInputChange} />
                           </Form.Group>
-{/* 
-                        <Form.Group controlId="startDate">
-                          <Form.Label>Start Date</Form.Label>
-                          <Form.Control type="text" name="startDate" value={startDate} onChange={this.createInputChange} />
-                        </Form.Group> */}
 
-                        <Form.Group controlId="startDate">
-                          <Form.Label>Start Date</Form.Label>
-                          <DatePicker className="form-control" selected={startDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "startDate")} dateFormat="dd/MM/yyyy" isClearable />
-                        </Form.Group>
+                          <Form.Group controlId="Type">
+                              <Form.Label>Type</Form.Label>
+                              <Form.Control type="text" name="type" value={type} onChange={this.createInputChange} />
+                            </Form.Group>
 
-                        <Form.Group controlId="endDate">  
-                          <Form.Label>End Date</Form.Label>
-                          <DatePicker className="form-control" selected={endDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} dateFormat="dd/MM/yyyy" isClearable />
-                        </Form.Group>
+                          <Form.Group controlId="Destination">
+                                <Form.Label>Destination</Form.Label>
+                                <Form.Control type="text" name="destination" value={destination} onChange={this.createInputChange} />
+                            </Form.Group>
+
+                            <Form.Group controlId="Description">
+                              <Form.Label>Description</Form.Label>
+                              <Form.Control type="description"  name="description" value={description} onChange={this.createInputChange} />
+                            </Form.Group>
+
+                            <Form.Group controlId="Duration">
+                                <Form.Label>Duration</Form.Label>
+                                <Form.Control type="text" name="duration"value={duration} onChange={this.createInputChange} />
+                            </Form.Group>
+                      </Col>
+                      <Col xs={6}>
+                            <Form.Group controlId="Price">
+                                <Form.Label>Price</Form.Label>
+                                <Form.Control type="text" name="price" value={price} onChange={this.createInputChange} />
+                              </Form.Group>
+    {/* 
+                            <Form.Group controlId="startDate">
+                              <Form.Label>Start Date</Form.Label>
+                              <Form.Control type="text" name="startDate" value={startDate} onChange={this.createInputChange} />
+                            </Form.Group> */}
+
+                            <Form.Group controlId="startDate">
+                              <Form.Label>Start Date</Form.Label>
+                              <DatePicker className="form-control" selected={startDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "startDate")} dateFormat="dd/MM/yyyy" isClearable />
+                            </Form.Group>
+
+                            <Form.Group controlId="endDate">  
+                              <Form.Label>End Date</Form.Label>
+                              <DatePicker className="form-control" selected={endDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} dateFormat="dd/MM/yyyy" isClearable />
+                            </Form.Group>
 
 
-                        {/* <Form.Group controlId="endDate">
-                            <Form.Label>End Date</Form.Label>
-                            <Form.Control type="text" name="endDate"value={endDate} onChange={this.createInputChange} />
-                        </Form.Group> */}
+                            {/* <Form.Group controlId="endDate">
+                                <Form.Label>End Date</Form.Label>
+                                <Form.Control type="text" name="endDate"value={endDate} onChange={this.createInputChange} />
+                            </Form.Group> */}
 
-                        <Form.Group controlId="Address">
-                          <Form.Label>Address</Form.Label>
-                          <Form.Control type="text" name="address" value={address} onChange={this.createInputChange} />
-                        </Form.Group>
+                            <Form.Group controlId="Address">
+                              <Form.Label>Address</Form.Label>
+                              <Form.Control type="text" name="address" value={address} onChange={this.createInputChange} />
+                            </Form.Group>
 
-                        <Form.Group controlId="Image">
-                          <Form.Label>Image Upload</Form.Label>
-                          <Form.Control type="file" name="image" onChange={this.createImageUpload} />
-                        </Form.Group>
+                            <Form.Group controlId="Image">
+                              <Form.Label>Image Upload</Form.Label>
+                              <Form.Control type="file" name="image" onChange={this.createImageUpload} />
+                            </Form.Group>
 
-                        <Button variant="primary" size="lg" block="block" type="submit">
-                          Create Activity
-                        </Button>
-                   </Col>
-               </Row>       
-            </Form>
-      </div>
+                            <Button variant="primary" size="lg" block="block" type="submit">
+                              Create Activity
+                            </Button>
+                      </Col>
+                  </Row>       
+                </Form>
+          </div>
+      {/* <Footer/> */}
 
       </>
       

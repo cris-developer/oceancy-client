@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import {Form, Button,Row,Col} from 'react-bootstrap'
 import { updateActivity,uploadImage,getActivityDetails } from '../../services/activityService';
+//import Footer from "../../components/footer/Footer";
 
 
 export default class ActivitiesEdit  extends Component {
@@ -168,6 +169,7 @@ export default class ActivitiesEdit  extends Component {
                     </Row>
                   </Form>
                 </div>
+            {/* <Footer/> */}
       </div>
       
       );

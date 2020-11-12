@@ -43,7 +43,7 @@
   flex-flow: row;
   flex-wrap: wrap;
   width: 75%;
-  /* background-color: bisque; */
+   background-color: bisque;
   justify-content: space-around;
   padding-right: 15px;
   padding-left: 15 px;
@@ -51,6 +51,7 @@
   margin-right: auto;
   margin-top: auto ;
   padding-top :15 px;
+  margin-bottom:100x;
 }
   
 

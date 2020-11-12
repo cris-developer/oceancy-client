@@ -3,6 +3,7 @@ import { getAllActivities} from '../../services/activityService';
 import ActivityCard from '../../components/activitycard/ActivityCard'
 import {  Link } from "react-router-dom";
 import './Activities.css'
+//import Footer from "../../components/footer/Footer";
 
 
 export default class Activities extends Component {
@@ -42,7 +43,7 @@ export default class Activities extends Component {
 
     return (
       <div className="mt-3">
-        <div className='banner'>
+          <div className='banner'>
                  <h2 className='headerText'>Activities</h2>
           </div>
          <Link to={"/activities/create/"} >
@@ -71,6 +72,7 @@ export default class Activities extends Component {
                 </div>
            </main>
           </div>
+          {/* <Footer/> */}
        </div>
 
     );

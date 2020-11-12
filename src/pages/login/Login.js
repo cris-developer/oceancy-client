@@ -77,11 +77,11 @@ class Login extends React.Component {
               <Form.Control  name="password" type="password" value={password} onChange={this.handleChange} required={true} placeholder="Password" />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className='login'>
                  Login
             </Button>
 
-            <Link to={"/signup"} >
+            <Link to={"/signup"} className='signupLink' style ={{marginTop:'15px'}}>
                   Sign up
             </Link>
          </Form>

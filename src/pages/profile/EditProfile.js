@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {Form, Button} from 'react-bootstrap'
 import { profileEdit,uploadImage,getProfile } from '../../services/userService';
 import './EditProfile.css'
+//import Footer from "../../components/footer/Footer";
+
+
 
 export class EditProfile extends Component {
   state = {
@@ -218,8 +221,9 @@ export class EditProfile extends Component {
         {/* </form> */}
                 
 
-         
+         {/* <Footer/> */}
       </div>
+    
     );
   }
 }

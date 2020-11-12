@@ -3,6 +3,7 @@ import { getAllProfiles} from '../../services/userService';
 import ProfileCard from '../../components/profilecard/ProfileCard'
 //import {  Link } from "react-router-dom";
 //import './Members.css'
+//import Footer from "../../components/footer/Footer";
 
 
 export class Members extends Component {
@@ -55,6 +56,7 @@ export class Members extends Component {
                 
                   ))}
                     </div>
+             {/* <Footer/> */}
             </div>
         )
     }

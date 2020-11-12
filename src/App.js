@@ -17,7 +17,7 @@ import Profile from './pages/profile/Profile';
 import EditProfile from './pages/profile/EditProfile';
 import Members from './pages/members/Members';
 import NavBar from "./components/navbar/NavBar";
-import Footer from "./components/footer/Footer";
+//import Footer from "./components/footer/Footer";
 
 
 class App extends React.Component {
@@ -192,7 +192,7 @@ class App extends React.Component {
           </Switch>
           
           </main>
-          <Footer/>
+          {/* <Footer/> */}
         </BrowserRouter>
       </div>
     );

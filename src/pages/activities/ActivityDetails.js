@@ -4,6 +4,7 @@ import { getActivityDetails,deleteActivity } from '../../services/activityServic
 import {  bookingActivity } from '../../services/activityService';
 //import {  Link } from "react-router-dom";
 import './ActivityDetails.css'
+//import Footer from "../../components/footer/Footer";
 
 class ActivityDetails extends Component {
 
@@ -222,7 +223,7 @@ class ActivityDetails extends Component {
                                         
                                     </Modal.Footer>
                             </Modal>
-                                
+                 {/* <Footer/>                */}
             </>
         )
     }

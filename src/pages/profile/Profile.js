@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import './Profile.css'
-
+//import Footer from "../../components/footer/Footer";
 
 
 const Profile = ({user,handleLogout}) =>{
@@ -50,6 +50,7 @@ const Profile = ({user,handleLogout}) =>{
                                 </div>
                             </div>
                         </nav>
+                    {/* <Footer/> */}
                  </>
         
     )

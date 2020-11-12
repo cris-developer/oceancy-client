@@ -3,7 +3,7 @@ import './Destinations.css'
 //import destinations from '../../destinations.json'
 import { getAllDestinations } from '../../services/destinationService';
 import DestinationCard from '../../components/destinationcard/DestinationCard'
-
+//import Footer from "../../components/footer/Footer";
 
 export default class Destinations extends Component {
     constructor(props) {
@@ -98,7 +98,7 @@ export default class Destinations extends Component {
                       </div>
                 ))}
               </div> */}
-            
+            {/* <Footer/> */}
           </div>
         );
       }
