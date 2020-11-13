@@ -101,7 +101,15 @@ export default class ActivitiesEdit  extends Component {
     updateActivity(params.id,activity)
     .then((response) => {
       console.log (response)
-      this.props.appSetState({activities: this.props.activities.concat(response)}) //new added
+      
+      const activityIndex= this.props.activities.findIndex ((activity)=>{
+        return activity.id===response.id
+      })
+      const activitiesClone =[...this.props.activities]
+
+      activitiesClone[activityIndex]= response
+
+      this.props.appSetState({activities: activitiesClone }) //new added
 
     }).catch ((error=> {
       console.log(error)
@@ -158,7 +166,7 @@ s
 
                             <Form.Group controlId="endDate">  
                               <Form.Label>End Date</Form.Label>
-                              <DatePicker className="form-control" selected={endDate ? new Date(endDate) : '' } name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} dateFormat="dd/MM/yyyy" isClearable />
+                              <DatePicker className="form-control" selected={endDate ? new Date(endDate) : '' } name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} minDate={startDate}  dateFormat="dd/MM/yyyy" isClearable />
                             </Form.Group>
 
 

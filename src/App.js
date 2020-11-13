@@ -24,18 +24,9 @@ class App extends React.Component {
 
   state = {
       authenticated: false,
-      ser: {},
+      user: {},
       activities: [],
-      name: '',
-      description: '',
-      address: '',
-      startDate: '',
-      endDate: '',
-      duration: '',
-      destination: '',
-      price: '',
-      type: '',
-      photoUrl:'',
+      
   };
 
 
@@ -166,6 +157,8 @@ class App extends React.Component {
               path="/activities/edit/:id"
               user={this.state.user}
               authenticated={authenticated}
+              activities= {this.state.activities}
+              appSetState={this.setState.bind(this)}
               component={EditActivities} 
             />
             <PrivateRoute

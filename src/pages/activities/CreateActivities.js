@@ -18,6 +18,7 @@ export default class ActivitiesCreate  extends Component {
       price: '',
       type: '',
       photoUrl:'',
+      isUploading: false,
       host: this.props.user._id
       }
      
@@ -39,11 +40,13 @@ export default class ActivitiesCreate  extends Component {
 
   createImageUpload = e => {  
     console.log("The file to be uploaded is: ", e.target.files[0]);
+    this.setState ({isUploading:true});
     uploadImage(e.target.files[0])
     .then(response => {
       console.log(response);
       // this.setState({ photoUrl: response.path });
-      this.setState({ photoUrl: response.path });
+      this.setState({ photoUrl: response.path, isUploading:false} );
+      
     })
     .catch(err => {console.log('Error while uploading the image:',err)})
 
@@ -102,8 +105,6 @@ export default class ActivitiesCreate  extends Component {
 
 
 
-
-
   render() {
     //const {name,description,address,startDate,endDate,duration, destination,price,type,photoUrl,host}=this.state;
     const {name,description,address,startDate,endDate,duration, destination,price,type,photoUrl}=this.state;
@@ -158,12 +159,12 @@ export default class ActivitiesCreate  extends Component {
 
                             <Form.Group controlId="startDate">
                               <Form.Label>Start Date</Form.Label>
-                              <DatePicker className="form-control" selected={startDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "startDate")} dateFormat="dd/MM/yyyy" isClearable />
+                              <DatePicker className="form-control" selected={startDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "startDate")} minDate={new Date()} dateFormat="dd/MM/yyyy" isClearable />
                             </Form.Group>
 
                             <Form.Group controlId="endDate">  
                               <Form.Label>End Date</Form.Label>
-                              <DatePicker className="form-control" selected={endDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")}  dateFormat="dd/MM/yyyy" isClearable />
+                              <DatePicker className="form-control" selected={endDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} minDate={startDate} dateFormat="dd/MM/yyyy" isClearable />
                             </Form.Group>
 
 
@@ -182,7 +183,7 @@ export default class ActivitiesCreate  extends Component {
                               <Form.Control type="file" name="image" onChange={this.createImageUpload} />
                             </Form.Group>
 
-                            <Button variant="primary" size="lg" block="block" type="submit">
+                            <Button variant="primary" size="lg" block="block" type="submit" disabled={this.state.isUploading}>
                               Create Activity
                             </Button>
                       </Col>
