@@ -23,9 +23,19 @@ import NavBar from "./components/navbar/NavBar";
 class App extends React.Component {
 
   state = {
-    authenticated: false,
-    user: {},
-    activities: [],
+      authenticated: false,
+      ser: {},
+      activities: [],
+      name: '',
+      description: '',
+      address: '',
+      startDate: '',
+      endDate: '',
+      duration: '',
+      destination: '',
+      price: '',
+      type: '',
+      photoUrl:'',
   };
 
 

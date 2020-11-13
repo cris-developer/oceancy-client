@@ -25,10 +25,15 @@ export default class ActivitiesCreate  extends Component {
     
   createInputChange =  (event) => {
     const { name, value } = event.target;
+    // this.setState
+    //this.props.appSetSt
     this.setState({
       [name]: value
     });
   }
+
+  // console.log('i am this.props.appSetState on activities:',this.props.appSetState)
+  // this.props.appSetState({
 
   // UPLOADING THE IMAGES
 
@@ -37,6 +42,7 @@ export default class ActivitiesCreate  extends Component {
     uploadImage(e.target.files[0])
     .then(response => {
       console.log(response);
+      // this.setState({ photoUrl: response.path });
       this.setState({ photoUrl: response.path });
     })
     .catch(err => {console.log('Error while uploading the image:',err)})
@@ -50,6 +56,7 @@ export default class ActivitiesCreate  extends Component {
       console.log(typeof selectedDate)
       let date = new Date(selectedDate);
       console.log({ [name]: date })
+      //this.setState({ [name]: selectedDate });
       this.setState({ [name]: selectedDate });
     };
 
@@ -156,7 +163,7 @@ export default class ActivitiesCreate  extends Component {
 
                             <Form.Group controlId="endDate">  
                               <Form.Label>End Date</Form.Label>
-                              <DatePicker className="form-control" selected={endDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")} dateFormat="dd/MM/yyyy" isClearable />
+                              <DatePicker className="form-control" selected={endDate} name="startDate" onChange={(date) => this.setSelectedDate(date, "endDate")}  dateFormat="dd/MM/yyyy" isClearable />
                             </Form.Group>
 
 

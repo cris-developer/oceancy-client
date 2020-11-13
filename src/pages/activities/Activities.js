@@ -35,10 +35,6 @@ export default class Activities extends Component {
     this.searchActivity(this.state.Search)
   };
 
-//   searchActivity = (params) => {
-//     searchActivity(this.state.Search)
-//       .then (res => this.setState({activities : res}))
-//   }
 
   render() {
 

@@ -93,7 +93,7 @@ export class SearchBar extends Component {
                       name="startDate"
                       onChange={(date) => this.setSelectedDate(date, "startDate")}
                       dateFormat="dd/MM/yyyy"
-                      //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
+                     //filterDate={(date) => date.getDay() !== 6 || date.getDay() !== 0}
                       isClearable
                       /> 
                       <i className="fa fa-calendar-minus-o" />

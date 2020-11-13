@@ -101,6 +101,8 @@ export default class ActivitiesEdit  extends Component {
     updateActivity(params.id,activity)
     .then((response) => {
       console.log (response)
+      this.props.appSetState({activities: this.props.activities.concat(response)}) //new added
+
     }).catch ((error=> {
       console.log(error)
     }))

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button,Modal} from 'react-bootstrap'
-import {ToggleButton} from 'react-bootstrap';
+//import {ToggleButton} from 'react-bootstrap';
 import { getActivityDetails,deleteActivity } from '../../services/activityService';
 import {  bookingActivity } from '../../services/activityService';
 //import {  Link } from "react-router-dom";
@@ -206,7 +206,7 @@ class ActivityDetails extends Component {
 
 
                                         <Button onClick={this.editActivity} size="md" variant="warning">Edit</Button>
-                                        {activity.attendees && activity.attendees.includes(this.props.user) && (<Button onClick={this.bookingActivity} size="md" variant="primary">Cancel</Button>)}
+                                        {/* {activity.attendees && activity.attendees.includes(this.props.user) && (<Button onClick={this.bookingActivity} size="md" variant="primary">Cancel</Button>)} */}
                                         <Button onClick={this.bookingActivity} size="md" variant="primary">Booking</Button>
                                         <Button onClick={this.deleteActivity} size="md" variant="danger">Delete</Button>
 
