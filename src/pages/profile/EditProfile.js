@@ -122,7 +122,7 @@ export class EditProfile extends Component {
                       <option value="Diving">Diving</option>
                       <option value="Sailing">Sailing</option>
                       <option value="Surfing">Surfing</option>
-                      <option value="Kite Surfing">Kitesurfing</option>
+                      <option value="Kitesurfing">Kitesurfing</option>
                     </Form.Control>
                   </Form.Group>
 
