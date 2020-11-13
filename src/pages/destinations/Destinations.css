@@ -47,12 +47,13 @@
   justify-content: space-around;
   padding-right: 15px;
   padding-left: 15px;
-  padding-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
+  /* padding-top: 50px; */
   padding-top :15px;
-  margin-bottom:100x;
+  margin: auto;
+  /* margin-left:auto;
+  margin-right:auto;
+  margin-top: auto; */
+  margin-bottom:100px;
 }
   
 
