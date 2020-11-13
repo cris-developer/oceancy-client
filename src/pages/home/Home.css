@@ -11,7 +11,7 @@
 
 .carousel-wrapper {
   flex: 1 1 auto;
-  background-color: brown;
+  /* background-color: brown; */
   /* height: 400px; */
 
 }
@@ -31,7 +31,7 @@ header  {
     justify-content: space-evenly;
     align-items: center;
     
-    margin-top: 50px; 
+    margin-top: 250px; 
     padding-right: 1.1rem;
     padding-left: 1.1rem;
     padding: 50px;
@@ -111,7 +111,6 @@ header  {
 /* .HomeCardInfo .activityDetails .duration {
     background-color: red;
 }
-
 .HomeCardInfo .activityDetails .price-wrapper {
     background-color: lime;
 } */
@@ -124,5 +123,3 @@ header  {
   
   flex: 1 1 auto;
 }
-
-
