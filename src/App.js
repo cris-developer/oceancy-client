@@ -27,6 +27,7 @@ class App extends React.Component {
       user: {},
       activities: [],
       
+      
   };
 
 
@@ -141,6 +142,8 @@ class App extends React.Component {
               path="/activities/details/:id" 
               user={this.state.user}
               authenticated={authenticated}
+              activities= {this.state.activities}
+              appSetState={this.setState.bind(this)}
               component={ActivityDetails} 
             />
             <PrivateRoute 

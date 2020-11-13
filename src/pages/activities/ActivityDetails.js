@@ -53,6 +53,17 @@ class ActivityDetails extends Component {
             const {params}= this.props.match;
             deleteActivity(params.id)
             .then((response)=>{
+                
+                const activityIndex= this.props.activities.findIndex ((activity)=>{
+                    return activity.id===params.id
+                  })
+                  const activitiesClone =[...this.props.activities]
+            
+                  activitiesClone.splice(activityIndex,1)
+            
+                  this.props.appSetState({activities: activitiesClone }) //
+            
+
                 console.log ('I AM DELETING FROM CLIENT SIDE COMPONENT')
             }).catch((error) => {
                 console.log(error)
