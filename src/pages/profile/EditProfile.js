@@ -26,7 +26,7 @@ export class EditProfile extends Component {
           this.setState({ 
             fullName: editingProfile.fullName,
             email: editingProfile.email,
-            password: editingProfile.password,
+            // password: editingProfile.password,
             photoUrl: editingProfile.photoUrl,
             favoriteActivity: editingProfile.favoriteActivity,
             level: editingProfile.level
@@ -112,7 +112,7 @@ export class EditProfile extends Component {
                   
                   <Form.Group  controlId="formGridPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control  name ="password"  value={password} type="password"  placeholder={password} onChange={this.handleChange}  />
+                    <Form.Control  name ="password"  autocomplete= 'off'  value={password} type="password"  placeholder={password} onChange={this.handleChange}  />
                   </Form.Group>
 
                   <Form.Group  controlId="formGridFavoriteActivity">

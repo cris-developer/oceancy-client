@@ -43,7 +43,7 @@ export default class Destinations extends Component {
               <div className='banner'>
                   <h2 className='headerText'>Destinations</h2>
               </div>
-               <div className="destination-card-wrapper">
+               <div className="destinationCardWrapper">
                     {/* const style= {position:'relative', textAlign:'center',color :'white', display :'flex',flexDirection:'column'} */}
              
                    {/* <div className ='rowDestinations col-md-6 col-sm-12'> */}
