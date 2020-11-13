@@ -176,7 +176,7 @@ class App extends React.Component {
               authenticated={authenticated} 
               authenticate={this.authenticate} // to set state of the user 
               component={EditProfile} 
-            />  
+            /> 
 
             <Route
             exact 

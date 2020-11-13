@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getAllProfiles} from '../../services/userService';
 import ProfileCard from '../../components/profilecard/ProfileCard'
 //import {  Link } from "react-router-dom";
-//import './Members.css'
+import './Members.css'
 //import Footer from "../../components/footer/Footer";
 
 
@@ -66,18 +66,20 @@ export class Members extends Component {
                  <h2 className='headerText'>Members</h2>
                </div>
                
-               <input
-                value={this.state.favoriteActivitySearch}
-                onChange= {this.favoriteActivityHandleChange}
-                placeholder='search by favoriteActivity'
-               />
+               <div className="buttons-wrapper">
+                    <input
+                        value={this.state.favoriteActivitySearch}
+                        onChange= {this.favoriteActivityHandleChange}
+                        placeholder='Search by favorite activity'
+                    />
 
-                <input
-                value={this.state.levelSearch}
-                onChange= {this.levelHandleChange}
-                placeholder='search by levelActivity'
-               />
+                        <input
+                        value={this.state.levelSearch}
+                        onChange= {this.levelHandleChange}
+                        placeholder='Search by level'
+                    />
 
+                </div>
 
                <div className="profile-card-wrapper">
 

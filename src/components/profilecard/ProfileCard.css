@@ -6,22 +6,68 @@
 .pictureCard {
     display: flex;
     flex-direction: row;
-    border: 1px black solid;
-    padding:5px;
+    border-radius: 20px;
+        
+    box-shadow: 0px 5px 10px 10px rgba(214, 214, 214, 0.47);
+    padding:15px;
     margin: 10px 5px;
     /* width:200px; */
     /* max-width:100% ; */
     height: auto;
-    width: 30%;
+    width: 500px;
     height: 200px;
     /* object-fit: contain; */
 }
 
-.infoCard{
-    align-items: flex-start;
-    margin-left: 5px;
+.pictureCard .pictureCardImageWrapper {
+    flex: 0 0 150px;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 15px;
 }
 
-.infoCard p {
-    margin: 0px
+.pictureCard .pictureCardImageWrapper img {
+
+    
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pictureCard .infoCard {
+    flex: 1 1 50%;
+    align-items: flex-start;
+    margin-left: 5px;
+
+    display: flex;
+    flex-flow: column;
+}
+
+.infoCard  .field-wrapper {
+
+    margin: 0px;
+    width: 100%;
+
+    display: flex;
+    flex-flow: row;
+
+    justify-content: flex-start;
+}
+
+.infoCard .field-wrapper > span:first-child {
+
+    flex: 0 1  60%;
+    
+
+}
+
+.infoCard .field-wrapper > *:last-child {
+
+    
+
+    
 }

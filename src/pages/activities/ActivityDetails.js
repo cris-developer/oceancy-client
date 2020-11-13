@@ -82,7 +82,7 @@ class ActivityDetails extends Component {
             <>
                        <div>
                             <img src={activity.photoUrl} alt="ActivityList" className="imgActivityDetails"  style={{backgroundImage :`url(${imageUrl})` }}/>           
-                            <div className= 'headerText'>  {activity.name}</div>       
+                            <div className= 'activityHeaderText'>  {activity.name}</div>       
                        </div>
                         
                          <section>

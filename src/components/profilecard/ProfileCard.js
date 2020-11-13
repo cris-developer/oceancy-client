@@ -4,11 +4,14 @@ import  './ProfileCard.css'
 const ProfileCard =(user) => { 
     return (
         <div className="pictureCard">
-            <img className='profileImageCard' style = {{width:'30%'}} src={user.photoUrl} alt="avatar"></img>
+            <div className="pictureCardImageWrapper">
+            <img className='' src={user.photoUrl} alt="avatar"></img>
+            </div>
+            
         <div className="infoCard">
-            <p><b>Full Name:</b>{user.fullName}</p>
-            <p><b>Favorite Activity: </b>{user.favoriteActivity}</p>
-            <p><b>Level: </b>{user.level}</p>
+            <div className="field-wrapper"><span><b>Full Name:</b></span><span>{user.fullName}</span></div>
+            <div className="field-wrapper"><span><b>Favorite Activity: </b></span><span>{user.favoriteActivity}</span></div>
+            <div className="field-wrapper"><span><b>Level: </b></span><span>{user.level}</span></div>
         </div>
     </div>
     );

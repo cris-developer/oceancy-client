@@ -39,8 +39,9 @@ export default class Destinations extends Component {
     render() {
          console.log(this.state.destinations);
         return (
-            <div className="mt-3">
+            <div >
               <div className='banner'>
+              
                   <h2 className='headerText'>Destinations</h2>
               </div>
                <div className="destinationCardWrapper">

@@ -1,12 +1,12 @@
 .top-destinations-wrapper {
     flex: 1 1 auto;
-    
+    margin-top: 50px;
 
     display: flex;
     flex-flow: row;
 align-items:  stretch;
-height: 100px;
-
+/* height: 100px; */
+/* background-color: green; */
     
 
 }
@@ -15,14 +15,14 @@ height: 100px;
 
     display: flex;
     flex-flow: column;
-    background-color: teal;
+    /* background-color: teal; */
     
 }
 
 .top-destinations-wrapper .column-wrapper.column1-wrapper {
 
     flex: 0 0 60%;
-    background-color: aqua !important;
+    /* background-color: aqua !important; */
     margin-right: 10px;
 
     
@@ -32,8 +32,8 @@ height: 100px;
 .top-destinations-wrapper .column-wrapper.column2-wrapper {
     
     flex: 1 1 auto;
-    height: 100%;
-    background-color: orange !important;
+    
+    /* background-color: orange !important; */
 
 }
 
@@ -44,7 +44,7 @@ height: 100px;
     display: flex;
     flex-flow: row;
     
-    background-color: pink;
+    /* background-color: pink; */
     
 }
 
@@ -88,6 +88,10 @@ height: 100px;
 .top-destinations-wrapper .top-destination-card-wrapper .image-wrapper {
 
     overflow:hidden;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    
     
     /*border-radius: 100px;*/
 
@@ -97,9 +101,10 @@ height: 100px;
 .top-destinations-wrapper .top-destination-card-wrapper .image-wrapper img {
 
     
-    width: 100%;
-
-    object-fit: contain;
+    width: 150%;
+    /* max-width: 120%; */
+    /* margin-top:-50%; */
+    object-fit: fill;
 }
 
 .top-destinations-wrapper .top-destination-card-wrapper .name-wrapper {
@@ -108,4 +113,6 @@ height: 100px;
     left: 10px;
     font-size: 1.5rem;
     position: absolute;
+    color: white;
+
 }
