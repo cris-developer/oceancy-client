@@ -4,6 +4,7 @@ import './Destinations.css'
 import { getAllDestinations } from '../../services/destinationService';
 import DestinationCard from '../../components/destinationcard/DestinationCard'
 //import Footer from "../../components/footer/Footer";
+import NavBar from "../../components/navbar/NavBar";
 
 export default class Destinations extends Component {
     constructor(props) {
@@ -40,6 +41,7 @@ export default class Destinations extends Component {
          console.log(this.state.destinations);
         return (
             <div >
+             <NavBar/>
               <div className='banner'>
               
                   <h2 className='headerText'>Destinations</h2>

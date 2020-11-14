@@ -14,7 +14,9 @@ class NavBar extends Component {
             {/* <Navbar.Brand style ={{color:'white'}}> */}
             {/* style ={{color:'white'}} */}
               <Nav>
-                  <Link to={"/"} className="nav-link" style ={{color:'white', fontSize:'40px', fontWeight:'300',fontFamily: 'Playfair Display',fontStyle:'italic'}} >
+
+              {/* style ={{color:'blue', fontSize:'80px', fontWeight:'900',fontFamily: 'Playfair Display',fontStyle:'italic' */}
+                  <Link to={"/"} className="nav-link" style ={{color:'white', fontSize:'60px', fontWeight:'700',fontFamily: 'Playfair Display',fontStyle:'italic'}} >
                     OCEANCY
                   </Link>
                 </Nav>

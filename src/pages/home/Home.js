@@ -6,6 +6,7 @@ import TopDestinations from '../../components/topDestinations/topDestinations.js
 //mport Footer from "../../components/footer/Footer";
 //import { Link } from "react-router-dom";
 import './Home.css'
+import NavBar from "../../components/navbar/NavBar";
 
 export default class Home extends Component {
 
@@ -32,6 +33,7 @@ export default class Home extends Component {
   render() {
     return (
       <>
+       <NavBar/>
         <div className="home-wrapper">
           
           <div className="carousel-wrapper">

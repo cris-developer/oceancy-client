@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {Form, Button,Row,Col} from 'react-bootstrap'
 import { updateActivity,uploadImage,getActivityDetails } from '../../services/activityService';
 import DatePicker from "react-datepicker";
+import NavBar from "../../components/navbar/NavBar";
 //import Footer from "../../components/footer/Footer";
 
 
@@ -119,12 +120,12 @@ export default class ActivitiesEdit  extends Component {
 
   render() {
      // console.log ('I AM RENDERING THE UPDATE ACTIVITY', this.state)
-      const {name,description,address,startDate,endDate,duration,destination,type,price,photoUrl}=this.state;
+      const {name,description,address,startDate,endDate,duration,destination,type,price}=this.state;
       //let formatStartDate = new Date(startDate).toLocaleDateString()
       //let formatEndDate = new Date(endDate).toLocaleDateString()
     return (
       <div>
-
+          <NavBar/>
           <div className='banner'>
                   <h2 className='headerText'>Edit Activity</h2>
            </div>

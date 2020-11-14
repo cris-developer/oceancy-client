@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Form, Button,Row,Col} from 'react-bootstrap'
 import { createActivity,uploadImage } from '../../services/activityService';
 import DatePicker from "react-datepicker";
+import NavBar from "../../components/navbar/NavBar";
 //import Footer from "../../components/footer/Footer";
 
 export default class ActivitiesCreate  extends Component {
@@ -107,13 +108,13 @@ export default class ActivitiesCreate  extends Component {
 
   render() {
     //const {name,description,address,startDate,endDate,duration, destination,price,type,photoUrl,host}=this.state;
-    const {name,description,address,startDate,endDate,duration, destination,price,type,photoUrl}=this.state;
+    const {name,description,address,startDate,endDate,duration, destination,price,type}=this.state;
     //let formatStartDate = new Date(startDate).toLocaleDateString()
     //let formatEndDate = new Date(endDate).toLocaleDateString()
     return (
 
       <>
-       
+        <NavBar />
           <div className='banner'>
                       <h2 className='headerText'>Create Activity</h2>
           </div>

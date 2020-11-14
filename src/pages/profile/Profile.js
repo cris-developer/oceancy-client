@@ -2,7 +2,8 @@ import React from 'react'
 //import { getProfile} from '../../services/userService';
 import { Link } from 'react-router-dom'
 import {Button} from 'react-bootstrap'
-import './Profile.css'
+import './Profile.css';
+import NavBar from "../../components/navbar/NavBar";
 //import Footer from "../../components/footer/Footer";
 
 
@@ -19,6 +20,7 @@ const Profile = ({user,handleLogout}) =>{
     return (
 
               <>
+                <NavBar/>
                         <nav className='mt-3'>
                            <div className='banner'>
                                <h2 className='headerText'>Profile</h2>

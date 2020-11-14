@@ -65,6 +65,9 @@ class Login extends React.Component {
           </Link>
         </form> */}
          <div className='banner'>
+        
+                <h1 className='logo' style ={{color:'blue', fontSize:'80px', fontWeight:'900',fontFamily: 'Playfair Display',fontStyle:'italic', paddingBottom:'10px'}} >Oceancy</h1>
+
                  <h2 className='headerText'> Login</h2>
           </div>
           <Form className="formContainer" onSubmit={this.handleSubmit}>

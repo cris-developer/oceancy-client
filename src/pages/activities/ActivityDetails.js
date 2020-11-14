@@ -3,8 +3,10 @@ import { Button,Modal} from 'react-bootstrap'
 //import {ToggleButton} from 'react-bootstrap';
 import { getActivityDetails,deleteActivity } from '../../services/activityService';
 import {  bookingActivity } from '../../services/activityService';
+import NavBar from "../../components/navbar/NavBar";
 //import {  Link } from "react-router-dom";
 import './ActivityDetails.css'
+
 //import Footer from "../../components/footer/Footer";
 
 class ActivityDetails extends Component {
@@ -91,6 +93,7 @@ class ActivityDetails extends Component {
 
         return (
             <>
+                <NavBar/>
                        <div>
                             <img src={activity.photoUrl} alt="ActivityList" className="imgActivityDetails"  style={{backgroundImage :`url(${imageUrl})` }}/>           
                             <div className= 'activityHeaderText'>  {activity.name}</div>       

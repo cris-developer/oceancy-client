@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Form, Button} from 'react-bootstrap'
 import { profileEdit,uploadImage,getProfile } from '../../services/userService';
-import './EditProfile.css'
+import './EditProfile.css';
+import NavBar from "../../components/navbar/NavBar";
 //import Footer from "../../components/footer/Footer";
 
 
@@ -91,9 +92,10 @@ export class EditProfile extends Component {
 
   
   render() {
-    const { fullName, email, password, photoUrl,favoriteActivity,level } = this.state;
+    const { fullName, email, password,favoriteActivity,level } = this.state;
     return (
       <div>
+       <NavBar/>
         {/* <form onSubmit={this.handleSubmit}> */}
             <div className='banner'>
                  <h2 className='headerText'>Profile Settings</h2>

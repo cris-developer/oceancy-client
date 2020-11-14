@@ -34,7 +34,7 @@
   position:relative;
 
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;

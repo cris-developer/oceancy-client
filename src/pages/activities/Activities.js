@@ -5,6 +5,7 @@ import {  Link } from "react-router-dom";
 import './Activities.css'
 import { Row,Col,Container } from 'react-bootstrap';
 //import Footer from "../../components/footer/Footer";
+import NavBar from '../../components/navbar/NavBar';
 
 
 export default class Activities extends Component {
@@ -40,6 +41,7 @@ export default class Activities extends Component {
 
     return (
       <div >
+         <NavBar /> 
           <div className='banner'>
                  <h2 className='headerText'>Activities</h2> 
           </div>

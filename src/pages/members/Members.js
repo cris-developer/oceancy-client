@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { getAllProfiles} from '../../services/userService';
 import ProfileCard from '../../components/profilecard/ProfileCard'
 //import {  Link } from "react-router-dom";
-import './Members.css'
+import './Members.css';
+import NavBar from "../../components/navbar/NavBar";
 //import Footer from "../../components/footer/Footer";
 
 
@@ -36,7 +37,7 @@ export class Members extends Component {
 
 
      render() {
-
+        
         const filterUserList= this.state.userList.filter(user=> {
             
 
@@ -62,6 +63,7 @@ export class Members extends Component {
 
         return (
             <div>
+              <NavBar/>
                 <div className='banner'>
                  <h2 className='headerText'>Members</h2>
                </div>
