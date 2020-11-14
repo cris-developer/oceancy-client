@@ -101,7 +101,7 @@ export default class ActivitiesEdit  extends Component {
     updateActivity(params.id,activity)
     .then((response) => {
       console.log (response)
-      
+     
       // const activityIndex= this.props.activities.findIndex ((activity)=>{
       //   return activity.id===response.id
       // })
