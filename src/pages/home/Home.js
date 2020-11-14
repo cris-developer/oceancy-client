@@ -4,6 +4,7 @@ import Carousel from '../../components/carousel/Carousel.js';
 //import {Carousel} from 'react-bootstrap'
 import TopDestinations from '../../components/topDestinations/topDestinations.js'
 //mport Footer from "../../components/footer/Footer";
+//import { Link } from "react-router-dom";
 import './Home.css'
 
 export default class Home extends Component {
@@ -61,10 +62,17 @@ export default class Home extends Component {
                <div className='HomeCardContainer'>
                   <div className="HomeCardImage"> 
                     <img src={el.photoUrl} alt="ActivityList" className="img"/>
+                    
                   </div>
                  
                 <div className="cardInfo" >
-                    <div className= 'contentText'>  {el.name}</div>
+
+                    <div className= 'name'>  {el.name}</div>
+
+                      {/* <Link to={"/activities/details/" + this.props.match.params.id}>
+                        <div className= 'name'>  {el.name}</div>
+                      </Link> */}
+                   
                 </div>
             </div>
               </div>        

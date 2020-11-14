@@ -104,6 +104,8 @@ class App extends React.Component {
               path="/"
               user={this.state.user}
               authenticated={authenticated}
+              activities={this.state.activities}
+              appSetState={this.setState.bind(this)}
               component={Home}
             />
             <AnonRoute
@@ -169,7 +171,7 @@ class App extends React.Component {
               path="/profile"
               user={this.state.user} 
               authenticated={authenticated}  
-              handleLogout ={this.handleLogout}  // to pass a function
+              handleLogout ={this.handleLogout}  // to pass the function
               component={Profile} 
             />
             <PrivateRoute
