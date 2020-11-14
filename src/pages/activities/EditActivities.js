@@ -102,14 +102,14 @@ export default class ActivitiesEdit  extends Component {
     .then((response) => {
       console.log (response)
       
-      const activityIndex= this.props.activities.findIndex ((activity)=>{
-        return activity.id===response.id
-      })
-      const activitiesClone =[...this.props.activities]
+      // const activityIndex= this.props.activities.findIndex ((activity)=>{
+      //   return activity.id===response.id
+      // })
+      // const activitiesClone =[...this.props.activities]
 
-      activitiesClone[activityIndex]= response
+      // activitiesClone[activityIndex]= response
 
-      this.props.appSetState({activities: activitiesClone }) //new added
+      // this.props.appSetState({activities: activitiesClone }) //new added
 
     }).catch ((error=> {
       console.log(error)
