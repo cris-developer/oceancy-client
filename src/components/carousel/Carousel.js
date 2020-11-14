@@ -51,7 +51,7 @@ function CarouselComponent(props) {
           alt="First slide"
           />
           <Carousel.Caption>
-          <h3>Enjoy Surfing and Sailing</h3>
+          <h3>Enjoy your favorite water sports worldwide</h3>
           </Carousel.Caption>
         </Carousel.Item>
       <Carousel.Item interval={4000}>
@@ -61,7 +61,7 @@ function CarouselComponent(props) {
         alt="Third slide"
         />
         <Carousel.Caption>
-        <h3>Enjoy Surfing and Sailing</h3>
+        <h3>Find the best water sports destinations ever</h3>
         </Carousel.Caption>
       </Carousel.Item>
         <Carousel.Item interval={4000}>
@@ -71,7 +71,7 @@ function CarouselComponent(props) {
           alt="Third slide"
           />
           <Carousel.Caption>
-        <h3>Enjoy Surfing and Sailing</h3>
+        <h3>Make the most out of your experience</h3>
 
           </Carousel.Caption>
         </Carousel.Item>
