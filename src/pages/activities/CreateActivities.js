@@ -27,8 +27,6 @@ export default class ActivitiesCreate  extends Component {
     
   createInputChange =  (event) => {
     const { name, value } = event.target;
-    // this.setState
-    //this.props.appSetSt
     this.setState({
       [name]: value
     });
@@ -60,7 +58,6 @@ export default class ActivitiesCreate  extends Component {
       console.log(typeof selectedDate)
       let date = new Date(selectedDate);
       console.log({ [name]: date })
-      //this.setState({ [name]: selectedDate });
       this.setState({ [name]: selectedDate });
     };
 

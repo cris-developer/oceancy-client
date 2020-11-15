@@ -42,7 +42,7 @@ export default class TopDestinations extends Component {
                 <div className="destinations-row">
                     <div className="top-destination-card-wrapper cw2x1">
                         <div className="image-wrapper">
-                         <img src='images/Maldives_tropical_water_2121*1410.jpg'/>
+                         <img src='images/Maldives_tropical_water_2121*1410.jpg' alt='' />
                             {/* <img src={this.state.destinations[0].photoUrl} alt={this.state.destinations[0].name}/> */}
                         </div>
                         <div className="name-wrapper">{this.state.destinations[0].name}</div>
@@ -51,14 +51,14 @@ export default class TopDestinations extends Component {
                 <div className="destinations-row two-elements">
                     <div className="top-destination-card-wrapper cw1x1">
                         <div className="image-wrapper">
-                        <img src='images/Maldives_tropical_water_2121*1410.jpg'/>
+                        <img src='images/Maldives_tropical_water_2121*1410.jpg'  alt='' />
                             {/* <img src={this.state.destinations[1].photoUrl} alt={this.state.destinations[1].name}/> */}
                         </div>
                         <div className="name-wrapper">{this.state.destinations[1].name}</div>
                     </div>
                     <div className="top-destination-card-wrapper cw1x1">
                         <div className="image-wrapper">
-                          <img src='images/Maldives_tropical_water_2121*1410.jpg'/>
+                          <img src='images/Maldives_tropical_water_2121*1410.jpg' alt=''/>
                             {/* <img src={this.state.destinations[2].photoUrl} alt={this.state.destinations[2].name}/> */}
                         </div>
                         <div className="name-wrapper">{this.state.destinations[2].name}</div>
@@ -69,7 +69,7 @@ export default class TopDestinations extends Component {
                 <div className="destinations-row">
                     <div className="top-destination-card-wrapper cw1x2">
                         <div className="image-wrapper">
-                          <img src='images/Maldives_tropical_water_2121*1410.jpg'/>
+                          <img src='images/Maldives_tropical_water_2121*1410.jpg' alt=''/>
                             {/* <img src={this.state.destinations[3].photoUrl} alt={this.state.destinations[3].name}/> */}
                         </div>
                         <div className="name-wrapper">{this.state.destinations[3].name}</div>
