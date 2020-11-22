@@ -17,6 +17,8 @@ export default class Activities extends Component {
     };
   }
 
+
+
   componentDidMount() {
     getAllActivities()
     .then((res) => {
