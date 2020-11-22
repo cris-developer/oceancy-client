@@ -79,7 +79,7 @@ export class EditProfile extends Component {
       profileEdit(user)
       .then((response) => {
         console.log (response)
-        this.props.authenticate(user)
+        this.props.authenticate(response)
         this.props.history.push('/profile')
       }).catch ((error=> {
         console.log(error)
