@@ -2,6 +2,8 @@
 
 <br>
 
+[Live Demo](https://oceancy.netlify.app/login)
+
 ## Description
 
 A travel app to find attractive water-activities to attend as well as networking with those users.
