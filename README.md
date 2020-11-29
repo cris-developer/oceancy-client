@@ -2,7 +2,7 @@
 
 <br>
 
-[Live Demo](https://oceancy.netlify.app/login)
+[Live Demo](https://oceancy.netlify.app)
 
 ## Description
 
