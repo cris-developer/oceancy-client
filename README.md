@@ -8,6 +8,18 @@ A travel app to find attractive water-activities to attend as well as networking
 
 [Live Demo](https://oceancy.netlify.app)
 
+## Technologies 
+
+- React
+- Javascript ES6
+- Node JS
+- Express JS
+- Mongoose
+- Mongo DB
+- Cloudinary api
+- Bootstrap
+- CSS
+- HTML
 
 ## User Stories
 
